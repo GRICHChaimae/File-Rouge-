@@ -1,0 +1,37 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+//  big header #E6DAD5 
+// litle header #CBA896 
+//  logo #855342 
+.header{
+    background-image: url("../Images/bg.png");
+    display: flex;
+    .menu{
+        margin: 20px;
+        display: flex;
+        .logo{
+            margin-left: 20px;
+            a{
+                text-decoration: none;
+                display: flex;
+                color: red;
+                img{
+                    height: 30px;
+                    width: 30px;
+                    margin-left: 5px;
+                }
+                p{
+                    font-size: 32px;
+                }
+            }
+        }
+        .centerMenu{
+            ul li a{
+                text-decoration: none;
+            }
+        }
+    } 
+}

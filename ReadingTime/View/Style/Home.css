@@ -1,0 +1,47 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.header {
+  background-image: url("../Images/bg.png");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header .menu {
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header .menu .logo {
+  margin-left: 20px;
+}
+
+.header .menu .logo a {
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: red;
+}
+
+.header .menu .logo a img {
+  height: 30px;
+  width: 30px;
+  margin-left: 5px;
+}
+
+.header .menu .logo a p {
+  font-size: 32px;
+}
+
+.header .menu .centerMenu ul li a {
+  text-decoration: none;
+}
+/*# sourceMappingURL=Home.css.map */
