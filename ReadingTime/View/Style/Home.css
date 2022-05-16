@@ -5,43 +5,227 @@
           box-sizing: border-box;
 }
 
+body {
+  font-family: 'Abel', sans-serif;
+  margin: 0px;
+}
+
 .header {
   background-image: url("../Images/bg.png");
+  background-repeat: no-repeat;
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding: 20px;
+}
+
+.header nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.header .menu {
-  margin: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.header .menu .logo {
-  margin-left: 20px;
-}
-
-.header .menu .logo a {
+.header nav #logo a {
   text-decoration: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: red;
+  color: #855342;
 }
 
-.header .menu .logo a img {
-  height: 30px;
-  width: 30px;
-  margin-left: 5px;
+.header nav #logo a p {
+  margin-top: 0;
+  font-weight: bolder;
 }
 
-.header .menu .logo a p {
-  font-size: 32px;
+.header nav #logo a img {
+  width: 22px;
+  height: 22px;
+  margin-left: 3px;
 }
 
-.header .menu .centerMenu ul li a {
+.header nav #menue-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 60%;
+}
+
+.header nav #menue-content .centerMenu ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 200%;
+  margin: 0;
+}
+
+.header nav #menue-content .centerMenu ul li {
+  font-size: 18px;
+}
+
+.header nav #menue-content .centerMenu ul li a {
   text-decoration: none;
+  font-family: 'Abel', sans-serif;
+  font-size: 14px;
+  color: black;
+}
+
+.header nav #menue-content .rightMenu ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+}
+
+.header nav #menue-content .rightMenu ul #slash-menue {
+  margin: 0 5px;
+}
+
+.header nav #menue-content .rightMenu ul li {
+  font-size: 18px;
+}
+
+.header nav #menue-content .rightMenu ul li a {
+  text-decoration: none;
+  font-family: 'Abel', sans-serif;
+  font-size: 14px;
+  color: black;
+}
+
+.header nav #hamburger-icon {
+  margin: auto 0;
+  display: none;
+  cursor: pointer;
+}
+
+.header nav #hamburger-icon ul {
+  list-style: none;
+}
+
+.header nav #hamburger-icon ul li {
+  margin: 6px 10px;
+}
+
+.header nav #hamburger-icon ul li a {
+  color: black;
+  text-decoration: none;
+}
+
+.header nav #hamburger-icon .bar1 {
+  margin-top: 0;
+}
+
+.header nav #hamburger-icon div {
+  width: 32px;
+  height: 3px;
+  background-color: #855342;
+  margin: 6px 0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.header nav .open .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.header nav .open .bar2 {
+  opacity: 0;
+}
+
+.header nav .open .bar3 {
+  -webkit-transform: rotate(45deg) translate(-6px, -8px);
+  transform: rotate(45deg) translate(-6px, -8px);
+}
+
+.header nav .mobile-menu {
+  background-color: #E6DAD5;
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  height: calc(100vh - 50px);
+  width: 100%;
+}
+
+.header nav .open .mobile-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.header .header-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header .header-content .text-content {
+  width: 30%;
+  padding: 50px 0 0 60px;
+}
+
+.header .header-content .text-content h3 {
+  margin-bottom: 20px;
+}
+
+.header .header-content .text-content h4 {
+  margin-bottom: 20px;
+}
+
+.header .header-content .text-content button {
+  background-color: black;
+  color: white;
+  border: solid 1px black;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.header .header-content .picture-galary {
+  margin: 30px;
+  width: 35%;
+  height: 450px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 800px) {
+  .header {
+    padding: 10px;
+  }
+  .header nav {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+  .header nav #menue-content {
+    display: none;
+  }
+  .header nav #hamburger-icon {
+    display: block;
+    margin-right: 20px;
+  }
 }
 /*# sourceMappingURL=Home.css.map */
