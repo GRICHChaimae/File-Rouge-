@@ -6,11 +6,6 @@
   font-family: 'Libre Caslon Text', serif;
 }
 
-body {
-  font-family: 'Abel', sans-serif;
-  margin: 0px;
-}
-
 .header {
   background-image: url("../Images/bg.png");
   background-repeat: no-repeat;
@@ -234,7 +229,7 @@ body {
 }
 
 .about {
-  width: 800px;
+  width: 90%;
   margin: 0 auto;
   text-align: center;
   padding: 20px 0;
@@ -248,12 +243,17 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 1000px;
-  margin: 0 auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 90%;
+  margin: 20px auto;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
 }
 
 .best-books img {
-  width: 500px;
+  width: 45%;
   height: 300px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -262,11 +262,10 @@ body {
 .best-books .best-book-text {
   height: 300px;
   margin: auto 0;
-  margin-left: 40px;
+  width: 45%;
 }
 
 .best-books .best-book-text h2 {
-  width: 60%;
   margin-bottom: 15px;
 }
 
@@ -275,6 +274,7 @@ body {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
+  margin-left: 5%;
 }
 
 .newBooks-content {
@@ -323,6 +323,15 @@ body {
   .header {
     background-image: url("../Images/bg1200.png");
   }
+  .header nav #menue-content .centerMenu ul {
+    width: 180%;
+  }
+  .header nav #menue-content .centerMenu ul li a {
+    font-size: 14px;
+  }
+  .header nav #menue-content .rightMenu ul li a {
+    font-size: 14px;
+  }
   .header .header-content {
     width: 95%;
     padding-top: 20px;
@@ -364,7 +373,7 @@ body {
   }
   .header .header-content img {
     width: 40%;
-    height: 440px;
+    height: 400px;
     -o-object-fit: cover;
        object-fit: cover;
   }
@@ -393,6 +402,10 @@ body {
     width: 50%;
     margin-top: 20px;
   }
+  .header .header-content .text-content .tablette .text-tablette #Guarantee {
+    line-height: 2rem;
+    margin-bottom: 10px;
+  }
   .header .header-content .text-content .tablette #tablette-image {
     width: 50%;
     height: 300px;
@@ -410,12 +423,32 @@ body {
     display: none;
   }
   .header .header-content .text-content p {
+    font-size: 14px;
     margin-bottom: 10px;
     font-size: 1.2rem;
     line-height: 1.5rem;
   }
   .header .header-content img {
     display: none;
+  }
+  .about {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+  .about h2 {
+    margin-bottom: 10px;
+  }
+  .best-books img {
+    width: 100%;
+    height: 300px;
+  }
+  .best-books .best-book-text {
+    height: auto;
+    width: 100%;
+    text-align: center;
+  }
+  .best-books .best-book-text h2 {
+    margin: 15px 0;
   }
 }
 
@@ -482,6 +515,10 @@ body {
     -webkit-box-direction: reverse;
         -ms-flex-direction: row-reverse;
             flex-direction: row-reverse;
+  }
+  .header nav #logo {
+    width: 40%;
+    margin: 0 auto;
   }
   .header nav #menue-content {
     display: none;

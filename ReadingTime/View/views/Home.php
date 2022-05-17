@@ -71,7 +71,7 @@
         
     </div>
 
-    <!-- <div class="about">
+    <div class="about">
         <h2>ABOUT</h2>
         <P>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
@@ -80,9 +80,9 @@
             sint commodi repudiandae consequuntur voluptatum laborum
             numquam blanditiis harum quisquam eius sed odit fugiat iusto
         </P>
-    </div> -->
+    </div>
 
-    <!-- <div class="best-books">
+    <div class="best-books">
         <img src="../Images/content1.png" alt="">
         <div class="best-book-text">
             <h2>
@@ -95,9 +95,9 @@
             numquam blanditiis harum quisquam eius sed odit fugiat iusto
             </p>
         </div>
-    </div> -->
+    </div>
 
-    <!-- <div class="best-books ex2">
+    <div class="best-books ex2">
         <img src="../Images/content2.png" alt="">
         <div class="best-book-text">
             <h2>
@@ -110,7 +110,7 @@
             numquam blanditiis harum quisquam eius sed odit fugiat iusto
             </p>
         </div>
-    </div> -->
+    </div>
 
     <!-- <div class="newBooks-content">
         <h2>New Books</h2>
