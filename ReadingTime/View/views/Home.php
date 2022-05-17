@@ -48,14 +48,66 @@
 
         <div class="header-content">
             <div class="text-content">
-                <h3>Read Books and  Enjoy With Us:</h3>
-                <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxim mollitia,molestiae quas vel sint commodi</h4>
+                <h1>Read Books and  Enjoy With Us:</h1>
+                <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxim mollitia,molestiae quas vel sint commodi</h2>
                 <button onclick="window.location.href='/FileRouge/ReadingTime/View/views/SignUp.php'" >Register Now</button>
             </div>
 
-            <div class="picture-galary">
-
+            <div class="slider-frame">
+                <div class="slide-images">
+                    <div class="img-container">
+                        <img src="../Images/home1.png" alt="aaaaaaaa">
+                    </div>
+                    <div class="img-container">
+                        <img src="../Images/content1.png" alt="bbbbbbb">
+                    </div>
+                    <div class="img-container">
+                        <img src="../Images/livre1.png" alt="ccccccccc">
+                    </div>
+                </div>
             </div>
+
+        </div>
+    </div>
+
+    <div class="about">
+        <h2>ABOUT</h2>
+        <P>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+            molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+            numquam blanditiis harum quisquam eius sed odit fugiat iusto
+            sint commodi repudiandae consequuntur voluptatum laborum
+            numquam blanditiis harum quisquam eius sed odit fugiat iusto
+        </P>
+    </div>
+
+    <div class="best-books">
+        <img src="../Images/content1.png" alt="">
+        <div class="best-book-text">
+            <h2>
+                15 best selling books of decade
+            </h2>
+            <p>"          "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+            molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+            numquam blanditiis harum quisquam eius sed odit fugiat iusto
+            sint commodi repudiandae consequuntur voluptatum laborum
+            numquam blanditiis harum quisquam eius sed odit fugiat iusto
+            </p>
+        </div>
+    </div>
+
+    <div class="best-books ex2">
+        <img src="../Images/content2.png" alt="">
+        <div class="best-book-text">
+            <h2>
+                15 best selling books of decade
+            </h2>
+            <p>"          "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+            molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+            numquam blanditiis harum quisquam eius sed odit fugiat iusto
+            sint commodi repudiandae consequuntur voluptatum laborum
+            numquam blanditiis harum quisquam eius sed odit fugiat iusto
+            </p>
         </div>
     </div>
 
@@ -64,17 +116,18 @@
          menu.classList.toggle('open');
         }
 
-        const slider = document.querySelector(".picture-galary");
-        const images = ["../Images/home1.png", "../Images/home2.png"];
+        // const slider = document.querySelector(".picture-galary");
+        // const images = ["../Images/home1.png", "../Images/home2.png"];
 
-        let currentImage = 0;
-        const setImage = () => {
-            slider.style.backgroundImage = `url(${images[currentImage]})`;
-            currentImage++;
-            if(currentImage === images.length)(currentImage = 0);
-        }
-        setImage();
-        setInterval(setImage, 5000);
+        // let currentImage = 0;
+        // const setImage = () => {
+        //     slider.style.backgroundImage = `url(${images[currentImage]})`;
+        //     currentImage++;
+        //     if(currentImage === images.length)(currentImage = 0);
+        // }
+        // setImage();
+        // setInterval(setImage, 5000);
+
     </script>
 </body>
 </html>

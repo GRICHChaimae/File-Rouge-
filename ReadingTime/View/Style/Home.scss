@@ -136,13 +136,15 @@ body{
         display: flex;
         justify-content: space-between;
         .text-content{
-            width: 30%;
-            padding: 50px 0 0 60px;
-            h3{
+            width: 60%;
+            padding: 60px 0 0 60px;
+            flex: 1;
+            h1{
                 margin-bottom: 20px;
             }
-            h4{
+            h2{
                 margin-bottom: 20px;
+                width: 75%;
             }
             button{
                 background-color: black;
@@ -152,15 +154,80 @@ body{
                 font-weight: bold;
             }
         }
-        .picture-galary{
+        .slider-frame{
             margin: 30px;
             width: 35%;
             height: 450px;
+            overflow: hidden;
             // border: solid black 1px;
-            object-fit: cover;
-            background-repeat: no-repeat;
+            .slide-images{
+                width: 200px;
+                height: 200px;
+                position: relative;
+                animation-name: slide_animation;
+                animation-duration: 33s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+                animation-play-state: running;
+                .img-container{
+                    position: relative;
+                    float: left;
+                    img{
+                        object-fit: cover;
+                        background-repeat: no-repeat;
+                    }
+                }
+            }  
         }
     }
+}
+
+@keyframes slide_animation{
+    0% {left:0px;}
+    10% {left:0px;}
+    20% {left:1200px;}
+    30% {left:1200px;}
+    40% {left:2400px;}
+    50% {left:2400px;}
+    60% {left:1200px;}
+    70% {left:1200px;}
+    80% {left:0px;}
+    90% {left:0px;}
+    100% {left:0px;}
+}
+
+.about{
+    width:800px; 
+    margin:0 auto;
+    text-align: center;
+    padding: 20px 0;
+    h2{
+        margin-bottom: 15px;
+    }
+}
+
+.best-books{
+    display: flex;
+    width: 1000px;
+    margin: 0 auto;
+    img{
+        width: 400px;
+        height: 300px;
+        object-fit: cover;
+    }
+    .best-book-text{
+        height: 300px;
+        margin: auto 0;
+        margin-left: 40px;
+        h2{
+            width: 60%;
+            margin-bottom: 15px;
+        }
+    }
+}
+
+.ex2{
+    flex-direction: row-reverse;
 }
 
 
