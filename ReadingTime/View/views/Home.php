@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Style/Home.css">
     <title>Document</title>
 </head>
@@ -48,29 +51,27 @@
 
         <div class="header-content">
             <div class="text-content">
-                <h1>Read Books and  Enjoy With Us:</h1>
-                <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxim mollitia,molestiae quas vel sint commodi</h2>
-                <button onclick="window.location.href='/FileRouge/ReadingTime/View/views/SignUp.php'" >Register Now</button>
-            </div>
-
-            <div class="slider-frame">
-                <div class="slide-images">
-                    <div class="img-container">
-                        <img src="../Images/home1.png" alt="aaaaaaaa">
+                <h1>Buy Books Now and Enjoy 
+                    <br> 
+                Reading Them</h1>
+                <div class="tablette">
+                    <div class="text-tablette">
+                        <p id="Guarantee" >We <span>GUARANTEE</span> You'll Get Your Book</p>
+                        <p>
+                            you can create an account now to join to us to visit our library 
+                            and to see our special offers or you can read our blogs about books 
+                        </p>
+                        <button onclick="window.location.href='/FileRouge/ReadingTime/View/views/SignUp.php'" >Register  Now</button>
                     </div>
-                    <div class="img-container">
-                        <img src="../Images/content1.png" alt="bbbbbbb">
-                    </div>
-                    <div class="img-container">
-                        <img src="../Images/livre1.png" alt="ccccccccc">
-                    </div>
+                    <img src="../Images/home1.png" alt="" id="tablette-image">
                 </div>
             </div>
-
+            <img src="../Images/home1.png" alt="aaaaaaaa" id="desktop-image">
         </div>
+        
     </div>
 
-    <div class="about">
+    <!-- <div class="about">
         <h2>ABOUT</h2>
         <P>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
@@ -79,37 +80,63 @@
             sint commodi repudiandae consequuntur voluptatum laborum
             numquam blanditiis harum quisquam eius sed odit fugiat iusto
         </P>
-    </div>
+    </div> -->
 
-    <div class="best-books">
+    <!-- <div class="best-books">
         <img src="../Images/content1.png" alt="">
         <div class="best-book-text">
             <h2>
                 15 best selling books of decade
             </h2>
-            <p>"          "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+            <p>&emsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
             molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
             numquam blanditiis harum quisquam eius sed odit fugiat iusto
             sint commodi repudiandae consequuntur voluptatum laborum
             numquam blanditiis harum quisquam eius sed odit fugiat iusto
             </p>
         </div>
-    </div>
+    </div> -->
 
-    <div class="best-books ex2">
+    <!-- <div class="best-books ex2">
         <img src="../Images/content2.png" alt="">
         <div class="best-book-text">
             <h2>
                 15 best selling books of decade
             </h2>
-            <p>"          "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+            <p>&emsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
             molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
             numquam blanditiis harum quisquam eius sed odit fugiat iusto
             sint commodi repudiandae consequuntur voluptatum laborum
             numquam blanditiis harum quisquam eius sed odit fugiat iusto
             </p>
         </div>
-    </div>
+    </div> -->
+
+    <!-- <div class="newBooks-content">
+        <h2>New Books</h2>
+        <div class="newBooks">
+            <div class="book">
+                <img src="../Images/livre1.png" alt="milk and honey">
+                <p class="description">Milk and honey created by ...</p>
+                <p><span class="prix">Prix</span> : 123 $</p>
+            </div>
+            <div class="book">
+                <img src="../Images/livre2.png" alt="PSALMS">
+                <p class="description">Milk and honey created by ...</p>
+                <p><span class="prix">Prix</span> : 113 $</p>
+            </div>
+            <div class="book">
+                <img src="../Images/livre3.png" alt="mTHINKIG , FAST AND SLOW">
+                <p class="description">Milk and honey created by ...</p>
+                <p><span class="prix">Prix</span> : 120 $</p>
+            </div>
+            <div class="book">
+                <img src="../Images/livre4.png" alt="101 ESSAYS THAT WILL CHANGE THE WAY YOU THINK">
+                <p class="description">Milk and honey created by ...</p>
+                <p><span class="prix">Prix</span> : 80 $</p>
+            </div>
+        </div>
+    </div> -->
 
     <script>
         function toggleMobileMenu(menu) {
