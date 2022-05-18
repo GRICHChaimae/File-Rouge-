@@ -112,8 +112,7 @@
         </div>
     </div>
 
-    <!-- <div class="newBooks-content">
-        <h2>New Books</h2>
+        <h2 id="newBokks-header">New Books</h2>
         <div class="newBooks">
             <div class="book">
                 <img src="../Images/livre1.png" alt="milk and honey">
@@ -136,25 +135,39 @@
                 <p><span class="prix">Prix</span> : 80 $</p>
             </div>
         </div>
-    </div> -->
+
+        <h2 id="newBokks-header">How It Works</h2>
+        <div class="newBooks howItWorks">
+            <div class="book">
+                <img src="../Images/ISBN.png" alt="milk and honey">
+                <h4>1.Find the book by its ISBN</h4>
+                <p>Le lorem ipsum est, en une suite de mots sans signification </p>
+            </div>
+            <div class="book">
+                <img src="../Images/payer.png" alt="PSALMS">
+                <h4>2.Pay safely</h4>
+                <p>Le lorem ipsum est, en une suite de mots sans signification </p>
+            </div>
+            <div class="book">
+                <img src="../Images/pack.png" alt="mTHINKIG , FAST AND SLOW">
+                <h4>3.We pack your order
+                    <br>
+                    professionally
+                </h4>
+                    <p>Le lorem ipsum est, en une suite de mots sans signification </p>            </div>
+            <div class="book">
+                <img src="../Images/livrer.png" alt="101 ESSAYS THAT WILL CHANGE THE WAY YOU THINK">
+                <h4>4.We deliver your order quickly</h4>
+                <p>Le lorem ipsum est, en une suite de mots sans signification </p>
+            </div>
+        </div>
+
+
 
     <script>
         function toggleMobileMenu(menu) {
          menu.classList.toggle('open');
         }
-
-        // const slider = document.querySelector(".picture-galary");
-        // const images = ["../Images/home1.png", "../Images/home2.png"];
-
-        // let currentImage = 0;
-        // const setImage = () => {
-        //     slider.style.backgroundImage = `url(${images[currentImage]})`;
-        //     currentImage++;
-        //     if(currentImage === images.length)(currentImage = 0);
-        // }
-        // setImage();
-        // setInterval(setImage, 5000);
-
     </script>
 </body>
 </html>

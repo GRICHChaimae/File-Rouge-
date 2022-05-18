@@ -6,6 +6,10 @@
   font-family: 'Libre Caslon Text', serif;
 }
 
+#test {
+  color: aqua;
+}
+
 .header {
   background-image: url("../Images/bg.png");
   background-repeat: no-repeat;
@@ -191,8 +195,8 @@
 
 .header .header-content .text-content h1 {
   margin-bottom: 20px;
-  font-size: 3rem;
-  line-height: 4rem;
+  font-size: 48px;
+  line-height: 64px;
   font-weight: 600;
   font-style: bold;
 }
@@ -200,7 +204,7 @@
 .header .header-content .text-content #Guarantee {
   margin-bottom: 20px;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 24px;
 }
 
 .header .header-content .text-content #Guarantee span {
@@ -209,8 +213,9 @@
 
 .header .header-content .text-content p {
   margin-bottom: 20px;
-  font-size: 1.2rem;
-  line-height: 2rem;
+  font-size: 19.2px;
+  line-height: 32px;
+  margin-right: 30px;
 }
 
 .header .header-content .text-content button {
@@ -253,16 +258,16 @@
 }
 
 .best-books img {
-  width: 45%;
-  height: 300px;
+  width: 48%;
+  height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
 .best-books .best-book-text {
-  height: 300px;
+  height: 200px;
   margin: auto 0;
-  width: 45%;
+  width: 48%;
 }
 
 .best-books .best-book-text h2 {
@@ -277,17 +282,17 @@
   margin-left: 5%;
 }
 
-.newBooks-content {
-  width: 90%;
-  margin: 0 auto;
-}
-
-.newBooks-content h2 {
-  margin: 15px 0;
+#newBokks-header {
+  margin: 20px 0;
   text-align: center;
 }
 
-.newBooks-content .newBooks {
+.newBooks {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 20px 0px 20px;
+  height: auto;
+  background-color: #E6DAD5;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -296,27 +301,43 @@
           justify-content: space-between;
   -ms-flex-flow: wrap;
       flex-flow: wrap;
-  width: 100%;
-  height: auto;
+  margin-bottom: 20px;
 }
 
-.newBooks-content .newBooks .book {
-  width: 20%;
-  height: 300px;
+.newBooks p {
+  margin-top: 5px;
 }
 
-.newBooks-content .newBooks .book img {
-  width: 100%;
+.book {
+  width: 22%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.book .prix {
+  margin-bottom: 20px;
+}
+
+.imageSize {
+  height: 320px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.newBooks-content .newBooks .book .description {
-  margin: 8px 0;
-}
-
-.newBooks-content .newBooks .book p span {
-  font-weight: bold;
+.howItWorks {
+  background-color: white;
+  text-align: center;
+  padding: 0;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -337,32 +358,34 @@
     padding-top: 20px;
   }
   .header .header-content .text-content {
-    padding-top: 10px;
+    padding-top: 0px;
     width: 55%;
     margin: 0px;
+    height: auto;
   }
   .header .header-content .text-content #tablette-image {
     display: none;
   }
   .header .header-content .text-content h1 {
     margin-bottom: 10px;
-    font-size: 2rem;
-    line-height: 3.5rem;
+    font-size: 32px;
+    line-height: 56px;
     font-weight: 550;
     font-style: bold;
   }
   .header .header-content .text-content #Guarantee {
     margin-bottom: 10px;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 24px;
   }
   .header .header-content .text-content #Guarantee span {
     color: #855342;
   }
   .header .header-content .text-content p {
     margin-bottom: 10px;
-    font-size: 1.2rem;
-    line-height: 2rem;
+    font-size: 19.2px;
+    line-height: 32px;
+    margin-right: 0px;
   }
   .header .header-content .text-content button {
     background-color: black;
@@ -379,10 +402,27 @@
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1024px) {
   .header {
-    background-image: none;
+    background-image: url("../Images/bg1024.png");
     background-color: #E6DAD5;
+  }
+  .best-books img {
+    width: 48%;
+    height: 250px;
+  }
+  .best-books .best-book-text {
+    height: 250px;
+    width: 48%;
+  }
+  .best-books .best-book-text h2 {
+    margin-bottom: 15px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    background-image: url("../Images/bg768.png");
   }
   .header .header-content {
     width: 95%;
@@ -403,7 +443,7 @@
     margin-top: 20px;
   }
   .header .header-content .text-content .tablette .text-tablette #Guarantee {
-    line-height: 2rem;
+    line-height: 32px;
     margin-bottom: 10px;
   }
   .header .header-content .text-content .tablette #tablette-image {
@@ -415,8 +455,8 @@
   }
   .header .header-content .text-content h1 {
     margin-bottom: 10px;
-    font-size: 1.8rem;
-    line-height: 3rem;
+    font-size: 28.8px;
+    line-height: 48px;
     font-weight: 550;
   }
   .header .header-content .text-content h1 br {
@@ -425,8 +465,8 @@
   .header .header-content .text-content p {
     font-size: 14px;
     margin-bottom: 10px;
-    font-size: 1.2rem;
-    line-height: 1.5rem;
+    font-size: 19.2px;
+    line-height: 24px;
   }
   .header .header-content img {
     display: none;
@@ -450,9 +490,15 @@
   .best-books .best-book-text h2 {
     margin: 15px 0;
   }
+  #newBokks-header {
+    margin: 10px 0;
+  }
+  .book {
+    width: 46%;
+  }
 }
 
-@media only screen and (max-width: 510px) {
+@media only screen and (max-width: 480px) {
   .header {
     background-image: none;
     background-color: #E6DAD5;
@@ -503,6 +549,9 @@
   }
   .header .header-content img {
     display: none;
+  }
+  .book {
+    width: 100%;
   }
 }
 
