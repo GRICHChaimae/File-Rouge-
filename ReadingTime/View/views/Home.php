@@ -8,14 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Style/Home.css">
-    <title>Document</title>
+    <title>Home</title>
 </head>
 
 <body>
     <div class="header">
         <nav>
             <div id="logo">
-                <a href="Home.html"><p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime"></a>
+                <a href="Home.php"><p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime"></a>
             </div>
 
             <div id="menue-content">
@@ -28,7 +28,7 @@
                 </div>
                 <div class="rightMenu">
                 <ul>
-                    <li><a href="LogIn.php">login</a></li>
+                    <li><a href="Login.php">login</a></li>
                     <li id="slash-menue">/</li>
                     <li><a href="SignUp.php">Register</a></li>
                 </ul>
@@ -43,7 +43,7 @@
                     <li><a href="Home.php">Home</a></li>
                     <li><a href="Blog.php">Blog</a></li>
                     <li><a href="WhyUs.php">Why Us</a></li>
-                    <li><a href="LogIn.php">login</a></li>
+                    <li><a href="Login.php">login</a></li>
                     <li><a href="SignUp.php">Register</a></li>
                 </ul>
           </div>
@@ -82,7 +82,7 @@
         </P>
     </div>
 
-    <!-- <div class="best-books">
+    <div class="best-books">
         <img src="../Images/content1.png" alt="">
         <div class="best-book-text">
             <h2>
@@ -95,9 +95,9 @@
             numquam blanditiis harum quisquam eius sed odit fugiat iusto
             </p>
         </div>
-    </div> -->
+    </div>
 
-    <!-- <div class="best-books ex2">
+    <div class="best-books ex2">
         <img src="../Images/content2.png" alt="">
         <div class="best-book-text">
             <h2>
@@ -110,7 +110,7 @@
             numquam blanditiis harum quisquam eius sed odit fugiat iusto
             </p>
         </div>
-    </div> -->
+    </div>
 
     <div class="newBooks-content">    
         <h2 class="newBoks-header">New Books</h2>
@@ -235,7 +235,7 @@
 
     <script>
         function toggleMobileMenu(menu) {
-         menu.classList.toggle('open');
+            menu.classList.toggle('open');
         }
     </script>
 </body>

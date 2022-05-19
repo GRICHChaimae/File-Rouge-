@@ -1,0 +1,47 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Libre Caslon Text', serif;
+}
+
+#logo {
+  text-align: center;
+}
+
+#logo a {
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #855342;
+}
+
+#logo a p {
+  margin-top: 0;
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+#logo a img {
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+}
+
+.form-border {
+  border: 1px solid black;
+  width: 60%;
+  margin: auto;
+  text-align: center;
+}
+
+.form-border form {
+  width: 90%;
+}
+
+.form-border form input {
+  border-radius: 5px;
+}
+/*# sourceMappingURL=SignUp.css.map */
