@@ -82,7 +82,7 @@
         </P>
     </div>
 
-    <div class="best-books">
+    <!-- <div class="best-books">
         <img src="../Images/content1.png" alt="">
         <div class="best-book-text">
             <h2>
@@ -95,9 +95,9 @@
             numquam blanditiis harum quisquam eius sed odit fugiat iusto
             </p>
         </div>
-    </div>
+    </div> -->
 
-    <div class="best-books ex2">
+    <!-- <div class="best-books ex2">
         <img src="../Images/content2.png" alt="">
         <div class="best-book-text">
             <h2>
@@ -110,33 +110,35 @@
             numquam blanditiis harum quisquam eius sed odit fugiat iusto
             </p>
         </div>
-    </div>
+    </div> -->
 
-        <h2 id="newBokks-header">New Books</h2>
+    <div class="newBooks-content">    
+        <h2 class="newBoks-header">New Books</h2>
         <div class="newBooks">
             <div class="book">
                 <img src="../Images/livre1.png" alt="milk and honey">
                 <p class="description">Milk and honey created by ...</p>
-                <p><span class="prix">Prix</span> : 123 $</p>
+                <p id="price"><span class="prix">Prix</span> : 123 $</p>
             </div>
             <div class="book">
                 <img src="../Images/livre2.png" alt="PSALMS">
                 <p class="description">Milk and honey created by ...</p>
-                <p><span class="prix">Prix</span> : 113 $</p>
+                <p id="price"><span class="prix">Prix</span> : 113 $</p>
             </div>
             <div class="book">
                 <img src="../Images/livre3.png" alt="mTHINKIG , FAST AND SLOW">
                 <p class="description">Milk and honey created by ...</p>
-                <p><span class="prix">Prix</span> : 120 $</p>
+                <p id="price"><span class="prix">Prix</span> : 120 $</p>
             </div>
             <div class="book">
                 <img src="../Images/livre4.png" alt="101 ESSAYS THAT WILL CHANGE THE WAY YOU THINK">
                 <p class="description">Milk and honey created by ...</p>
-                <p><span class="prix">Prix</span> : 80 $</p>
+                <p id="price"><span class="prix">Prix</span> : 80 $</p>
             </div>
         </div>
+    </div>
 
-        <h2 id="newBokks-header">How It Works</h2>
+        <h2 class="newBoks-header howItWorks-header">How It Works</h2>
         <div class="newBooks howItWorks">
             <div class="book">
                 <img src="../Images/ISBN.png" alt="milk and honey">
@@ -161,6 +163,73 @@
                 <p>Le lorem ipsum est, en une suite de mots sans signification </p>
             </div>
         </div>
+
+        <!-- footer -->
+        <footer>
+            <div class="menue-links">
+                <p>USEFUL LINKS</p>
+                <ul>
+                    <li>
+                        <a href="Home.php">Home</a>
+                    </li>
+                    <li>
+                        <a href="Blog.php">Blog</a>
+                    </li>
+                    <li>
+                        <a href="WhyUs.php">Why Us</a>
+                    </li>
+                    <li>
+                        <a href="Login.php">Login</a>
+                    </li>
+                    <li>
+                        <a href="SignUp.php">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="privacy">
+            <p>Terms and Conditions | Privacy | Cookie Statement</p>
+            <p>Copyright © 2020 ReadingTime.  &nbsp All rights reserved.</p>
+        </div>
+        <div class="searshAndSocialMeadia">
+            <div class="searchandText">
+                <p>SUBSCRIBE TO OUR NEWSLETTER</p>
+                <div class="search">
+                    <input type="search">
+                    <button>Sign Up</button>
+                </div>
+            </div>
+            <div class="socialMedia">
+                <ul>
+                    <li>
+                        <a href="https://www.instagram.com/?hl=fr">
+                            <img src="../Images/insta.png" alt="instagram-icone">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://fr-fr.facebook.com/">
+                            <img src="../Images/fb.png" alt="facebook-icone">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/?lang=fr">
+                            <img src="../Images/twitter.png" alt="tiwitter-icone">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://mail.google.com/">
+                            <img src="../Images/email.png" alt="email.icone" class="mail">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="privacy-responsive">
+            <p>Terms and Conditions | Privacy | Cookie Statement</p>
+            <p>Copyright © 2020 ReadingTime.  &nbsp All rights reserved.</p>
+        </div>
+        </div>    
+        </footer>
+        <p class="tesssssssssssyy">ttttttttttttt</p>
 
 
 

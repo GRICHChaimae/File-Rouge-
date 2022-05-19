@@ -222,17 +222,20 @@
     margin-left: 5%;
 }
 
-#newBokks-header{
-    margin: 20px 0;
+.newBoks-header{
+    // margin: 20px 0 0 0;
+    padding-top: 20px;
     text-align: center;
 }
-
-.newBooks{
+.newBooks-content{
     width: 100%;
+    background-color: #E6DAD5 ;
+}
+.newBooks{
+    width: 90%;
     margin: 0 auto;
     padding: 20px 20px 0px 20px;
     height: auto;
-    background-color: #E6DAD5 ;
     display: flex;
     justify-content: space-between;
     flex-flow: wrap;
@@ -248,22 +251,97 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    .prix{
-        margin-bottom: 20px;
-    }
+}
+
+.prix{
+    font-weight: bold;
+}
+
+#price{
+    margin-bottom: 20px;
 }
 
 .imageSize{
         height: 320px;
         object-fit: cover;
 }
-
+.howItWorks-header{
+    margin-bottom: 20px;
+    padding-top: 0;
+}
 .howItWorks{
     background-color: white;
     text-align: center;
     padding: 0;
 }
 
+footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 5%;
+    background-color: #E6DAD5;
+    .menue-links{
+        ul {
+            list-style: none;
+            li{
+                margin-top: 10px;
+                a{
+                    text-decoration: none;
+                    color: black;
+                }
+            }
+        }
+    }
+    .privacy{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .searshAndSocialMeadia{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        .searchandText{
+            .search{
+                display: flex;
+                input , button{
+                    border-radius: 0;
+                    border: none;
+                    height: 35px;
+                    margin-top: 15px;
+                    width: 300px;
+                }
+                button{
+                    width: 60px;
+                    background-color:#855342;
+                    color: white;
+                    cursor: pointer;
+                }
+            }
+        }
+        .socialMedia{
+            margin-left: auto;
+            ul{
+                display: flex;
+                list-style: none;
+                width: 150px;
+                justify-content: space-between;
+                .mail{
+                    height: 28px;
+                    // width: 26px;
+                }
+                li img{
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+         
+        }
+    }
+    .privacy-responsive{
+        display: none;
+    }
+}
 
 
 @media only screen and (max-width: 1200px) {
@@ -354,6 +432,60 @@
             }
         }
     }
+    footer{
+        .menue-links{
+            width: 25%;
+            p{
+                font-size: 14px;
+            }
+            ul li {
+                margin-top: 7px;
+                a{
+                    font-size: 14px;
+                }
+            }
+        }
+        .privacy{
+            // width: 30%;
+            font-size: 14px;
+        }
+        .searshAndSocialMeadia{
+            width:380px;
+            .searchandText{
+                p{
+                    font-size: 14px;
+                }
+                margin-left: auto;
+                .search{
+                    input , button{
+                        width: 200px;
+                    }
+                    button{
+                        width: 60px;
+                    }
+                }
+            }
+            .socialMedia{
+                ul{
+                    display: flex;
+                    list-style: none;
+                    width: 150px;
+                    justify-content: space-between;
+                    .mail{
+                        height: 28px;
+                        // width: 26px;
+                    }
+                    li img{
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+             
+            }
+        }
+    
+    }
+    
 }
 
 @media only screen and (max-width: 768px) {
@@ -433,6 +565,49 @@
     }
     .book{
         width: 46%;
+    }
+    .tesssssssssssyy{
+        color: aqua;
+    }
+    footer{
+        flex-direction: column;
+        width: 100%;
+        .menue-links{
+            width: 90%;
+        }
+        .privacy{
+            display: none;
+        }
+        .searshAndSocialMeadia{
+            display: block;
+            width: 90%;
+            .searchandText{
+                .search{
+                    width: 100%;
+                    margin: 0 auto;
+                    display: flex;
+                    input , button{
+                        width: 190%;
+                    }
+                    button{
+                        width: 30%;
+                    }
+                }
+            }
+            .socialMedia{
+                width:100%;
+                
+                margin: 20px auto;
+                // margin-left: 0;
+                text-align: center;    
+            }
+        }
+        .privacy-responsive{
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
     }
 }
 
