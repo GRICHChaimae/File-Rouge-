@@ -37,6 +37,13 @@
             <input type="submit" name="submit" value="Sign Up">
         </form>
         <p>Already have an account? <span>Sign In</span></p>
+        <p class="text-white text-center">
+        <?php
+            if (isset($_SESSION["loginError"]))
+            {
+                echo $_SESSION["loginError"];
+            }
+        ?>
     </div>
 
 

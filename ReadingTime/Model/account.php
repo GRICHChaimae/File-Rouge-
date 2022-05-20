@@ -28,7 +28,7 @@
 
                 if(password_verify($data['mot_de_passe'],$row['mot_de_passe'])){
                     $_SESSION["user_id"] = $row['id'];
-                    $_SESSION["userName"] = $row['pernom'].' '.$row['prenom'];
+                    $_SESSION["userName"] = $row['pernom'].' '.$row['nom'];
                     return 'ok';
                 }else{
                     return "Password is not valid";

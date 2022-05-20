@@ -4,7 +4,9 @@ require_once '../../model/account.php';
 
 class LoginController{
     public function LogIn(){
+        
         session_start();
+
         if(isset($_POST['email'])){
             $data = array(
                 'email'=>$_POST['email'],
