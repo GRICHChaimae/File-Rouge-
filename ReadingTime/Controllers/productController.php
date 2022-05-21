@@ -32,5 +32,16 @@ class ProductController{
         $Posts = Product::getAll();
         return $Posts;
     }
+
+    public function UpdateExistePannel(){
+        if(isset($_POST['submit'])){
+            $result = Product::UpdateExistePannel();
+            if($result === 'ok'){
+                header('location:Books .php');
+            }else{
+                echo $result;  
+            }
+        }
+    }
 }
 ?>

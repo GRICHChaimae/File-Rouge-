@@ -22,8 +22,8 @@ class PannelController{
 
     public function deletePannelProduct(){
         if(isset($_POST['deletePannelProduct'])){
-            $book_id = $_POST['book_id'];
-            $result = Pannel::deletePannelProduct($book_id);
+            $id = $_POST['id'];
+            $result = Pannel::deletePannelProduct($id);
             if($result === 'ok'){
                 header("location:Books.php");
             }else{

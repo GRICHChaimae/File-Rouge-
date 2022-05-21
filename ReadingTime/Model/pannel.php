@@ -44,8 +44,8 @@ class Pannel{
         $stmt = null;
     }
 
-    static public function deletePannelProduct($book_id){
-        $stmt = DB::connect()->prepare("DELETE from pannel where book_id = $book_id");
+    static public function deletePannelProduct($id){
+        $stmt = DB::connect()->prepare("DELETE from pannel where id = $id");
         $stmt->execute();
     }
 

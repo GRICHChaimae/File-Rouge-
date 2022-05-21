@@ -1,3 +1,9 @@
+<?php 
+    if(!isset($_SESSION)){
+        session_start();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +19,125 @@
 
 <body>
     <div class="header">
+        <?php if(isset($_SESSION["userName"])):?>
+            <nav>
+                <div id="logo">
+                    <a href="Home.php"><p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime"></a>
+                </div>
+
+                <div id="menue-content">
+                    <div class="centerMenu">
+                        <ul>
+                            <li><a href="Home.php">Home</a></li>
+                            <li><a href="Books.php">Books</a></li>
+                            <li><a href="Offers.php">Offers</a></li>
+                            <li><a href="Blog.php">Blog</a></li>
+                            <li><a href="WhyUs.php">Why Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="rightMenu">
+                    <ul>
+                        <li id="UserAccount">
+                            <a href="UserAccount.php">
+                                Hello <span id="userName"><?php echo $_SESSION["userName"] ?></span> <span id="plusIcone">+</span>
+                                <!-- <img src="../Images/arrow-down.png" alt="updown"> -->
+                            </a>
+                                <ul id="#UserAccount-ul">
+                                    <!-- <p>ooooooooo</p> -->
+                                    <li>
+                                        <a href="AccountInformations.php">
+                                            Account Informations
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="YourShoppingList.php">
+                                            Your shopping list
+                                        </a>
+                                    </li>   
+                                    <li>
+                                        <a href="YourMessages.php">
+                                            Your messages
+                                        </a>
+                                    </li>   
+                                    <li>
+                                        <a href="MessagesAnswered.php">
+                                            Messages answered   
+                                        </a>
+                                    </li>   
+                                    <li>
+                                        <a href="SignOut.php">
+                                            Sign Out  
+                                        </a>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li id="headerPannel">
+                            <a href="Pannel.php">
+                                <?php if(true): ?>
+                                    <img src="../Images/headerPannel.png" alt="">
+                                <?php else: ?>
+                                    <img src="../Images/fullHeaderPannel.png" alt="">
+                                <?php endif; ?>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Favorite.php">
+                                <?php if(true): ?>
+                                    <img src="../Images/headerFavorite.png" alt="">
+                                <?php else: ?>
+                                    <img src="../Images/FullHeaderFavorite.png" alt="">
+                                <?php endif; ?>
+                            </a>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+
+                <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                    <ul class="mobile-menu">
+                        <li><a href="Home.php">Home</a></li>
+                        <li><a href="Blog.php">Blog</a></li>
+                        <li><a href="WhyUs.php">Why Us</a></li>
+                        <li id="UserAccount">
+                            <a href="UserAccount.php">
+                                Hello <span id="userName"><?php echo $_SESSION["userName"] ?></span>
+                                <img src="../Images/arrow-down.png" alt="updown">
+                            </a>
+                                <ul id="#UserAccount-ul">
+                                    <li>
+                                        <a href="AccountInformations.php">
+                                            Account Informations
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="YourShoppingList.php">
+                                            Your shopping list
+                                        </a>
+                                    </li>   
+                                    <li>
+                                        <a href="YourMessages.php">
+                                            Your messages
+                                        </a>
+                                    </li>   
+                                    <li>
+                                        <a href="MessagesAnswered.php">
+                                            Messages answered   
+                                        </a>
+                                    </li>   
+                                    <li>
+                                        <a href="SignOut.php">
+                                            Sign Out  
+                                        </a>
+                                    </li>
+                                </ul>
+                        </li>           
+                    </ul>
+                </div>
+            </nav>
+        <?php else: ?>
         <nav>
             <div id="logo">
                 <a href="Home.php"><p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime"></a>
@@ -48,7 +173,9 @@
                 </ul>
           </div>
         </nav>
+        <?php endif; ?>
 
+        <div id="header-bg">
         <div class="header-content">
             <div class="text-content">
                 <h1>Buy Books Now and Enjoy 
@@ -67,6 +194,7 @@
                 </div>
             </div>
             <img src="../Images/home1.png" alt="aaaaaaaa" id="desktop-image">
+        </div>
         </div>
         
     </div>
