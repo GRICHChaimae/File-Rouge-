@@ -357,9 +357,6 @@
         </div>
         </div>    
         </footer>
-        <p class="tesssssssssssyy">ttttttttttttt</p>
-
-
 
     <script>
         function toggleMobileMenu(menu) {

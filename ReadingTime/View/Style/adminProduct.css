@@ -9,8 +9,6 @@
  litle header #CBA896 
  logo #855342  */
 header{
-    /* position: fixed; */
-    /* top: 0; left:0; right: 0; */
     background-color: #E6DAD5;
     padding: 0px 7%;
     display: flex;
@@ -100,7 +98,7 @@ h2{
     margin: 20px auto;
 }
 
-form{
+.form-add{
     /* width: 100%; */
     display: flex;
     flex-direction: column;
@@ -108,7 +106,7 @@ form{
     padding: 30px;
 }
 
-form input , textarea{
+.form-add input , textarea{
     width: 100%;
     margin: 10px auto;
     height: 30px;
@@ -143,29 +141,35 @@ th {
   }
 
  tr:hover {
-      background-color: #ffffff;
+      background-color: #CBA896 ;
 } 
-
-img{
-    size: 50px;
-}
-
-#image1{
-    margin-right: 80px;
-    margin-top: 2px;
-}
 
 #image{
     text-align: center;
     display: flex;
+    justify-content: space-around;
+    cursor: pointer;
 }
 
-.updateBook{
+.updateBook , .deleteBook{
     background-color: Transparent;
     border: none; 
 }
 
+#img-modify{
+    height: 300px;
+    width: 200px;
+    margin: 20px 0;
+    object-fit: cover;
+    width: 100%;
+}
+
 @media(max-width:991px){
+    header{
+        position: relative;
+        top: 0; left:0; right: 0;
+    }
+
     header label{
          display: initial;
     }

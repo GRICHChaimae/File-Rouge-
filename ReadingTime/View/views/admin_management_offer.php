@@ -8,25 +8,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Style/adminProduct.css">
-    <title>admin</title>
+    <title>Offers</title>
 </head>
 
 <?php
 
-require_once '../../Controllers/productController.php';
+require_once '../../Controllers/offerController.php';
 
     if(isset($_POST['submit'])){
-        $product = new ProductController();
-        $product->AddProduct();
+        $offer = new OfferController();
+        $offer->AddOffer();
     }
 
-    if(isset($_POST['deleteProduct'])){
-        $pannelProduct= new ProductController();
-        $pannelProduct->deleteProduct();
+    if(isset($_POST['deleteOffer'])){
+        $Offer= new OfferController();
+        $Offer->deleteOffer();
     }
 
-    $data = new ProductController();
-    $Books = $data->getAllProducts();
+    $data = new OfferController();
+    $Offers = $data->getAllOffers();
 
 ?>
 
@@ -58,19 +58,16 @@ require_once '../../Controllers/productController.php';
     </nav>
 </header>
 
-<h2>Add a Book</h2>
+<h2>Add an Offer</h2>
 
 <div class="fromy">
     <form action="" method="post" enctype="multipart/form-data" class="form-add">
         
-            <label for="">Book title</label>
+            <label for="">Offer title</label>
             <input type="text" name="titre">
        
             <label for="">Description</label>
             <textarea type="text" name="description" style="height:100px"></textarea>
-       
-            <label for="">Writer</label>
-            <input type="text" name="ecrivain">
         
             <label for="">Picture</label>
             <input type="file" name="image">
@@ -87,29 +84,27 @@ require_once '../../Controllers/productController.php';
         <tr>
             <th>Book title</th>
             <th>Description</th>
-            <th>Writer</th>
             <th>Picture</th>
             <th>Price</th>
             <th>Action</th>
         </tr>
-    <?php foreach($Books as $Book): ?>
+    <?php foreach($Offers as $Offer): ?>
             <tr>
-                <td><?php echo $Book['book_title'] ?></td>
-                <td><?php echo $Book['description_book'] ?></td>
-                <td><?php echo $Book['book_writer'] ?></td>
-                <td><?php echo $Book['image_book']?></td>
-                <td><?php echo $Book['prix_book'] ?></td>
+                <td><?php echo $Offer['title_offer'] ?></td>
+                <td><?php echo $Offer['description_offer'] ?></td>
+                <td><?php echo $Offer['image_offer']?></td>
+                <td><?php echo $Offer['prix_offer'] ?></td>
                 <td>
                     <div id="image">
-                    <form method="post" action="admin_update_book.php">
-                        <input type="hidden" name="id" value="<?php echo  $Book['id'] ?>">
+                    <form method="post" action="admin_update_offer.php">
+                        <input type="hidden" name="id" value="<?php echo  $Offer['id'] ?>">
                         <button type="submit" class="updateBook"> 
                             <img id="pannel" src="../Images/updateBook.png">
                         </button>
                     </form>
                     <form action="" method="post">
-                        <input type="hidden" name="id" value="<?php echo $Book['id'] ?>">
-                        <button class="deleteBook" type="submit" name="deleteProduct">
+                        <input type="hidden" name="id" value="<?php echo $Offer['id'] ?>">
+                        <button class="deleteBook" type="submit" name="deleteOffer">
                             <img id="pannel" src="../Images/deleteBook.png" alt="">
                         </button>
                     </form>
