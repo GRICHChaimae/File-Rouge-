@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="../Style/SignUp.css">
     <title>Sign in</title>
 </head>
@@ -35,6 +36,13 @@
                 </div>
             </div>
             <input type="submit" name="submit" value="Sign Up">
+            <p class="text-danger text-center">
+                <?php
+                    if (isset($_SESSION["loginError"])){
+                        echo $_SESSION["loginError"];
+                    }
+                ?>
+            </p>
         </form>
         <p>Already have an account? <span>Sign In</span></p>
         <p class="text-white text-center">

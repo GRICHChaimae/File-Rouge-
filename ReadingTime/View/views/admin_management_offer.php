@@ -51,7 +51,7 @@ require_once '../../Controllers/offerController.php';
                     <li><a href="admin_account.php">My Account</a></li>
                     <li><a href="admin_Account_Informations.php">Account Informations</a></li>
                     <li><a href="admin_Messages.php">Messages</a></li>
-                    <li><a href="admin_Sign_Out">Sign Out</a></li>
+                    <li><a href="admin_Sign_Out.php">Sign Out</a></li>
                 </ul>
             </li>
         </ul>

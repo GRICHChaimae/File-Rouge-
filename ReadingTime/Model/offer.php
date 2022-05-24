@@ -2,27 +2,14 @@
 require_once 'dataBase.php';
 
 class Offer{
-    static public function AddOffer(){
-        
-        $image = $_FILES['image']['name'];
-        $imgsrc= $_FILES['image']['tmp_name'];
-        $folderLocation = "../images";
-        $path="$folderLocation/".$image;
-        move_uploaded_file($imgsrc,$path);
-
-        $description = $_POST['description'];
-        $prix = $_POST['prix'];
-        $title = $_POST['titre'];
+    static public function AddOffer($data){
 
         $stmt = DB::connect()->prepare('INSERT INTO offers (prix_offer,image_offer,description_offer,title_offer) VALUES (:prix_offer,:image_offer,:description_offer,:title_offer)');
 
-        $executed = $stmt->execute(["prix_offer"=> $prix,"image_offer"=> $path,"description_offer"=>$description,"title_offer"=>$title]);
+        $executed = $stmt->execute(["prix_offer"=> $data['prix'],"image_offer"=> $data['path'],"description_offer"=>$data['description'],"title_offer"=>$data['title']]);
 
-        if($executed){
-            return 'ok';
-        }else{
-            return 'error';
-        }
+        return  $executed ;
+       
         $stmt = null;
     }
 
@@ -52,31 +39,19 @@ class Offer{
         }
     }
 
-    static public function Update(){
-
-        $title = $_POST['titre'];
-        $picture = $_POST['picture'];
-        $description = $_POST['description'];
-        $prix = $_POST['prix'];
-        $id = $_POST['id'];
-        $image = $_FILES['image']['name'];
-        $imgsrc= $_FILES['image']['tmp_name'];
-        $folderLocation = "../images";
-        $path ="$folderLocation/".$image;
-        move_uploaded_file($imgsrc,$path);
+    static public function Update($data){;
     
         $stmt = DB::connect()->prepare('UPDATE offers SET title_offer = :title_offer , description_offer = :description_offer , image_offer= :image_offer , prix_offer = :prix_offer WHERE id = :id');
-        if(isset($image) && !empty($image)){
-            $executed = $stmt->execute(["id"=> $id ,"title_offer"=> $title  ,"description_offer"=> $description ,"image_offer"=> $path ,"prix_offer"=> $prix]);
+        if(isset($data['check_image']) && !empty($data['check_image'])){
+            $executed = $stmt->execute(["id"=> $data['id'] ,"title_offer"=> $data['title'] ,"description_offer"=> $data['description'] ,"image_offer"=> $data['path'] ,"prix_offer"=> $data['prix']]);
         }else{
-            $executed = $stmt->execute(["id"=> $id ,"title_offer"=> $title  ,"description_offer"=> $description ,"image_offer"=> $picture ,"prix_offer"=> $prix]);
+            $executed = $stmt->execute(["id"=> $data['id'] ,"title_offer"=> $data['title'] ,"description_offer"=> $data['description'] ,"image_offer"=> $data['picture'] ,"prix_offer"=> $data['prix']]);
         }
-        if($executed){
-            return 'ok';
-        }else{
-            return 'error';
-        }
+       
+        return $executed;
+
         $stmt = null;
+
         }
 }
 

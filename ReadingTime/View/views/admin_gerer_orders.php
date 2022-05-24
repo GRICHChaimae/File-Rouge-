@@ -1,3 +1,9 @@
+<?php 
+    if(!isset($_SESSION)){
+        session_start();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,25 +14,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Style/adminProduct.css">
-    <title>admin</title>
+    <title>Orders</title>
 </head>
 
 <?php
 
-require_once '../../Controllers/productController.php';
+require_once '../../Controllers/blogController.php';
 
     if(isset($_POST['submit'])){
-        $product = new ProductController();
-        $product->AddProduct();
+        $blog = new BolgController();
+        $blog->AddBlog();
     }
 
-    if(isset($_POST['deleteProduct'])){
-        $pannelProduct= new ProductController();
-        $pannelProduct->deleteProduct();
+    if(isset($_POST['deleteBlog'])){
+        $Blog= new BolgController();
+        $Blog->deleteBlog();
     }
 
-    $data = new ProductController();
-    $Books = $data->getAllProducts();
+    $data = new BolgController();
+    $Blogs = $data->getAllBlogs();
 
 ?>
 
@@ -58,58 +64,39 @@ require_once '../../Controllers/productController.php';
     </nav>
 </header>
 
-<h2>Add a Book</h2>
+<dvi class="done_or_not">
+    <div class="active" >
+        <a href="admin_gerer_orders.php">Unfulfilled Orders</a> 
+    </div>   
+    <div class="not-active">
+        <a href="admin_gerer_Madeorders.php">Order Made</a> 
+    </div>
+</dvi>
 
-<div class="fromy">
-    <form action="" method="post" enctype="multipart/form-data" class="form-add">
-        
-            <label for="">Book title</label>
-            <input type="text" name="titre">
-       
-            <label for="">Description</label>
-            <textarea type="text" name="description" style="height:100px"></textarea>
-       
-            <label for="">Writer</label>
-            <input type="text" name="ecrivain">
-        
-            <label for="">Picture</label>
-            <input type="file" name="image">
-        
-            <label for="">Price</label>
-            <input type="number" name="prix">
-      
-        <input type="submit" name="submit" id="submit">
-    </form>
-</div>
-
-    <div class="parents">
+<div class="parents">
     <table>
         <tr>
-            <th>Book title</th>
-            <th>Description</th>
-            <th>Writer</th>
+            <th>Blog title</th>
+            <th>Blog Description</th>
             <th>Picture</th>
-            <th>Price</th>
             <th>Action</th>
         </tr>
-    <?php foreach($Books as $Book): ?>
+    <?php foreach($Blogs as $Blog): ?>
             <tr>
-                <td><?php echo $Book['book_title'] ?></td>
-                <td><?php echo $Book['description_book'] ?></td>
-                <td><?php echo $Book['book_writer'] ?></td>
-                <td><?php echo $Book['image_book']?></td>
-                <td><?php echo $Book['prix_book'] ?></td>
+                <td><?php echo $Blog['blog_title'] ?></td>
+                <td><?php echo $Blog['blog_description'] ?></td>
+                <td><?php echo $Blog['blog_image']?></td>
                 <td>
                     <div id="image">
-                    <form method="post" action="admin_update_book.php">
-                        <input type="hidden" name="id" value="<?php echo  $Book['id'] ?>">
+                    <form method="post" action="admin_update_blog.php">
+                        <input type="hidden" name="id" value="<?php echo  $Blog['id'] ?>">
                         <button type="submit" class="updateBook"> 
                             <img id="pannel" src="../Images/updateBook.png">
                         </button>
                     </form>
                     <form action="" method="post">
-                        <input type="hidden" name="id" value="<?php echo $Book['id'] ?>">
-                        <button class="deleteBook" type="submit" name="deleteProduct">
+                        <input type="hidden" name="id" value="<?php echo $Blog['id'] ?>">
+                        <button class="deleteBook" type="submit" name="deleteBlog">
                             <img id="pannel" src="../Images/deleteBook.png" alt="">
                         </button>
                     </form>
@@ -122,10 +109,6 @@ require_once '../../Controllers/productController.php';
             <p>Le patient est supprimer <img src="Vector1.png" class="vec1"></p>
         </div>
 </div>
-
-    
-
-
 
 </body>
 </html>

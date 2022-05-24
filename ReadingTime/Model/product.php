@@ -2,28 +2,14 @@
 require_once 'dataBase.php';
 
 class Product{
-    static public function AddProduct(){
-        
-        $image = $_FILES['image']['name'];
-        $imgsrc= $_FILES['image']['tmp_name'];
-        $folderLocation = "../images";
-        $path="$folderLocation/".$image;
-        move_uploaded_file($imgsrc,$path);
-
-        $description = $_POST['description'];
-        $prix = $_POST['prix'];
-        $title = $_POST['titre'];
-        $writer = $_POST['ecrivain'];
+    static public function AddProduct($data){
 
         $stmt = DB::connect()->prepare('INSERT INTO books (image_book,description_book,prix_book,book_title,book_writer) VALUES (:image_book,:description_book,:prix_book,:book_title,:book_writer)');
 
-        $executed = $stmt->execute(["image_book"=> $path,"description_book"=> $description,"prix_book"=>$prix,"book_title"=>$title,"book_writer"=>$writer]);
+        $executed = $stmt->execute(["image_book"=> $data['path'],"description_book"=> $data['description'],"prix_book"=> $data['prix'],"book_title"=> $data['title'],"book_writer"=> $data['writer']]);
 
-        if($executed){
-            return 'ok';
-        }else{
-            return 'error';
-        }
+        return $executed;
+
         $stmt = null;
     }
 
@@ -53,33 +39,19 @@ class Product{
         }
     }
 
-    static public function Update(){
-
-        $title = $_POST['titre'];
-        $picture = $_POST['picture'];
-        $writer = $_POST['ecrivain'];
-        $description = $_POST['description'];
-        $prix = $_POST['prix'];
-        $id = $_POST['id'];
-        $image = $_FILES['image']['name'];
-        $imgsrc= $_FILES['image']['tmp_name'];
-        $folderLocation = "../images";
-        $path ="$folderLocation/".$image;
-        move_uploaded_file($imgsrc,$path);
+    static public function Update($data){
     
         $stmt = DB::connect()->prepare('UPDATE books SET book_title = :book_title , description_book = :description_book , book_writer = :book_writer , image_book = :image_book , prix_book = :prix_book WHERE id = :id');
-        if(isset($image) && !empty($image)){
-            $executed = $stmt->execute(["id"=> $id ,"book_title"=> $title  ,"description_book"=> $description ,"book_writer"=> $writer ,"image_book"=> $path ,"prix_book"=> $prix]);
+        if(isset($data['check_image']) && !empty($data['check_image'])){
+            $executed = $stmt->execute(["id"=> $data['id'] ,"book_title"=> $data['title']  ,"description_book"=> $data['description'] ,"book_writer"=> $data['writer'] ,"image_book"=> $data['path'] ,"prix_book"=> $data['prix']]);
         }else{
-            $executed = $stmt->execute(["id"=> $id ,"book_title"=> $title  ,"description_book"=> $description ,"book_writer"=> $writer ,"image_book"=> $picture ,"prix_book"=> $prix]);
+            $executed = $stmt->execute(["id"=> $data['id'] ,"book_title"=> $data['title']  ,"description_book"=> $data['description'] ,"book_writer"=> $data['writer'] ,"image_book"=> $data['picture'] ,"prix_book"=> $data['prix']]);
         }
-        if($executed){
-            return 'ok';
-        }else{
-            return 'error';
-        }
+        
+        return $executed ;
+      
         $stmt = null;
-        }
+    }
 }
 
 ?>

@@ -2,27 +2,13 @@
 require_once 'dataBase.php';
 
 class Blog{
-    static public function AddBlog(){
+    static public function AddBlog($data){
         
-        $image = $_FILES['image']['name'];
-        $imgsrc= $_FILES['image']['tmp_name'];
-        $folderLocation = "../images";
-        $path="$folderLocation/".$image;
-        move_uploaded_file($imgsrc,$path);
+        $stmt = DB::connect()->prepare('INSERT INTO blogs(blog_text,blog_image,blog_description,blog_title) VALUES (:blog_text,:blog_image,:blog_description,:blog_title)');
+        $executed = $stmt->execute(["blog_text"=> $data["blog_text"],"blog_image"=> $data["blog_image"],"blog_description"=> $data["blog_description"],"blog_title"=> $data["blog_title"]]);
 
-        $description = $_POST['description'];
-        $text = $_POST['text_blog'];
-        $title = $_POST['titre'];
+        return $executed;
 
-        $stmt = DB::connect()->prepare('INSERT INTO blogs (blog_text,blog_image,blog_description,blog_title) VALUES (:blog_text,:blog_image,:blog_description,:blog_title)');
-
-        $executed = $stmt->execute(["blog_text"=> $text,"blog_image"=> $path,"blog_description"=>$description,"blog_title"=>$title]);
-
-        if($executed){
-            return 'ok';
-        }else{
-            return 'error';
-        }
         $stmt = null;
     }
 
@@ -52,33 +38,19 @@ class Blog{
         }
     }
 
-    static public function Update(){
-
-        
-        $image = $_FILES['image']['name'];
-        $imgsrc= $_FILES['image']['tmp_name'];
-        $folderLocation = "../images";
-        $path="$folderLocation/".$image;
-        move_uploaded_file($imgsrc,$path);
-
-        $picture = $_POST['picture'];
-        $id = $_POST['id'];
-        $description = $_POST['description'];
-        $text = $_POST['text_blog'];
-        $title = $_POST['titre'];
+    static public function Update($data){
     
         $stmt = DB::connect()->prepare('UPDATE blogs SET blog_title = :blog_title , blog_description = :blog_description , blog_image = :blog_image , blog_text = :blog_text WHERE id = :id');
-        if(isset($image) && !empty($image)){
-            $executed = $stmt->execute(["id"=> $id ,"blog_title"=> $title  ,"blog_description"=> $description ,"blog_image"=> $path ,"blog_text"=> $text]);
+        if(isset($data['check_image']) && !empty($data['check_image'])){
+            $executed = $stmt->execute(["id"=> $data['id'] ,"blog_title"=> $data['title'] ,"blog_description"=> $data['description'],"blog_image"=> $data['image'] ,"blog_text"=> $data['text']]);
         }else{
-            $executed = $stmt->execute(["id"=> $id ,"blog_title"=> $title  ,"blog_description"=> $description ,"blog_image"=> $picture ,"blog_text"=> $text]);
+            $executed = $stmt->execute(["id"=> $data['id'] ,"blog_title"=> $data['title'] ,"blog_description"=> $data['description'],"blog_image"=> $data['picture'] ,"blog_text"=> $data['text']]);
         }
-        if($executed){
-            return 'ok';
-        }else{
-            return 'error';
-        }
+        
+        return $executed;
+
         $stmt = null;
+
         }
 }
 

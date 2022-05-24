@@ -1,3 +1,9 @@
+<?php 
+    if(!isset($_SESSION)){
+        session_start();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +57,7 @@ require_once '../../Controllers/blogController.php';
                     <li><a href="admin_account.php">My Account</a></li>
                     <li><a href="admin_Account_Informations.php">Account Informations</a></li>
                     <li><a href="admin_Messages.php">Messages</a></li>
-                    <li><a href="admin_Sign_Out">Sign Out</a></li>
+                    <li><a href="admin_Sign_Out.php">Sign Out</a></li>
                 </ul>
             </li>
         </ul>
@@ -70,7 +76,7 @@ require_once '../../Controllers/blogController.php';
             <textarea type="text" name="description" style="height:100px"></textarea>
         
             <label for="">Blog text</label>
-            <textarea type="text" name="text_blog" style="height:100px"></textarea>
+            <textarea type="text" name="blog_text" style="height:100px"></textarea>
 
             <label for="">Picture</label>
             <input type="file" name="image">
@@ -112,7 +118,7 @@ require_once '../../Controllers/blogController.php';
         <?php endforeach;?>             
         </table>
          <div id="result">
-            <p>Le patient est supprimer <img src="Vector1.png" class="vec1"></p>
+            <p>The Book is Deleted<img src="Vector1.png" class="vec1"></p>
         </div>
 </div>
 

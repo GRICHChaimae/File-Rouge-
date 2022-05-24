@@ -2,39 +2,20 @@
 require_once 'dataBase.php';
 
 class Pannel{
-    static public function AddPannelProduct(){
-        // session_start();
-        
-        $book_id = $_POST['book_id'];
-        $testing = $_POST['image'];
-        $user_id = $_POST['user_id'];
-        $image = $_FILES['image']['name'];
-        $imgsrc= $_FILES['image']['tmp_name'];
-        $folderLocation = "../images";
-        $path="$folderLocation/".$testing;
-        move_uploaded_file($imgsrc,$path);
-
-        var_dump($image);
-
-        $description = $_POST['description'];
-        $prix = $_POST['prix'];
-
+    static public function AddPannelProduct($data){
+   
         $stmt = DB::connect()->prepare('INSERT INTO pannel (user_id,image,description,prix,book_id) VALUES (:user_id,:image,:description,:prix,:book_id)');
+        $executed = $stmt->execute(["user_id"=> $data['user_id'],"image"=> $data['image'] ,"description"=> $data['description'],"prix"=>$data['prix'],"book_id" => $data['book_id']]);
 
-        $executed = $stmt->execute(["user_id"=> $user_id,"image"=> $testing,"description"=> $description,"prix"=>$prix,"book_id"=>$book_id]);
+        return $executed;
 
-
-        // $stmt->bindValue(':image_book', $image);
-        // $stmt->bindValue(':description_book', $description);
-        // $stmt->bindValue(':prix_book', $prix);
-        // $executed = $stmt->execute();
-
-        if($executed){
-            return 'ok';
-        }else{
-            return 'error';
-        }
         $stmt = null;
+    }
+
+    static public function existeInPannel($user_id , $book_id){
+        $stmt = DB::connect()->prepare("SELECT * FROM pannel where book_id = $book_id and user_id = $user_id ");
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 
     static public function getAll(){
@@ -49,14 +30,6 @@ class Pannel{
         $stmt->execute();
     }
 
-
-    // static public function getAll(){
-
-    //     $stmt = DB::connect()->prepare('SELECT * FROM books');
-    //     $stmt->execute();
-    //     return $stmt->fetchAll();
-    //     $stmt = null;
-    // }
 }
 
 ?>
