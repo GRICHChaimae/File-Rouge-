@@ -19,7 +19,8 @@ class ProductController{
             'prix' => $_POST['prix'],
             'title' => $_POST['titre'],
             'writer' => $_POST['ecrivain'],  
-            'path' => $path
+            'path' => $path,
+            'ISBN' => $_POST['ISBN']
         );
 
         {
@@ -31,6 +32,14 @@ class ProductController{
             }
         }
     }
+
+    public function getOneISBN($ISBN){
+        $Book_ISBN = new product();
+        $ISBN = $Book_ISBN->getOneISBN($ISBN);
+        return $ISBN;
+    }
+
+
 
 
     public function getAllProducts(){

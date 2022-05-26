@@ -77,6 +77,9 @@ require_once '../../Controllers/productController.php';
         
             <label for="">Price</label>
             <input type="number" name="prix">
+
+            <label for="">ISBN</label>
+            <input type="number" name="ISBN">
       
         <input type="submit" name="submit" id="submit">
     </form>
@@ -88,8 +91,8 @@ require_once '../../Controllers/productController.php';
             <th>Book title</th>
             <th>Description</th>
             <th>Writer</th>
-            <th>Picture</th>
             <th>Price</th>
+            <th>ISBN</th>
             <th>Action</th>
         </tr>
     <?php foreach($Books as $Book): ?>
@@ -97,8 +100,8 @@ require_once '../../Controllers/productController.php';
                 <td><?php echo $Book['book_title'] ?></td>
                 <td><?php echo $Book['description_book'] ?></td>
                 <td><?php echo $Book['book_writer'] ?></td>
-                <td><?php echo $Book['image_book']?></td>
                 <td><?php echo $Book['prix_book'] ?></td>
+                <td><?php echo $Book['ISBN'] ?></td>
                 <td>
                     <div id="image">
                     <form method="post" action="admin_update_book.php">
