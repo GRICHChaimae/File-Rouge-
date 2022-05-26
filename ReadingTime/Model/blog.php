@@ -1,8 +1,11 @@
 <?php
+
+require_once 'parentClass.php';
 require_once 'dataBase.php';
 
-class Blog{
-    static public function AddBlog($data){
+class Blog extends ParentClass{
+
+    public function add($data){
         
         $stmt = DB::connect()->prepare('INSERT INTO blogs(blog_text,blog_image,blog_description,blog_title) VALUES (:blog_text,:blog_image,:blog_description,:blog_title)');
         $executed = $stmt->execute(["blog_text"=> $data["blog_text"],"blog_image"=> $data["blog_image"],"blog_description"=> $data["blog_description"],"blog_title"=> $data["blog_title"]]);
@@ -12,20 +15,14 @@ class Blog{
         $stmt = null;
     }
 
-    static public function deleteBlog($id){
-        $stmt = DB::connect()->prepare("DELETE from blogs where id = $id");
-        $stmt->execute();
-    }
-
-
-    static public function getAll(){
+    public function getAll(){
         $stmt = DB::connect()->prepare('SELECT * FROM blogs');
         $stmt->execute();
         return $stmt->fetchAll();
         $stmt = null;
     }
 
-    static public function getBlog($id){
+    public function getOne($id){
         try{
             $stmt = DB::connect()->prepare("SELECT * FROM blogs WHERE id = $id");
             $stmt->execute();
@@ -38,7 +35,7 @@ class Blog{
         }
     }
 
-    static public function Update($data){
+    public function update($data){
     
         $stmt = DB::connect()->prepare('UPDATE blogs SET blog_title = :blog_title , blog_description = :blog_description , blog_image = :blog_image , blog_text = :blog_text WHERE id = :id');
         if(isset($data['check_image']) && !empty($data['check_image'])){
@@ -51,7 +48,13 @@ class Blog{
 
         $stmt = null;
 
-        }
+    }
+
+    public function delete($id){
+        $stmt = DB::connect()->prepare("DELETE from blogs where id = $id");
+        $stmt->execute();
+    }
+    
 }
 
 ?>

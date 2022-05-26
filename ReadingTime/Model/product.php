@@ -1,8 +1,9 @@
 <?php
 require_once 'dataBase.php';
+require_once 'parentClass.php';
 
-class Product{
-    static public function AddProduct($data){
+class Product extends ParentClass{
+    public function Add($data){
 
         $stmt = DB::connect()->prepare('INSERT INTO books (image_book,description_book,prix_book,book_title,book_writer,ISBN) VALUES (:image_book,:description_book,:prix_book,:book_title,:book_writer,:ISBN)');
 
@@ -26,20 +27,20 @@ class Product{
         }  
     }
 
-    static public function deleteBook($id){
+    public function delete($id){
         $stmt = DB::connect()->prepare("DELETE from books where id = $id");
         $stmt->execute();
     }
 
 
-    static public function getAll(){
+    public function getAll(){
         $stmt = DB::connect()->prepare('SELECT * FROM books');
         $stmt->execute();
         return $stmt->fetchAll();
         $stmt = null;
     }
 
-    static public function getBook($id){
+    public function getOne($id){
         try{
             $stmt = DB::connect()->prepare("SELECT * FROM books WHERE id = $id");
             $stmt->execute();
@@ -52,7 +53,7 @@ class Product{
         }
     }
 
-    static public function Update($data){
+    public function Update($data){
     
         $stmt = DB::connect()->prepare('UPDATE books SET book_title = :book_title , description_book = :description_book , book_writer = :book_writer , image_book = :image_book , prix_book = :prix_book WHERE id = :id');
         if(isset($data['check_image']) && !empty($data['check_image'])){

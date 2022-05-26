@@ -167,17 +167,23 @@ header label{
         border-bottom: 1px solid black;   
         padding: 0;
     }
+    header .navbary ul{
+        /* margin: 0 !important; */
+        padding: 0 !important;
+    }
 
     header .navbary ul li{
         width: 100%;
     }
 
     header .navbary ul li ul{
+        
         position: relative;
         width: 100%;
     }
 
     header .navbary ul li ul li{
+        padding-left: 20px !important;
         background-color: #f3e8e3;
     }
 

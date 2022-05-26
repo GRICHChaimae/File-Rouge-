@@ -13,8 +13,9 @@ class LoginController{
             'email'=>$_POST['email'],
             'mot_de_passe'=>$_POST['mot_de_passe']
         );
-
-        $login = Account::LogIn($data);
+        
+        $loginIn = new Account();
+        $login = $loginIn->LogIn($data);
 
         if(isset($login) && !empty($login)){
             if($login['email'] === 'admin@email.com'){

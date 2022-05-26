@@ -21,7 +21,8 @@ class BolgController{
             'blog_title' => $_POST['titre']
         );
         
-        $result = Blog::AddBlog($data);
+        $add = new Blog();
+        $result = $add->Add($data);
         if($result === 'ok'){
             header("location:admin_management_blog.php");
         }else{
@@ -32,12 +33,14 @@ class BolgController{
 
 
     public function getAllBlogs(){
-        $Blogs = Blog::getAll();
+        $getAll = new Blog();
+        $Blogs = $getAll->getAll();
         return $Blogs ;
     }
 
     public function getOneBlog($id){
-        $Blogs  = Blog::getBlog($id);
+        $getOne = new Blog();
+        $Blogs  = $getOne->getOne($id);
         return $Blogs;
     }
 
@@ -60,7 +63,8 @@ class BolgController{
             'check_image'=> $image
         );
 
-            $result = Blog::Update($data);
+            $edit = new Blog();
+            $result = $edit ->Update($data);
             if($result){
                 header('location:admin_management_blog.php');
             }else{
@@ -71,7 +75,10 @@ class BolgController{
     public function deleteBlog(){
         if(isset($_POST['deleteBlog'])){
             $id = $_POST['id'];
-            $result = Blog::deleteBlog($id);
+
+            $delete = new Blog();
+            $result = $delete ->delete($id);
+            
             if($result === 'ok'){
                 header('location:admin_management_blog.php');
             }else{

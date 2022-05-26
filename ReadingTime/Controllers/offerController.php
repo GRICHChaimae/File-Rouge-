@@ -20,7 +20,9 @@ class OfferController{
             'path'=> $path,
         );
 
-        $result = Offer::AddOffer($data);
+        $add = new Offer();
+        $result = $add->Add($data);
+
         if($result){
             header("location:admin_management_offer.php");
         }else{
@@ -30,12 +32,16 @@ class OfferController{
 
 
     public function getAllOffers(){
-        $Offers = Offer::getAll();
+
+        $getAll = new Offer();
+        $Offers = $getAll->getAll();
         return $Offers;
     }
 
     public function getOneOffer($id){
-        $Offers = Offer::getOffer($id);
+
+        $getOne = new Offer();
+        $Offers = $getOne ->getOne($id);
         return $Offers;
     }
 
@@ -58,7 +64,8 @@ class OfferController{
             'check_image' => $image
         );    
 
-        $result = Offer::Update($data);
+        $edit = new Offer();
+        $result = $edit->Update($data);
 
         if($result){
             header('location:admin_management_offer.php');
@@ -69,8 +76,12 @@ class OfferController{
 
     public function deleteOffer(){
         if(isset($_POST['deleteOffer'])){
+            
             $id = $_POST['id'];
-            $result = Offer::deleteOffer($id);
+
+            $delet = new Offer();
+            $result = $delet->delete($id);
+
             if($result === 'ok'){
                 header('location:admin_management_offer.php');
             }else{

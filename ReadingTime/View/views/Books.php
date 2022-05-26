@@ -15,6 +15,9 @@ if (!isset($_SESSION["userName"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="../Style/nav_bar.css">
@@ -88,9 +91,10 @@ if (isset($_POST['submit'])) {
                         Hello <?php echo $_SESSION["userName"] ?> +
                     </a>
                     <ul>
-                        <li><a href="admin_account.php">My Account</a></li>
-                        <li><a href="admin_Account_Informations.php">Account Informations</a></li>
-                        <li><a href="admin_Messages.php">Messages</a></li>
+                    <li><a href="user_account.php">Account Informations</a></li>
+                        <li><a href="shopingList.php">Your shopping list</a></li>
+                        <li><a href="user_Messages.php">Your messages</a></li>
+                        <li><a href="user_Messages_answered.php">Messages answered</a></li>
                         <li><a href="admin_Sign_Out.php">Sign Out</a></li>
                     </ul>
                 </li>
@@ -124,16 +128,16 @@ if (isset($_POST['submit'])) {
                                 and to see our special offers or you can read our blogs about books
                             </p>
 
+                            <form action="product.php" method="post">
                             <div class="search">
-                               <form action="product.php" method="post"> 
                                     <input type="search" name="ISBN" placeholder=" &nbsp Enter ISBN Here">
-                                    <input type="submit" name="search_ISBN">
-                                </form>
+                                    <button name="search_ISBN" type="submit" >Search</button>
                             </div>
+                            </form>
 
                         </div>
                         <div class="slide-container" id="tablette-image">
-                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <img src="../Images/home1.png" class="d-block img-item-1" alt="woman read a book">

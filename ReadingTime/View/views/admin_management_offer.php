@@ -42,10 +42,10 @@ require_once '../../Controllers/offerController.php';
 
     <nav class="navbary">
         <ul>
-            <li><a href="admin_gérer_orders.php">Orders</a></li>
+        <li><a href="admin_gerer_orders.php">Orders</a></li>
             <li><a href="admin_management_product.php">Books</a></li>
-            <li><a href="admin_gérer_offers.php">Offers</a></li>
-            <li><a href="admin_gérer_blogs.php">Blogs</a></li>
+            <li><a href="admin_management_offer.php">Offers</a></li>
+            <li><a href="admin_management_blog.php">Blogs</a></li>
             <li><a href="#">Your Account+</a> 
                 <ul>
                     <li><a href="admin_account.php">My Account</a></li>

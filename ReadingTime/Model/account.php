@@ -2,7 +2,7 @@
     require_once 'dataBase.php';
 
     class Account {
-        static public function addAccount($data){ 
+        public function addAccount($data){ 
 
             $statement = DB::connect()->prepare('INSERT INTO accounts (nom, prenom, email, mot_de_passe) VALUES (:nom, :prenom, :email, :mot_de_passe)');
             $executed = $statement->execute(["prenom"=> $data['prenom'],"nom"=> $data['nom'],"email"=> $data['email'],"mot_de_passe"=> $data['mot_de_passe']]);
@@ -12,7 +12,7 @@
             $statement = null;
         }
 
-        static function LogIn($data){
+        public function LogIn($data){
 
             $response = DB::connect()->query("SELECT * FROM accounts WHERE email LIKE '".$data['email']."'");
             

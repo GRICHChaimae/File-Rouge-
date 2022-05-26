@@ -14,7 +14,10 @@
 
             if($_POST['mot_de_passe'] != $_POST['validation_mot_de_passe']){
                 return false; 
-            }else $result = Account::addAccount($data);
+            }else{
+                $add = new Account();
+                $result = $add->addAccount($data);
+            } 
             if($result){
                 header("location:login.php");
             }else{

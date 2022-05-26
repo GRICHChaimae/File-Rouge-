@@ -15,7 +15,9 @@ class PannelController{
             'user_id' => $_POST['user_id']
         );
         
-        $result = Pannel::AddPannelProduct($data);
+        $add = new Pannel();
+        $result = $add->AddPannelProduct($data);
+
         if($result){
             header("location:Books.php");
         }else{
@@ -29,30 +31,31 @@ class PannelController{
 
             $user_id = $_POST['user_id'];
             $book_id = $_POST['book_id'];
-
-        $result = Pannel::existeInPannel($user_id , $book_id);
+            $existe = new Pannel();
+            $result = $existe->existeInPannel($user_id , $book_id);
        
-        // var_dump($result['user_id']);die;
-
         if(isset($result) and !empty($result)){
             return true;
         }else {
             return false;
         }
         
-
-        
     }
 
     public function getPannelProduct(){
-        $PannelBook = Pannel::getAll();
+
+        $getAll = new Pannel();
+        $PannelBook = $getAll->getAll();
         return $PannelBook;
     }
 
     public function deletePannelProduct(){
         if(isset($_POST['deletePannelProduct'])){
             $id = $_POST['id'];
-            $result = Pannel::deletePannelProduct($id);
+
+            $delete = new Pannel();
+            $result = $delete->deletePannelProduct($id);
+
             if($result === 'ok'){
                 header("location:Books.php");
             }else{

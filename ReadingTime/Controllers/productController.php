@@ -2,7 +2,7 @@
 
 require_once '../../model/product.php';
 
-class ProductController{
+class ProductController {
     public function AddProduct(){
 
     if(!isset($_POST['submit'])) return;
@@ -23,32 +23,31 @@ class ProductController{
             'ISBN' => $_POST['ISBN']
         );
 
-        {
-            $result = Product::AddProduct($data);
+            $add = new Product();
+            $result = $add->Add($data);
+
             if($result){
                 header("location:admin_management_product.php");
             }else{
                 echo $result;
             }
         }
-    }
-
+    
     public function getOneISBN($ISBN){
         $Book_ISBN = new product();
         $ISBN = $Book_ISBN->getOneISBN($ISBN);
         return $ISBN;
     }
 
-
-
-
     public function getAllProducts(){
-        $Posts = Product::getAll();
+        $getAll = new Product();
+        $Posts = $getAll->getAll();
         return $Posts;
     }
 
     public function getOneBook($id){
-        $Book = Product::getBook($id);
+        $getOne = new Product();
+        $Book = $getOne->getOne($id);
         return $Book;
     }
 
@@ -73,7 +72,8 @@ class ProductController{
             'check_image' => $image 
         );
 
-        $result = Product::Update($data);
+        $edit = new Product();
+        $result = $edit->Update($data);
         if($result){
             header('location:admin_management_product.php');
         }else{
@@ -84,15 +84,19 @@ class ProductController{
 
     public function deleteProduct(){
         if(isset($_POST['deleteProduct'])){
+
             $id = $_POST['id'];
-            $result = Product::deleteBook($id);
+
+            $delete = new Product();
+            $result = $delete->delete($id);
+            
             if($result === 'ok'){
                 header('location:admin_management_product.php');
             }else{
                 echo $result;  
             }
         }
-    }
-    
+    }   
 }
+
 ?>
