@@ -105,11 +105,11 @@ if(isset($_POST['book_id'])){
         </div>
 </div>
 
-<h2>Checkout</h2>
+<h2 class="checkout">Checkout</h2>
+<h3>Ship To Address</h3>
 
 <div class="pay_form">
   <div class="ship_adress">
-    <h4>Ship To Address</h4>
     <hr>
     <!-- hnaaaaaaa lfoooooorm  -->
     <!-- hnaaaaaaa lfoooooorm  -->
@@ -118,8 +118,6 @@ if(isset($_POST['book_id'])){
     <!-- hnaaaaaaa lfoooooorm  -->
 
     <form action="" method="post">
-     <div>
-        <h1>Ajouter un patient</h1>
 
     <div class="first_row">
         <div class="div1">
@@ -143,7 +141,7 @@ if(isset($_POST['book_id'])){
         </div>
     </div>
 
-    <div class="third_row">
+    <div class="first_row">
         <div class="div1">
             <p>City</p>
             <input type="text">
@@ -154,7 +152,7 @@ if(isset($_POST['book_id'])){
         </div>
     </div>
 
-    <div class="third_row">
+    <div class="second_row">
         <div class="div1">
             <p>Country</p>
             <input type="text">
@@ -165,16 +163,50 @@ if(isset($_POST['book_id'])){
         </div>
     </div>
 
-    <div class="div1">
-        <p>Zip Code (5 Digits)</p>
-        <input type="text">
+    <div class="first_row row_submit">
+        <div class="div1">
+            <p>Zip Code (5 Digits)</p>
+            <input type="text">
+        </div>
+        <div class="div2">
+            <button type="submit" value="submit">Confirm</button>
+        </div>
     </div>
 
-    <button type="submit" value="submit">Confirm</button>
 
-    </div>
     </form>
   </div>
+
+<div class="master_paypal">
+
+  <div class="method_paiment">
+  <input type="radio">
+    <img src="../Images/paypal.png" alt="">
+    <div class="paypal_card">
+        <input type="text" placeholder="  Paypal email address">
+        <input type="text" placeholder="  Confirm paypal email address">
+    </div>         
+  </div>
+
+  <div class="method_paiment master_card">
+  <input type="radio">
+    <img src="../Images/master_card.png" alt="">
+    <div class="paypal_card">
+        <input type="text" placeholder="  Card number">
+        <input type="text" placeholder="  Cardholder Name">
+        <div class="date_card">
+            <input type="text" placeholder=" MM">
+            <input type="text" placeholder="  YY">
+        </div>
+        <input type="text" placeholder="  CVV">
+    </div>         
+  </div>
+
+
+
+</div> 
+
+
 </div>
 
     
