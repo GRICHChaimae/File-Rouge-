@@ -6,107 +6,46 @@
     font-family: 'Libre Caslon Text', serif;
   }
 
-  .header-bg-color{
-          background-color: #E6DAD5;
-          padding: 10px; 
-          z-index: -1;
-  }  
-
-#header-bg {
- background-image: url("../Images/bg.png");
- background-repeat: no-repeat;
- -o-object-fit: cover;
- object-fit: cover;
- width: 100%;
- padding: 10px 0;
+  .header_content{
+    background-image: url('../Images/search_header.png');
+    background-repeat: no-repeat;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100%;
+    padding-bottom: 10px;
 }
 
-.header-content {
-        width: 95%;
-        margin: 0 auto;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-                flex-direction: row;
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
-        -ms-flex-flow: wrap;
-            flex-flow: wrap;
-        /* padding-top: 40px; */
+.header_content .image_title{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin: 0px auto;
+    padding-top: 10px;
+}
+.ser{
+  font-size: 30px;
+  color: #855342;
+}
+
+.header_content .search{
+    display: flex;
+    margin: 10px;
+    margin-left: 20%;
+}
+  .header_content .search input{
+      width: 60%;
+      border-radius: 0;
+      border: none;
+      height: 50px;
   }
-     
-      #header-bg .header-content .text-content {
-        /* padding-top: 40px; */
-        height: 100%;
-        width: 50%;
-        height: 400px;
-        /* margin: 0 auto;  */
-      }  
-      
-      #header-bg .header-content .text-content #tablette-image {
-        display: none;
-      }
-      
-       #header-bg .header-content .text-content h1 {
-        margin-bottom: 20px;
-        font-size: 48px;
-        line-height: 64px;
-        font-weight: 600;
-        font-style: bold;
-      }
 
-       #header-bg .header-content .text-content #Guarantee {
-        margin-bottom: 20px;
-        font-weight: bold;
-        font-size: 24px;
-      }
-      
-       #header-bg .header-content .text-content #Guarantee span {
-        color: #855342;
-      }
-
-      #header-bg .header-content .text-content p {
-        margin-bottom: 20px;
-        font-size: 19.2px;
-        line-height: 32px;
-        margin-right: 30px;
-      }
-      
-       #header-bg .header-content .text-content .search{
-        display: flex;
-        height: 50px;
-      }
-
-      #header-bg .header-content .text-content .search input{
-        width: 70%;
-        border-radius: 0;
-        border: none;
-      }
-
-      #header-bg .header-content .text-content .search button{
-        width: 20%;
-        border: none;
-        background-color: #855342;
-        color: white;
-      }
-
-      #header-bg .header-content .slide-container{
-        width: 40%;
-      }
-
-       #header-bg .header-content .slide-container img {
-        width: 100%;
-        height: 440px;
-        padding-top: 10px;
-        -o-object-fit: cover;
-           object-fit: cover;
-      }
-
-
+  .header_content .search button{
+      width: 15%;
+      border: none;
+      background-color: #855342;
+      color: white;
+      height: 50px;
+  }
 
       .card2{
         display: flex;
@@ -265,71 +204,11 @@
       }      
 
       @media only screen and (max-width: 1200px) {
-         #header-bg {
-          background-image: url("../Images/bg1200.png");
-        }
-         #header-bg .header-content {
-          width: 95%;
-          padding-top: 20px;
-        }
-        #header-bg .header-content .text-content {
-          padding-top: 0px;
-          width: 55%;
-          margin: 0px;
-          height: auto;
-        }
-         #header-bg .header-content .text-content #tablette-image {
-          display: none;
-        }
-         #header-bg .header-content .text-content h1 {
-          margin-bottom: 10px;
-          font-size: 32px;
-          line-height: 56px;
-          font-weight: 550;
-          font-style: bold;
-        }
-        #header-bg .header-content .text-content #Guarantee {
-          margin-bottom: 10px;
-          font-weight: bold;
-          font-size: 24px;
-        }
-         #header-bg .header-content .text-content #Guarantee span {
-          color: #855342;
-        }
-         #header-bg .header-content .text-content p {
-          margin-bottom: 10px;
-          font-size: 19.2px;
-          line-height: 32px;
-          margin-right: 0px;
-        }
-        #header-bg .header-content .text-content button {
-          background-color: black;
-          color: white;
-          border: solid 1px black;
-          padding: 10px;
-          font-weight: bold;
-        }
-        #header-bg .header-content .slide-container img {
-          width: 40%;
-          height: 400px;
-          -o-object-fit: cover;
-             object-fit: cover;
-        }
+
       }
       
       @media only screen and (max-width: 1024px) {
-         #header-bg {
-          background-image: url("../Images/bg1024.png");
-        }
-        #header-bg .header-content{
-          padding: 0;
-        }
-        #header-bg .header-content .slide-container{
-          width: 45%;
-        }
-        #header-bg .header-content .slide-container img {
-          width: 100%;
-        }
+
         .card2 .one-card {
           width: 30%;
         }
@@ -383,65 +262,7 @@
       }
       
       @media only screen and (max-width: 768px) {
-        #header-bg {
-          background-image: url("../Images/bg768.png");
-          padding: 0;
-        }
-        #header-bg .header-content {
-          width: 95%;
-          padding-top: 0;
-        }
-        #header-bg .header-content .text-content {
-          width: 100%;
-          margin: 0 auto;
-          height: auto;
-          padding: 0;
-        }
-         #header-bg .header-content .text-content .tablette {
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex;
-        }
-        #header-bg .header-content .text-content .tablette .text-tablette {
-          width: 50%;
-        }
-       #header-bg .header-content .text-content .tablette .text-tablette #Guarantee {
-          line-height: 32px;
-          margin-bottom: 10px;
-        }
-         #header-bg .header-content .text-content .tablette #tablette-image {
-          width: 50%;
-          height: 250px;
-          -o-object-fit: cover;
-             object-fit: cover;
-          display: block;
-        }
 
-        #header-bg .header-content .text-content .tablette #tablette-image img{
-          width: 100%;
-          height: 250px;
-          padding-top: 0;
-          margin-left: 5px;
-        }
-
-        #header-bg .header-content .text-content h1 {
-          /* margin-bottom: 0; */
-          font-size: 26px;
-          line-height: 48px;
-          font-weight: 550;
-        }
-      #header-bg .header-content .text-content h1 br {
-          display: none;
-        }
-         #header-bg .header-content .text-content p {
-          font-size: 14px;
-          margin-bottom: 10px;
-          font-size: 19.2px;
-          line-height: 24px;
-        }
-         #header-bg .header-content .slide-container{
-          display: none;
-        }
         .card2 .one-card {
           width: 47%;
         }
@@ -503,54 +324,6 @@
 }
       
       @media only screen and (max-width: 480px) {
-        #header-bg .header-content {
-          width: 90%;
-          padding-top: 0;
-        }
-        #header-bg .header-content .text-content {
-          width: 100%;
-          margin: 0 auto;
-          height: auto;
-          padding: 0;
-        }
-         #header-bg .header-content .text-content .tablette {
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex;
-          -ms-flex-flow: wrap;
-              flex-flow: wrap;
-          -webkit-box-orient: vertical;
-          -webkit-box-direction: reverse;
-              -ms-flex-direction: column-reverse;
-                  flex-direction: column-reverse;
-        }
-        #header-bg .header-content .text-content .tablette .text-tablette {
-          width: 95%;
-          text-align: center;
-          margin-top: 10px;
-        }
-        #header-bg .header-content .text-content .tablette #tablette-image {
-          display: block;
-          width: 100%;
-        }
-         #header-bg .header-content .text-content h1 {
-          margin-bottom: 10px;
-          font-size: 1.8rem;
-          text-align: center;
-        }
-         #header-bg .header-content .text-content h1 br {
-          display: none;
-        }
-         #header-bg .header-content .text-content #Guarantee {
-          font-size: 1.2rem;
-        }
-         #header-bg .header-content .text-content p {
-          margin-bottom: 10px;
-          font-size: 1.2rem;
-        }
-        #header-bg .header-content #desk-slide{
-          display: none;
-        }
-        
+
       }
 

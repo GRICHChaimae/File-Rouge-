@@ -1,46 +1,18 @@
-<?php
-if (!isset($_SESSION)) {
-    session_start();
-}
-if (!isset($_SESSION["userName"])) {
-    header("location: ./login.php");
-    return;
-}
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Style/buy_book.css">
-    <link rel="stylesheet" href="../Style/nav_bar.css">
-    <title>Your pannel</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Style/home_bar.css">
+  <title>Document</title>
 </head>
-
-<?php 
-
-require_once '../../Controllers/pannelController.php';
-
-$pannelData = new PannelController();
-$Pannels = $pannelData->getPannelProduct();
-
-$number = count($Pannels);
-
-if(isset($_POST['deletePannelProduct'])){
-    $pannelProduct= new PannelController();
-    $pannelProduct->deletePannelProduct();
-}
-
-?>
-
 <body>
-    <h1><?php echo $number ; ?></h1>
-<header>
+
+<?php if(isset($_SESSION["userName"])):?>
+  <header>
         <div id="logo">
             <a href="Home.php">
                 <p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime">
@@ -89,7 +61,7 @@ if(isset($_POST['deletePannelProduct'])){
                 </li>
                 <li id="headerPannel">
                     <a href="Pannel.php">
-                        <img src="../Images/fullpannel_header.png" alt="">
+                        <img src="../Images/headerPannel.png" alt="">
                     </a>
                 </li>
                 <li id="headerFavorite">
@@ -99,38 +71,40 @@ if(isset($_POST['deletePannelProduct'])){
                 </li>
             </ul>
         </div>
-</header>
+    </header>
+    <?php else: ?>
+      <header>
+        <div id="logo">
+            <a href="Home.php">
+                <p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime">
+            </a>
+        </div>
 
-<?php if(empty($Pannels)): ?>
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="menu-bar-text"><img src="../Images/berger_menu.png" alt=""> </label>
 
-<div class="nexistePas">
-    <p><?php echo "This Book Does Not Exist" ?></p>
-    <h1>You Can Search For Another One</h1>
-</div>
-<?php else: ?>
+        <nav class="navbary">
+            <ul>
+                <li><a href="Home.php">Home</a></li> 
+                <li><a href="Blog.php">Blog</a></li>
+                <li><a href="WhyUs.php">Why Us</a></li>
+                <li><a href="login.php">Login</a></li>
+                <li><a href="login.php">Register</a></li>
+            </ul>
 
-<?php foreach($Pannels as $Pannel): ?>
+        </nav>
 
-<div class="searching_book">
-    <div class="book_image">
-        <img src="<?php echo $Pannel['image'] ?>" alt="">
-    </div>    
-    <div class="book_info">
-        <h2><?php echo $Pannel['book_title'] ?></h2>
-        <p><span style="font-weight: bold;">written by:&nbsp</span><?php echo $Pannel['book_writer'] ?></p>
-        <p><?php echo $Pannel['description'] ?></p>       
-        <p><span style="font-weight: bold;">Prix :&nbsp</span><?php echo $Pannel['prix'] ?> $</p>
-        <form action="buy_book.php" method="post">
-            <input type="numeber" name="book_id" value="<?php echo $Pannel['book_id'] ?>" hidden>
-            <button name="buy_now" type="submit" ><span style="font-weight: bold;">Buy &nbsp Now</span></button>
-        </form>
-    </div>
-</div>
+        <div class="right-nav">
+            <ul>
+                <li><a href="login.php">Login</a></li>
+                <li>/</li>
+                <li><a href="login.php">Register</a></li>
+            </ul>
+        </div>
+    </header>
 
-<?php endforeach; ?>
+    <?php endif; ?>    
 
-<?php endif; ?>
-
-
+  
 </body>
 </html>

@@ -13,190 +13,174 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <?php if(isset($_SESSION["userName"])):?>
+        <link rel="stylesheet" href="../Style/nav_bar.css">
+    <?php else: ?>
+        <link rel="stylesheet" href="../Style/home_bar.css">
+    <?php endif; ?>  
     <link rel="stylesheet" href="../Style/Home.css">
     <title>Home</title>
 </head>
 
 <body>
-    <div class="header">
-        <?php if(isset($_SESSION["userName"])):?>
-            <nav>
-                <div id="logo">
-                    <a href="Home.php"><p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime"></a>
-                </div>
 
-                <div id="menue-content">
-                    <div class="centerMenu">
-                        <ul>
-                            <li><a href="Home.php">Home</a></li>
-                            <li><a href="Books.php">Books</a></li>
-                            <li><a href="Offers.php">Offers</a></li>
-                            <li><a href="Blog.php">Blog</a></li>
-                            <li><a href="WhyUs.php">Why Us</a></li>
-                        </ul>
-                    </div>
-                    <div class="rightMenu">
+<?php if(isset($_SESSION["userName"])):?>
+  <header>
+        <div id="logo">
+            <a href="Home.php">
+                <p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime">
+            </a>
+        </div>
+
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="menu-bar-text"><img src="../Images/berger_menu.png" alt=""> </label>
+
+        <nav class="navbary">
+            <ul>
+                <li><a href="Home.php">Home</a></li>
+                <li><a href="Books.php">Books</a></li>
+                <li><a href="Offers.php">Offers</a></li>
+                <li><a href="Blog.php">Blog</a></li>
+                <li><a href="WhyUs.php">Why Us</a></li>
+                <li>
+                    <a href="#">
+                        Hello <?php echo $_SESSION["userName"] ?> +
+                    </a>
                     <ul>
-                        <li id="UserAccount">
-                            <a href="UserAccount.php">
-                                Hello <span id="userName"><?php echo $_SESSION["userName"] ?></span> <span id="plusIcone">+</span>
-                                <!-- <img src="../Images/arrow-down.png" alt="updown"> -->
-                            </a>
-                                <ul id="#UserAccount-ul">
-                                    <!-- <p>ooooooooo</p> -->
-                                    <li>
-                                        <a href="AccountInformations.php">
-                                            Account Informations
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="YourShoppingList.php">
-                                            Your shopping list
-                                        </a>
-                                    </li>   
-                                    <li>
-                                        <a href="YourMessages.php">
-                                            Your messages
-                                        </a>
-                                    </li>   
-                                    <li>
-                                        <a href="MessagesAnswered.php">
-                                            Messages answered   
-                                        </a>
-                                    </li>   
-                                    <li>
-                                        <a href="SignOut.php">
-                                            Sign Out  
-                                        </a>
-                                    </li>
-                                </ul>
-                        </li>
-                        <li id="headerPannel">
-                            <a href="Pannel.php">
-                                <?php if(true): ?>
-                                    <img src="../Images/headerPannel.png" alt="">
-                                <?php else: ?>
-                                    <img src="../Images/fullHeaderPannel.png" alt="">
-                                <?php endif; ?>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="Favorite.php">
-                                <?php if(true): ?>
-                                    <img src="../Images/headerFavorite.png" alt="">
-                                <?php else: ?>
-                                    <img src="../Images/FullHeaderFavorite.png" alt="">
-                                <?php endif; ?>
-                            </a>
-                        </li>
+                        <li><a href="user_account.php">Account Informations</a></li>
+                        <li><a href="shopingList.php">Your shopping list</a></li>
+                        <li><a href="user_Messages.php">Your messages</a></li>
+                        <li><a href="user_Messages_answered.php">Messages answered</a></li>
+                        <li><a href="admin_Sign_Out.php">Sign Out</a></li>
                     </ul>
-                    </div>
-                </div>
+                </li>
+            </ul>
 
-                <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
-                    <ul class="mobile-menu">
-                        <li><a href="Home.php">Home</a></li>
-                        <li><a href="Blog.php">Blog</a></li>
-                        <li><a href="WhyUs.php">Why Us</a></li>
-                        <li id="UserAccount">
-                            <a href="UserAccount.php">
-                                Hello <span id="userName"><?php echo $_SESSION["userName"] ?></span>
-                                <img src="../Images/arrow-down.png" alt="updown">
-                            </a>
-                                <ul id="#UserAccount-ul">
-                                    <li>
-                                        <a href="AccountInformations.php">
-                                            Account Informations
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="YourShoppingList.php">
-                                            Your shopping list
-                                        </a>
-                                    </li>   
-                                    <li>
-                                        <a href="YourMessages.php">
-                                            Your messages
-                                        </a>
-                                    </li>   
-                                    <li>
-                                        <a href="MessagesAnswered.php">
-                                            Messages answered   
-                                        </a>
-                                    </li>   
-                                    <li>
-                                        <a href="SignOut.php">
-                                            Sign Out  
-                                        </a>
-                                    </li>
-                                </ul>
-                        </li>           
-                    </ul>
-                </div>
-            </nav>
-        <?php else: ?>
-        <nav>
-            <div id="logo">
-                <a href="Home.php"><p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime"></a>
-            </div>
-
-            <div id="menue-content">
-                <div class="centerMenu">
-                    <ul>
-                        <li><a href="Home.php">Home</a></li>
-                        <li><a href="Blog.php">Blog</a></li>
-                        <li><a href="WhyUs.php">Why Us</a></li>
-                    </ul>
-                </div>
-                <div class="rightMenu">
-                <ul>
-                    <li><a href="Login.php">login</a></li>
-                    <li id="slash-menue">/</li>
-                    <li><a href="SignUp.php">Register</a></li>
-                </ul>
-                </div>
-            </div>
-
-            <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-                <ul class="mobile-menu">
-                    <li><a href="Home.php">Home</a></li>
-                    <li><a href="Blog.php">Blog</a></li>
-                    <li><a href="WhyUs.php">Why Us</a></li>
-                    <li><a href="Login.php">login</a></li>
-                    <li><a href="SignUp.php">Register</a></li>
-                </ul>
-          </div>
         </nav>
-        <?php endif; ?>
 
+        <div class="right-nav">
+            <ul>
+                <li>
+                    <a href="#">
+                        Hello <?php echo $_SESSION["userName"] ?> +
+                    </a>
+                    <ul>
+                    <li><a href="user_account.php">Account Informations</a></li>
+                        <li><a href="shopingList.php">Your shopping list</a></li>
+                        <li><a href="user_Messages.php">Your messages</a></li>
+                        <li><a href="user_Messages_answered.php">Messages answered</a></li>
+                        <li><a href="admin_Sign_Out.php">Sign Out</a></li>
+                    </ul>
+                </li>
+                <li id="headerPannel">
+                    <a href="Pannel.php">
+                        <img src="../Images/headerPannel.png" alt="">
+                    </a>
+                </li>
+                <li id="headerFavorite">
+                    <a href="Favorite.php">
+                        <img src="../Images/headerFavorite.png" alt="">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <?php else: ?>
+      <header>
+        <div id="logo">
+            <a href="Home.php">
+                <p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime">
+            </a>
+        </div>
+
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="menu-bar-text"><img src="../Images/berger_menu.png" alt=""> </label>
+
+        <nav class="navbary">
+            <ul>
+                <li><a href="Home.php">Home</a></li> 
+                <li><a href="Blog.php">Blog</a></li>
+                <li><a href="WhyUs.php">Why Us</a></li>
+                <li><a href="login.php">Login</a></li>
+                <li><a href="login.php">Register</a></li>
+            </ul>
+
+        </nav>
+
+        <div class="right-nav">
+            <ul>
+                <li><a href="login.php">Login</a></li>
+                <li>/</li>
+                <li><a href="login.php">Register</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <?php endif; ?>  
+
+    <div class="header-bg-color">
         <div id="header-bg">
-        <div class="header-content">
-            <div class="text-content">
-                <h1>Buy Books Now and Enjoy 
-                    <br> 
-                Reading Them</h1>
-                <div class="tablette">
-                    <div class="text-tablette">
-                        <p id="Guarantee" >We <span>GUARANTEE</span> You'll Get Your Book</p>
-                        <p>
-                            you can create an account now to join to us to visit our library 
-                            and to see our special offers or you can read our blogs about books 
-                        </p>
-                        <button onclick="window.location.href='/FileRouge/ReadingTime/View/views/SignUp.php'" >Register  Now</button>
+            <div class="header-content">
+                <div class="text-content">
+                    <h1>Buy Books Now and Enjoy
+                        <br>
+                        Reading Them
+                    </h1>
+                    <div class="tablette">
+                        <div class="text-tablette">
+                            <p id="Guarantee">We <span>GUARANTEE</span> You'll Get Your Book</p>
+                            <p>
+                                you can create an account now to join to us to visit our library
+                                and to see our special offers or you can read our blogs about books
+                            </p>
+
+                        <?php if(isset($_SESSION["userName"])):?>
+                            <form action="product.php" method="post">
+                            <div class="search">
+                                    <input type="search" name="ISBN" placeholder=" &nbsp Enter ISBN Here">
+                                    <button name="search_ISBN" type="submit" >Search</button>
+                            </div>
+                            </form>
+                        <?php else: ?>
+                            <button onclick="window.location.href='/FileRouge/ReadingTime/View/views/login.php'" id="register">Register Now</button>
+                        <?php endif; ?>  
+                        </div>
+                        <div class="slide-container" id="tablette-image">
+                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../Images/home1.png" class="d-block img-item-1" alt="woman read a book">
+                            </div>
+                            <div class="carousel-item">
+                                <img  src="../Images/home2.png" class="d-block w-fit" alt="man read a book">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../Images/home3.png" class="d-block w-fit" alt="children read stories">
+                            </div>
+                        </div>
                     </div>
-                    <img src="../Images/home1.png" alt="" id="tablette-image">
+                </div>
+                    </div>
+                </div>
+       
+                <div class="slide-container" id="desk-slide">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../Images/home1.png" class="d-block img-item-1" alt="woman read a book">
+                            </div>
+                            <div class="carousel-item">
+                                <img  src="../Images/home2.png" class="d-block w-fit" alt="man read a book">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../Images/home3.png" class="d-block w-fit" alt="children read stories">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <img src="../Images/home1.png" alt="aaaaaaaa" id="desktop-image">
         </div>
-        </div>
-        
     </div>
 
     <div class="about">
@@ -358,10 +342,7 @@
         </div>    
         </footer>
 
-    <script>
-        function toggleMobileMenu(menu) {
-            menu.classList.toggle('open');
-        }
-    </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 </body>
 </html>

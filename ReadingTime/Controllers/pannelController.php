@@ -12,7 +12,9 @@ class PannelController{
             'prix' => $_POST['prix'],
             'book_id' => $_POST['book_id'],
             'image' => $_POST['image'],
-            'user_id' => $_POST['user_id']
+            'user_id' => $_POST['user_id'],
+            'book_writer' => $_POST['book_writer'],
+            'book_title' => $_POST['book_title']
         );
         
         $add = new Pannel();

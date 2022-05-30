@@ -99,9 +99,9 @@ if(isset($_POST['search_ISBN'])){
 <div class="header_content">
     <div class="image_title">
         <img src="../Images/headerSearch.png" alt="books">
-        <h1>Search for a book by ISBN</h1>
+        <h1 class="ser">Search for a book by ISBN</h1>
     </div>
-    <form action="" method="post">
+    <form action="product.php" method="post">
         <div class="search">
             <input type="search" name="ISBN" placeholder=" &nbsp Enter ISBN Here">
             <button name="search_ISBN" type="submit" >Search</button>

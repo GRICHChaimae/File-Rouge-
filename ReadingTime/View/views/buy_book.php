@@ -174,37 +174,39 @@ if(isset($_POST['book_id'])){
     </div>
 
 
-    </form>
+  
   </div>
 
 <div class="master_paypal">
 
   <div class="method_paiment">
-  <input type="radio">
+  <input type="radio" name="paiment">
     <img src="../Images/paypal.png" alt="">
     <div class="paypal_card">
-        <input type="text" placeholder="  Paypal email address">
-        <input type="text" placeholder="  Confirm paypal email address">
+        <input type="text" placeholder="  Paypal email address" required>
+        <input type="text" placeholder="  Confirm paypal email address" required>
     </div>         
   </div>
 
   <div class="method_paiment master_card">
-  <input type="radio">
+  <input type="radio" name="paiment">
     <img src="../Images/master_card.png" alt="">
     <div class="paypal_card">
-        <input type="text" placeholder="  Card number">
-        <input type="text" placeholder="  Cardholder Name">
+        <input type="text" placeholder="  Card number" required>
+        <input type="text" placeholder="  Cardholder Name" required>
         <div class="date_card">
-            <input type="text" placeholder=" MM">
-            <input type="text" placeholder="  YY">
+            <input type="text" placeholder=" MM" required>
+            <input type="text" placeholder="  YY" required>
         </div>
-        <input type="text" placeholder="  CVV">
+        <input type="text" placeholder="  CVV" required>
     </div>         
   </div>
 
 
 
 </div> 
+
+</form>
 
 
 </div>

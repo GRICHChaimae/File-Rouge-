@@ -47,6 +47,8 @@ if (isset($_POST['submit'])) {
     }
 }
 
+
+
 ?>
 
 <body>
@@ -112,65 +114,17 @@ if (isset($_POST['submit'])) {
         </div>
     </header>
 
-    <div class="header-bg-color">
-        <div id="header-bg">
-            <div class="header-content">
-                <div class="text-content">
-                    <h1>Buy Books Now and Enjoy
-                        <br>
-                        Reading Them
-                    </h1>
-                    <div class="tablette">
-                        <div class="text-tablette">
-                            <p id="Guarantee">We <span>GUARANTEE</span> You'll Get Your Book</p>
-                            <p>
-                                you can create an account now to join to us to visit our library
-                                and to see our special offers or you can read our blogs about books
-                            </p>
-
-                            <form action="product.php" method="post">
-                            <div class="search">
-                                    <input type="search" name="ISBN" placeholder=" &nbsp Enter ISBN Here">
-                                    <button name="search_ISBN" type="submit" >Search</button>
-                            </div>
-                            </form>
-
-                        </div>
-                        <div class="slide-container" id="tablette-image">
-                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="../Images/home1.png" class="d-block img-item-1" alt="woman read a book">
-                            </div>
-                            <div class="carousel-item">
-                                <img  src="../Images/home2.png" class="d-block w-fit" alt="man read a book">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="../Images/home3.png" class="d-block w-fit" alt="children read stories">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                    </div>
-                </div>
-       
-                <div class="slide-container" id="desk-slide">
-                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="../Images/home1.png" class="d-block img-item-1" alt="woman read a book">
-                            </div>
-                            <div class="carousel-item">
-                                <img  src="../Images/home2.png" class="d-block w-fit" alt="man read a book">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="../Images/home3.png" class="d-block w-fit" alt="children read stories">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="header_content">
+    <div class="image_title">
+        <img src="../Images/headerSearch.png" alt="books">
+        <h1 class="ser">Search for a book by ISBN</h1>
+    </div>
+    <form action="product.php" method="post">
+        <div class="search">
+            <input type="search" name="ISBN" placeholder=" &nbsp Enter ISBN Here">
+            <button name="search_ISBN" type="submit" >Search</button>
         </div>
+    </form>
     </div>
 
 
@@ -215,6 +169,8 @@ if (isset($_POST['submit'])) {
                         <input type="hidden" name="image" value="<?php echo $Book['image_book'] ?>">
                         <input type="hidden" name="description" value="<?php echo $Book['description_book'] ?>">
                         <input type="hidden" name="prix" value="<?php echo $Book['prix_book'] ?>">
+                        <input type="hidden" name="book_title" value="<?php echo $Book['book_title'] ?>">
+                        <input type="hidden" name="book_writer" value="<?php echo $Book['book_writer'] ?>">
                         <input type="hidden" name="book_id" value="<?php echo $Book['id'] ?>">
                         <input type="hidden" name="user_id" value="<?php echo $_SESSION["user_id"] ?>">
                         <input type="hidden" name="notExiste" value="true">
@@ -227,6 +183,8 @@ if (isset($_POST['submit'])) {
                         <input type="hidden" name="image" value="<?php echo $Book['image_book'] ?>">
                         <input type="hidden" name="description" value="<?php echo $Book['description_book'] ?>">
                         <input type="hidden" name="prix" value="<?php echo $Book['prix_book'] ?>">
+                        <input type="hidden" name="book_title" value="<?php echo $Book['book_title'] ?>">
+                        <input type="hidden" name="book_writer" value="<?php echo $Book['book_writer'] ?>">
                         <input type="hidden" name="book_id" value="<?php echo $Book['id'] ?>">
                         <input type="hidden" name="user_id" value="<?php echo $_SESSION["user_id"] ?>">
                         <input type="hidden" name="notExiste" value="true">

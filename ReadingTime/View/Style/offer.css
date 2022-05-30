@@ -1,0 +1,24 @@
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-family: 'Libre Caslon Text', serif;
+  }
+
+  .offer{
+      width: 50%;
+      margin: auto;
+  }
+
+  .offer img{
+      width: 100%;
+      object-fit: cover;
+      height: 300px;
+      margin: 10px auto;
+
+  }
+
+  .offer p{
+      text-align: center;
+  }
