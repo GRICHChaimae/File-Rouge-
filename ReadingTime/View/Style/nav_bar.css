@@ -64,6 +64,7 @@ header .navbary ul li a:hover , .right-nav ul li:first-child a:hover{
 }
 
 header .right-nav ul{
+    padding: 0px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -73,7 +74,8 @@ header .right-nav ul{
 header .right-nav ul li ul{
     position: absolute;
     left: 0;
-    width: 240px;
+    width: 272px;
+    color: aqua;
     background-color: #E6DAD5;
     display: none;
     z-index: 1000;
@@ -130,7 +132,29 @@ header label{
     display: none;
 }
 
+/* header .right-nav #headerPannel a p  */
+.pannel_number{
+    position: absolute;
+    top: -11px;
+    right: -9px;
+    color: white;
+    background-color: red;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    text-align: center;
+  }
 
+@media only screen and (max-width: 1024px){
+
+header .navbary ul li a, .right-nav ul li a {
+    font-size: 16px;
+}
+header .right-nav ul li ul{
+    width: 248px;
+} 
+
+}
 @media(max-width:991px){
     header{
         padding: 10px 20px;

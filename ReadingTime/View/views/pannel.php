@@ -17,7 +17,7 @@ if (!isset($_SESSION["userName"])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Style/buy_book.css">
+    <link rel="stylesheet" href="../Style/pannel.css">
     <link rel="stylesheet" href="../Style/nav_bar.css">
     <title>Your pannel</title>
 </head>
@@ -29,7 +29,9 @@ require_once '../../Controllers/pannelController.php';
 $pannelData = new PannelController();
 $Pannels = $pannelData->getPannelProduct();
 
-$number = count($Pannels);
+// $number = count($Pannels);
+
+$_SESSION['pannel_number'] = 0;
 
 if(isset($_POST['deletePannelProduct'])){
     $pannelProduct= new PannelController();
@@ -39,7 +41,6 @@ if(isset($_POST['deletePannelProduct'])){
 ?>
 
 <body>
-    <h1><?php echo $number ; ?></h1>
 <header>
         <div id="logo">
             <a href="Home.php">
@@ -89,7 +90,18 @@ if(isset($_POST['deletePannelProduct'])){
                 </li>
                 <li id="headerPannel">
                     <a href="Pannel.php">
-                        <img src="../Images/fullpannel_header.png" alt="">
+                        <?php if(!$_SESSION['pannel_number']): ?>
+                            <img src="../Images/headerPannel.png alt="">
+                            <p class="pannel_number">0</p> 
+                            
+                        <?php else: ?>
+                        <img src="../Images/fullpannel_header.png" alt="" id="pannelIcone">
+                        <?php if($_SESSION['pannel_number'] < 10): ?>
+                        <p class="pannel_number"> <?= $_SESSION['pannel_number'] ; ?> </p> 
+                        <?php else: ?>
+                            <p class="pannel_number">+9</p>
+                        <?php endif; ?>
+                        <?php endif; ?>
                     </a>
                 </li>
                 <li id="headerFavorite">
@@ -104,8 +116,8 @@ if(isset($_POST['deletePannelProduct'])){
 <?php if(empty($Pannels)): ?>
 
 <div class="nexistePas">
-    <p><?php echo "This Book Does Not Exist" ?></p>
-    <h1>You Can Search For Another One</h1>
+    <p>Your Pannel is empty</p>
+    <h1>Let's Go To Add Some Books In Your Pannel</h1>
 </div>
 <?php else: ?>
 

@@ -10,6 +10,7 @@ if (!isset($_SESSION["userName"])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,23 +28,24 @@ if (!isset($_SESSION["userName"])) {
 
 require_once '../../Controllers/offerController.php';
 
-    if(isset($_POST['submit'])){
-        $offer = new OfferController();
-        $offer->AddOffer();
-    }
+if (isset($_POST['submit'])) {
+    $offer = new OfferController();
+    $offer->AddOffer();
+}
 
-    if(isset($_POST['deleteOffer'])){
-        $Offer= new OfferController();
-        $Offer->deleteOffer();
-    }
+if (isset($_POST['deleteOffer'])) {
+    $Offer = new OfferController();
+    $Offer->deleteOffer();
+}
 
-    $data = new OfferController();
-    $Offers = $data->getAllOffers();
+$data = new OfferController();
+$Offers = $data->getAllOffers();
 
+// var_dump($Offers)
 ?>
 
 <body>
-<header>
+    <header>
         <div id="logo">
             <a href="Home.php">
                 <p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime">
@@ -83,7 +85,7 @@ require_once '../../Controllers/offerController.php';
                         Hello <?php echo $_SESSION["userName"] ?> +
                     </a>
                     <ul>
-                    <li><a href="user_account.php">Account Informations</a></li>
+                        <li><a href="user_account.php">Account Informations</a></li>
                         <li><a href="shopingList.php">Your shopping list</a></li>
                         <li><a href="user_Messages.php">Your messages</a></li>
                         <li><a href="user_Messages_answered.php">Messages answered</a></li>
@@ -102,40 +104,40 @@ require_once '../../Controllers/offerController.php';
                 </li>
             </ul>
         </div>
-</header>
+    </header>
 
-<div class="offer">
+    <div class="offer">
+        
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
 
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <?php foreach($Offers as $Offer): ?>  
+                    <?php foreach ($Offers as $index => $item) : ?>
+                    <div class="carousel-item <?= !$index ? 'active' : '' ?>">
+                        <img src="<?php echo $item['image_offer'] ?>" alt="">
+                        <p><?php echo $item['title_offer'] ?></p>
+                        <p><?php echo $item['description_offer'] ?></p>
+                        <p><?php echo $item['prix_offer'] ?></p>
+                        <form action="buy_offer.php">
+                            <input type="int" name="offer_id" hidden>
+                            <button type="submit" name="submit">
+                                Buy Now
+                            </button>
+                        </form>
+                    </div>
+                <?php endforeach; ?>
 
-    <div class="carousel-item active">
-        <img src="<?php echo $Offer['image_offer']?>" alt="">
-        <p><?php echo $Offer['title_offer'] ?></p>
-        <p><?php echo $Offer['description_offer'] ?></p>              
-        <p><?php echo $Offer['prix_offer'] ?></p>      
-        <form action="buy_offer.php">
-            <input type="int" name="offer_id" hidden>
-            <button type="submit" name="submit">
-                Buy Now
-            </button>
-    </form>
-    </div>
-    <?php endforeach; ?>    
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden text-dark">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
 
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden text-dark">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-    <!-- <img src="<?php echo $Offer['image_offer']?>" alt="">
+            <!-- <img src="<?php echo $Offer['image_offer'] ?>" alt="">
     <p><?php echo $Offer['title_offer'] ?></p>
     <p><?php echo $Offer['description_offer'] ?></p>              
     <p><?php echo $Offer['prix_offer'] ?></p>      
@@ -147,10 +149,11 @@ require_once '../../Controllers/offerController.php';
     </form> -->
 
 
-</div>
-  
+    </div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
+
 </html>

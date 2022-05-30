@@ -183,8 +183,8 @@ if(isset($_POST['book_id'])){
   <input type="radio" name="paiment">
     <img src="../Images/paypal.png" alt="">
     <div class="paypal_card">
-        <input type="text" placeholder="  Paypal email address" required>
-        <input type="text" placeholder="  Confirm paypal email address" required>
+        <input type="text" placeholder="  Paypal email address" >
+        <input type="text" placeholder="  Confirm paypal email address" >
     </div>         
   </div>
 
@@ -192,25 +192,37 @@ if(isset($_POST['book_id'])){
   <input type="radio" name="paiment">
     <img src="../Images/master_card.png" alt="">
     <div class="paypal_card">
-        <input type="text" placeholder="  Card number" required>
-        <input type="text" placeholder="  Cardholder Name" required>
+        <input type="text" placeholder="  Card number" >
+        <input type="text" placeholder="  Cardholder Name" >
         <div class="date_card">
-            <input type="text" placeholder=" MM" required>
-            <input type="text" placeholder="  YY" required>
+            <input type="text" placeholder=" MM" >
+            <input type="text" placeholder="  YY" >
         </div>
-        <input type="text" placeholder="  CVV" required>
+        <input type="text" placeholder="  CVV" >
     </div>         
   </div>
-
-
-
 </div> 
 
 </form>
 
-
 </div>
 
+<script>
+    
+    const els = document.querySelectorAll("input[name='paiment']");
+    els.forEach(el => {
+        el.addEventListener("change" ,(e)=> {
+            const inputs = document.querySelectorAll(".paypal_card input");
+            inputs.forEach(input => {
+                input.required= false;
+            })
+            el.parentElement.querySelectorAll(".paypal_card input").forEach(input => {
+                input.required = true;
+            })
+        })
+    })
+
+</script>
     
 </body>
 </html>

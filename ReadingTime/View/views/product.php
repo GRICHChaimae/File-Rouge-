@@ -114,7 +114,7 @@ if(isset($_POST['search_ISBN'])){
 <?php if(empty($Book)): ?>
 
     <div class="nexistePas">
-        <p><?php echo "This Book Does Not Exist" ?></p>
+        <p>This Book Does Not Exist</p>
         <h1>You Can Search For Another One</h1>
     </div>
     <?php else: ?>

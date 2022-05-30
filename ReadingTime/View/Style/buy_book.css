@@ -6,7 +6,7 @@
     font-family: 'Libre Caslon Text', serif;
   }
 
-  .searching_book{
+.searching_book{
     display: flex;
     justify-content: center;
     padding: 20px;

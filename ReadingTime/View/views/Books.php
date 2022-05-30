@@ -47,8 +47,6 @@ if (isset($_POST['submit'])) {
     }
 }
 
-
-
 ?>
 
 <body>
@@ -115,6 +113,7 @@ if (isset($_POST['submit'])) {
     </header>
 
     <div class="header_content">
+        <div class="little_head"></div>
     <div class="image_title">
         <img src="../Images/headerSearch.png" alt="books">
         <h1 class="ser">Search for a book by ISBN</h1>
@@ -126,7 +125,6 @@ if (isset($_POST['submit'])) {
         </div>
     </form>
     </div>
-
 
     <h2>Our Library</h2>
     <!-- <a href="#fantasy" onclick="">click</a> -->
@@ -159,7 +157,7 @@ if (isset($_POST['submit'])) {
 
                 <div class="one-card">
                     <img src="<?php echo $Book['image_book'] ?>" alt="" id="our-library-image">
-                    <h4><?php echo $Book['description_book'] ?></h4>
+                    <h4><?php echo $Book['book_title'] ?></h4>
 
                     <div class="prix-pannel">
                     <p><span>Prix : </span><?php echo $Book['prix_book'] ?> $</p>

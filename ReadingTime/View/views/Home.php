@@ -75,7 +75,16 @@
                 </li>
                 <li id="headerPannel">
                     <a href="Pannel.php">
-                        <img src="../Images/headerPannel.png" alt="">
+                        <?php if(!$_SESSION['pannel_number']): ?>
+                            <img src="../Images/emptyPannel.png" alt="">
+                        <?php else: ?>
+                        <img src="../Images/fullpannel_header.png" alt="" id="pannelIcone">
+                        <?php if($_SESSION['pannel_number'] < 10): ?>
+                        <p class="pannel_number"> <?= $_SESSION['pannel_number'] ; ?> </p> 
+                        <?php else: ?>
+                            <p class="pannel_number">+9</p>
+                        <?php endif; ?>
+                        <?php endif; ?>
                     </a>
                 </li>
                 <li id="headerFavorite">
