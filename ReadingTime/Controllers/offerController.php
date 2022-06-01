@@ -39,7 +39,6 @@ class OfferController{
     }
 
     public function getOneOffer($id){
-
         $getOne = new Offer();
         $Offers = $getOne ->getOne($id);
         return $Offers;

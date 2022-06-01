@@ -8,7 +8,7 @@
 
   .offer{
       width: 50%;
-      margin: auto;
+      margin: 20px auto;
   }
 
   .offer img{
@@ -18,7 +18,18 @@
       margin: 10px auto;
 
   }
+ 
+  .offer h5{
+    font-weight: bold;
+    margin: 10px;
+   }
 
-  .offer p{
+  .offer p , h5 {
       text-align: center;
+      width: 90%;
+      margin: 10px auto;
   }
+
+  #buy_offer{
+    margin-left: 100px ;
+}

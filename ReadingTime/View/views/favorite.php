@@ -1,16 +1,18 @@
 <?php
+
 if (!isset($_SESSION)) {
     session_start();
 }
+
 if (!isset($_SESSION["userName"])) {
     header("location: ./login.php");
     return;
 }
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,34 +20,27 @@ if (!isset($_SESSION["userName"])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Style/pannel.css">
     <link rel="stylesheet" href="../Style/nav_bar.css">
-    <link rel="stylesheet" href="../Style/offer.css">
-    <title>Offers</title>
+    <title>Your pannel</title>
 </head>
 
 <?php
 
-require_once '../../Controllers/offerController.php';
+require_once '../../Controllers/favoriteController.php';
 
-if (isset($_POST['submit'])) {
-    $offer = new OfferController();
-    $offer->AddOffer();
+$favoriteController = new FavoriteController();
+
+if(isset($_POST['deletefromfavorite'])){
+    $favoriteController->deleteFavoriteProduct();
 }
 
-if (isset($_POST['deleteOffer'])) {
-    $Offer = new OfferController();
-    $Offer->deleteOffer();
-}
+$Favorites = $favoriteController->getFavorieProduct();
 
-$data = new OfferController();
-$Offers = $data->getAllOffers();
-
-// var_dump($Offers)
 ?>
 
 <body>
-    <header>
+<header>
         <div id="logo">
             <a href="Home.php">
                 <p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime">
@@ -85,7 +80,7 @@ $Offers = $data->getAllOffers();
                         Hello <?php echo $_SESSION["userName"] ?> +
                     </a>
                     <ul>
-                        <li><a href="user_account.php">Account Informations</a></li>
+                    <li><a href="user_account.php">Account Informations</a></li>
                         <li><a href="shopingList.php">Your shopping list</a></li>
                         <li><a href="user_Messages.php">Your messages</a></li>
                         <li><a href="user_Messages_answered.php">Messages answered</a></li>
@@ -93,13 +88,13 @@ $Offers = $data->getAllOffers();
                     </ul>
                 </li>
                 <li id="headerPannel">
-                <a href="Pannel.php">
+                    <a href="Pannel.php">
                         <?php if(!$_SESSION['pannel_number']): ?>
-                            <img src="../Images/headerPannel.png" alt="">
+                            <img src="../Images/headerPannel.png alt="">
                             <p class="pannel_number">0</p> 
                             
                         <?php else: ?>
-                            <img src="../Images/fullpannel_header.png" alt="" id="pannelIcone">
+                        <img src="../Images/fullpannel_header.png" alt="" id="pannelIcone">
                         <?php if($_SESSION['pannel_number'] < 10): ?>
                         <p class="pannel_number"> <?= $_SESSION['pannel_number'] ; ?> </p> 
                         <?php else: ?>
@@ -110,48 +105,51 @@ $Offers = $data->getAllOffers();
                 </li>
                 <li id="headerFavorite">
                     <a href="Favorite.php">
-                        <img src="../Images/headerFavorite.png" alt="">
+                        <img src="../Images/FullHeaderFavorite.png" alt="">
                     </a>
                 </li>
             </ul>
         </div>
-    </header>
+</header>
 
-    <div class="offer">
-        
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
+<?php if(empty($Favorites)): ?>
 
-                    <?php foreach ($Offers as $index => $item) : ?>
-                    <div class="carousel-item <?= !$index ? 'active' : '' ?>">
-                        <img src="<?php echo $item['image_offer'] ?>" alt="">
-                        <h5><?php echo $item['title_offer'] ?></h5>
-                        <p><?php echo $item['description_offer'] ?></p>
-                        <p><span style="font-weight:bold;">Price : </span><?php echo $item['prix_offer'] ?> $</p>
-                        <form action="buy_book.php" method="post">
-                            <input type="number" name="offer_id" value="<?php echo $item['id'] ?>" hidden>
-                            <button name="submit_offer" type="submit"  id="buy_offer">
-                                Buy Now
-                            </button>
-                        </form>
-                    </div>
-                <?php endforeach; ?>
+<div class="nexistePas">
+    <p>Your Pannel is empty</p>
+    <h1>Let's Go To Add Some Books In Your Pannel</h1>
+</div>
+<?php else: ?>
 
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+<?php foreach($Favorites as $Favorite): ?>
+    
+<div class="searching_book">
+    <div class="book_image">
+        <img src="<?php echo $Favorite['image_book'] ?>" alt="">
+    </div>    
+    <div class="book_info">       
+        <h2><?php echo $Favorite['book_title'] ?></h2>
+        <p><span style="font-weight: bold;">written by:&nbsp</span><?php echo $Favorite['book_writer'] ?></p>
+        <p><?php echo $Favorite['description_book'] ?></p>       
+        <p><span style="font-weight: bold;">Price :&nbsp</span><?php echo $Favorite['prix_book'] ?> $</p>
+        <form action="buy_book.php" method="post">
+            <input type="numeber" name="book_id" value="<?php echo $Favorite['book_id'] ?>" hidden>
+            <button name="buy_now" type="submit" ><span style="font-weight: bold;">Buy &nbsp Now</span></button>
+        </form>
     </div>
+    <div class="remove_book">
+        <form action="" method="post">
+            <input type = "hidden" name = "favorie_id" value = "<?php echo $Favorite['favorie_id']?>">
+            <button type = "submit" name = "deletefromfavorite">
+                <img src="../Images/dop_book.png" alt="">
+            </button>
+        </form>
+    </div>
+</div>
+
+<?php endforeach; ?>
+
+<?php endif; ?>
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
-
 </html>

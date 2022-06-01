@@ -23,6 +23,8 @@
     display: flex;
     justify-content: center;
     padding: 20px;
+    border: solid rgba(0, 0, 0, 0.19) 1px;
+    margin: 20px;
 }
 
 .searching_book .book_image{
@@ -41,10 +43,11 @@
   }
 
 .book_info{
-    width: 70%;
+    width: 76%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-left: 10px;
 }
 
 .book_info p{
@@ -54,3 +57,19 @@
 .book_info h2{
     margin-bottom: 15px;
 }
+
+.book_info button{
+    width: 150px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.remove_book button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+

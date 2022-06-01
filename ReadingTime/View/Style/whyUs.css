@@ -1,0 +1,22 @@
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-family: 'Libre Caslon Text', serif;
+  }
+
+  h2{
+      padding: 30px;
+      /* padding-left: 30px; */
+  }
+
+  h3{
+      padding: 0 0 20px 30px;
+      color: #855342;
+  }
+
+  .why_us{
+    padding: 0 0 20px 30px;
+    width: 90%;
+  }

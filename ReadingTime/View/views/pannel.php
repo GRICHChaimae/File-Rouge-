@@ -1,11 +1,14 @@
 <?php
+
 if (!isset($_SESSION)) {
     session_start();
 }
+
 if (!isset($_SESSION["userName"])) {
     header("location: ./login.php");
     return;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -22,21 +25,19 @@ if (!isset($_SESSION["userName"])) {
     <title>Your pannel</title>
 </head>
 
-<?php 
+<?php
 
 require_once '../../Controllers/pannelController.php';
 
-$pannelData = new PannelController();
-$Pannels = $pannelData->getPannelProduct();
+$pannelController = new PannelController();
 
-// $number = count($Pannels);
-
-$_SESSION['pannel_number'] = 0;
-
-if(isset($_POST['deletePannelProduct'])){
-    $pannelProduct= new PannelController();
-    $pannelProduct->deletePannelProduct();
+if(isset($_POST['deletefrompannel'])){
+    $pannelController->deletePannelProduct();
 }
+
+$Pannels = $pannelController->getPannelProduct();
+
+$_SESSION['pannel_number'] = count($Pannels);
 
 ?>
 
@@ -91,7 +92,7 @@ if(isset($_POST['deletePannelProduct'])){
                 <li id="headerPannel">
                     <a href="Pannel.php">
                         <?php if(!$_SESSION['pannel_number']): ?>
-                            <img src="../Images/headerPannel.png alt="">
+                            <img src="../Images/headerPannel.png" alt="">
                             <p class="pannel_number">0</p> 
                             
                         <?php else: ?>
@@ -122,19 +123,27 @@ if(isset($_POST['deletePannelProduct'])){
 <?php else: ?>
 
 <?php foreach($Pannels as $Pannel): ?>
-
+    
 <div class="searching_book">
     <div class="book_image">
-        <img src="<?php echo $Pannel['image'] ?>" alt="">
+        <img src="<?php echo $Pannel['image_book'] ?>" alt="">
     </div>    
-    <div class="book_info">
+    <div class="book_info">       
         <h2><?php echo $Pannel['book_title'] ?></h2>
         <p><span style="font-weight: bold;">written by:&nbsp</span><?php echo $Pannel['book_writer'] ?></p>
-        <p><?php echo $Pannel['description'] ?></p>       
-        <p><span style="font-weight: bold;">Prix :&nbsp</span><?php echo $Pannel['prix'] ?> $</p>
+        <p><?php echo $Pannel['description_book'] ?></p>       
+        <p><span style="font-weight: bold;">Price :&nbsp</span><?php echo $Pannel['prix_book'] ?> $</p>
         <form action="buy_book.php" method="post">
             <input type="numeber" name="book_id" value="<?php echo $Pannel['book_id'] ?>" hidden>
             <button name="buy_now" type="submit" ><span style="font-weight: bold;">Buy &nbsp Now</span></button>
+        </form>
+    </div>
+    <div class="remove_book">
+        <form action="" method="post">
+            <input type = "hidden" name = "pannel_id" value = "<?php echo $Pannel['pannel_id']?>">
+            <button type = "submit" name = "deletefrompannel">
+                <img src="../Images/dop_book.png" alt="">
+            </button>
         </form>
     </div>
 </div>

@@ -8,19 +8,15 @@ class PannelController{
         if(!isset($_POST['submit'])) return;  
     
         $data = array(
-            'description' => $_POST['description'],
-            'prix' => $_POST['prix'],
             'book_id' => $_POST['book_id'],
-            'image' => $_POST['image'],
-            'user_id' => $_POST['user_id'],
-            'book_writer' => $_POST['book_writer'],
-            'book_title' => $_POST['book_title']
+            'user_id' => $_POST['user_id']
         );
         
         $add = new Pannel();
         $result = $add->AddPannelProduct($data);
 
         if($result){
+            $_SESSION["pannel_number"]++;
             header("location:Books.php");
         }else{
             echo $result;
@@ -45,25 +41,26 @@ class PannelController{
     }
 
     public function getPannelProduct(){
-
+        // $user_id = (isset($_SESSION["user_id"])) ? $_SESSION["user_id"] : 0;
         $getAll = new Pannel();
         $PannelBook = $getAll->getAll();
         return $PannelBook;
     }
 
-    public function deletePannelProduct(){
-        if(isset($_POST['deletePannelProduct'])){
-            $id = $_POST['id'];
+    public function 
+    deletePannelProduct(){
+        if(!isset($_POST['deletefrompannel'])) return;
+
+            $id = $_POST['pannel_id'];
 
             $delete = new Pannel();
             $result = $delete->deletePannelProduct($id);
 
             if($result === 'ok'){
-                header("location:Books.php");
+                header("location:pannel.php");
             }else{
                 echo $result;  
             }
-        }
     }
 }
 ?>

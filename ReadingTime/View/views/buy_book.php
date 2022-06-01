@@ -24,11 +24,27 @@ if (!isset($_SESSION["userName"])) {
 
 <?php 
 require_once '../../Controllers/productController.php';
+require_once '../../Controllers/commandeController.php';
+require_once '../../Controllers/offerController.php';
+
+if(isset($_POST['submit_offer'])){
+    $exitOffer = new OfferController();
+    $Offer = $exitOffer->getOneOffer($_POST['offer_id']);
+  }
+
+if(isset($_POST['submit'])){
+    $commandeController = new CommandeController();
+    $commandeController->AddCommande();
+}
+
 
 if(isset($_POST['book_id'])){
   $exitBook = new ProductController();
   $Book = $exitBook->getOneBook($_POST['book_id']);
 }
+
+
+
 
 ?>
 <body>
@@ -80,8 +96,19 @@ if(isset($_POST['book_id'])){
                     </ul>
                 </li>
                 <li id="headerPannel">
-                    <a href="Pannel.php">
-                        <img src="../Images/headerPannel.png" alt="">
+                <a href="Pannel.php">
+                        <?php if(!$_SESSION['pannel_number']): ?>
+                            <img src="../Images/headerPannel.png" alt="">
+                            <p class="pannel_number">0</p> 
+                            
+                        <?php else: ?>
+                            <img src="../Images/fullpannel_header.png" alt="" id="pannelIcone">
+                        <?php if($_SESSION['pannel_number'] < 10): ?>
+                        <p class="pannel_number"> <?= $_SESSION['pannel_number'] ; ?> </p> 
+                        <?php else: ?>
+                            <p class="pannel_number">+9</p>
+                        <?php endif; ?>
+                        <?php endif; ?>
                     </a>
                 </li>
                 <li id="headerFavorite">
@@ -92,8 +119,8 @@ if(isset($_POST['book_id'])){
             </ul>
         </div>
 </header>
-
-<div class="searching_book">
+<?php if(isset($Book)): ?>
+    <div class="searching_book">
         <div class="book_image">
             <img src="<?php echo $Book['image_book'] ?>" alt="">
         </div>    
@@ -101,9 +128,13 @@ if(isset($_POST['book_id'])){
             <h2><?php echo $Book['book_title'] ?></h2>
             <p><span style="font-weight: bold;">written by:&nbsp</span><?php echo $Book['book_writer'] ?></p>
             <p><?php echo $Book['description_book'] ?></p>       
-            <p><span style="font-weight: bold;">Prix :&nbsp</span><?php echo $Book['prix_book'] ?> $</p>
+            <p><span style="font-weight: bold;">Price :&nbsp</span><?php echo $Book['prix_book'] ?> $</p>
         </div>
-</div>
+    </div>
+<?php else: ?>
+ <h1><?php echo $Offer['id'] ?></h1>
+
+<?php endif; ?>    
 
 <h2 class="checkout">Checkout</h2>
 <h3>Ship To Address</h3>
@@ -111,70 +142,64 @@ if(isset($_POST['book_id'])){
 <div class="pay_form">
   <div class="ship_adress">
     <hr>
-    <!-- hnaaaaaaa lfoooooorm  -->
-    <!-- hnaaaaaaa lfoooooorm  -->
-    <!-- hnaaaaaaa lfoooooorm  -->
-    <!-- hnaaaaaaa lfoooooorm  -->
-    <!-- hnaaaaaaa lfoooooorm  -->
 
     <form action="" method="post">
 
     <div class="first_row">
         <div class="div1">
-            <p>Last Name</p>
-            <input type="text">
+            <p>First Name</p>
+            <input type="text" name="first_name" required>
         </div>
         <div class="div2">
             <p>Last Name</p>
-            <input type="text">
+            <input type="text" name="second_name" required>
         </div>
     </div>
 
     <div class="second_row">
         <div class="div1">
             <p>Address 1</p>
-            <input type="text">
+            <input type="text" name="adress_1" required>
         </div>
         <div class="div2">
-            <p>Address 2</p>
-            <input type="text">
+            <p>Address 2 <span style="color: rgba(255, 0, 0, 0.578);">(optional)</span></p>
+            <input type="text" name="adress_2">
         </div>
     </div>
 
     <div class="first_row">
         <div class="div1">
             <p>City</p>
-            <input type="text">
+            <input type="text" name="city" required>
         </div>
         <div class="div2">
             <p>State</p>
-            <input type="text">
+            <input type="text" name="states" required>
         </div>
     </div>
 
     <div class="second_row">
         <div class="div1">
             <p>Country</p>
-            <input type="text">
+            <input type="country" name="country" required>
         </div>
         <div class="div2">
             <p>Phone Number</p>
-            <input type="text">
+            <input type="tel" name="phone_number" required>
         </div>
     </div>
 
     <div class="first_row row_submit">
         <div class="div1">
             <p>Zip Code (5 Digits)</p>
-            <input type="text">
+            <input type="text" name="zip_code" required>
         </div>
         <div class="div2">
-            <button type="submit" value="submit">Confirm</button>
+            <input type="hidden" name="book_id" value="<?php echo $Book['id'] ?>">
+            <button type="submit" name="submit">Confirm</button>
         </div>
     </div>
 
-
-  
   </div>
 
 <div class="master_paypal">

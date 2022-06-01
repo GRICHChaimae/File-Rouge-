@@ -29,21 +29,28 @@ if (!isset($_SESSION["userName"])) {
 
 require_once '../../Controllers/productController.php';
 require_once '../../Controllers/pannelController.php';
+require_once '../../Controllers/favoriteController.php';
 
 $data = new ProductController();
 $Books = $data->getAllProducts();
 
-// $pannelData = new PannelController();
-// $Pannels = $pannelData->getPannelProduct();
-
 if (isset($_POST['submit'])) {
 
-    $existeInPannel = new PannelController();
-    $existe = $existeInPannel->existeInPannel();
+    $pannelController = new PannelController();
+    $existe = $pannelController->existeInPannel();
 
     if (!$existe) {
-        $pannelProduct = new PannelController();
-        $pannelProduct->AddPannelProduct();
+        $pannelController->AddPannelProduct();
+    }
+}
+
+if (isset($_POST['submit_favorite'])) {
+
+    $favoriteController = new FavoriteController();
+    $existe = $favoriteController->ExisteInFavorie();
+
+    if (!$existe) {
+        $favoriteController->AddFavorieProduct();
     }
 }
 
@@ -99,8 +106,19 @@ if (isset($_POST['submit'])) {
                     </ul>
                 </li>
                 <li id="headerPannel">
-                    <a href="Pannel.php">
-                        <img src="../Images/headerPannel.png" alt="">
+                <a href="Pannel.php">
+                        <?php if(!$_SESSION['pannel_number']): ?>
+                            <img src="../Images/headerPannel.png" alt="">
+                            <p class="pannel_number">0</p> 
+                            
+                        <?php else: ?>
+                            <img src="../Images/fullpannel_header.png" alt="" id="pannelIcone">
+                        <?php if($_SESSION['pannel_number'] < 10): ?>
+                        <p class="pannel_number"> <?= $_SESSION['pannel_number'] ; ?> </p> 
+                        <?php else: ?>
+                            <p class="pannel_number">+9</p>
+                        <?php endif; ?>
+                        <?php endif; ?>
                     </a>
                 </li>
                 <li id="headerFavorite">
@@ -127,28 +145,11 @@ if (isset($_POST['submit'])) {
     </div>
 
     <h2>Our Library</h2>
-    <!-- <a href="#fantasy" onclick="">click</a> -->
+
     <div class="card2" >
-        <!-- <div id="fantasy">fantasy</div> -->
+
 <?php 
 
-// $fantasy = [];
-// $adventure = [];
-// $romance = [];
-
-
-// foreach($books as $book)
-//     switch ($book['category']){
-//         case 'fantasy': 
-//             $fantasy[] = $book;
-//             break;
-//         case 'adventure': 
-//             $adventure[] = $book;
-//             break;
-//         case 'romance': 
-//             $romance[] = $book;
-//             break;
-// }
 
     
 ?>
@@ -160,33 +161,21 @@ if (isset($_POST['submit'])) {
                     <h4><?php echo $Book['book_title'] ?></h4>
 
                     <div class="prix-pannel">
-                    <p><span>Prix : </span><?php echo $Book['prix_book'] ?> $</p>
+                    <p><span>Price : </span><?php echo $Book['prix_book'] ?> $</p>
 
                     <div class="icon-pannel-favorite">
                     <form action="" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="image" value="<?php echo $Book['image_book'] ?>">
-                        <input type="hidden" name="description" value="<?php echo $Book['description_book'] ?>">
-                        <input type="hidden" name="prix" value="<?php echo $Book['prix_book'] ?>">
-                        <input type="hidden" name="book_title" value="<?php echo $Book['book_title'] ?>">
-                        <input type="hidden" name="book_writer" value="<?php echo $Book['book_writer'] ?>">
                         <input type="hidden" name="book_id" value="<?php echo $Book['id'] ?>">
                         <input type="hidden" name="user_id" value="<?php echo $_SESSION["user_id"] ?>">
-                        <input type="hidden" name="notExiste" value="true">
                         <button name="submit">
                             <img id="pannel" src="../Images/pannel.png" alt="">
                             <img id="fullpannel" src="../Images/fullpannel.png" alt="">
                         </button>
                     </form>
                     <form action="" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="image" value="<?php echo $Book['image_book'] ?>">
-                        <input type="hidden" name="description" value="<?php echo $Book['description_book'] ?>">
-                        <input type="hidden" name="prix" value="<?php echo $Book['prix_book'] ?>">
-                        <input type="hidden" name="book_title" value="<?php echo $Book['book_title'] ?>">
-                        <input type="hidden" name="book_writer" value="<?php echo $Book['book_writer'] ?>">
                         <input type="hidden" name="book_id" value="<?php echo $Book['id'] ?>">
                         <input type="hidden" name="user_id" value="<?php echo $_SESSION["user_id"] ?>">
-                        <input type="hidden" name="notExiste" value="true">
-                        <button name="submit">
+                        <button name="submit_favorite">
                             <img id="favorite" src="../Images/favorite.png" alt="">
                             <img id="fullfavorite" src="../Images/fullfavorite.png" alt="">
                         </button>

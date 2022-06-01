@@ -76,9 +76,11 @@
                 <li id="headerPannel">
                     <a href="Pannel.php">
                         <?php if(!$_SESSION['pannel_number']): ?>
-                            <img src="../Images/emptyPannel.png" alt="">
+                            <img src="../Images/headerPannel.png" alt="">
+                            <p class="pannel_number">0</p> 
+                            
                         <?php else: ?>
-                        <img src="../Images/fullpannel_header.png" alt="" id="pannelIcone">
+                            <img src="../Images/fullpannel_header.png" alt="" id="pannelIcone">
                         <?php if($_SESSION['pannel_number'] < 10): ?>
                         <p class="pannel_number"> <?= $_SESSION['pannel_number'] ; ?> </p> 
                         <?php else: ?>
@@ -112,7 +114,7 @@
                 <li><a href="Blog.php">Blog</a></li>
                 <li><a href="WhyUs.php">Why Us</a></li>
                 <li><a href="login.php">Login</a></li>
-                <li><a href="login.php">Register</a></li>
+                <li><a href="SignUp.php">Register</a></li>
             </ul>
 
         </nav>
@@ -121,7 +123,7 @@
             <ul>
                 <li><a href="login.php">Login</a></li>
                 <li>/</li>
-                <li><a href="login.php">Register</a></li>
+                <li><a href="SignUp.php">Register</a></li>
             </ul>
         </div>
     </header>

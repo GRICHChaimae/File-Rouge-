@@ -83,8 +83,19 @@ if(isset($_POST['search_ISBN'])){
                     </ul>
                 </li>
                 <li id="headerPannel">
-                    <a href="Pannel.php">
-                        <img src="../Images/headerPannel.png" alt="">
+                <a href="Pannel.php">
+                        <?php if(!$_SESSION['pannel_number']): ?>
+                            <img src="../Images/headerPannel.png" alt="">
+                            <p class="pannel_number">0</p> 
+                            
+                        <?php else: ?>
+                            <img src="../Images/fullpannel_header.png" alt="" id="pannelIcone">
+                        <?php if($_SESSION['pannel_number'] < 10): ?>
+                        <p class="pannel_number"> <?= $_SESSION['pannel_number'] ; ?> </p> 
+                        <?php else: ?>
+                            <p class="pannel_number">+9</p>
+                        <?php endif; ?>
+                        <?php endif; ?>
                     </a>
                 </li>
                 <li id="headerFavorite">
@@ -129,7 +140,7 @@ if(isset($_POST['search_ISBN'])){
             <p><?php echo $Book['description_book'] ?></p>       
             <p><span style="font-weight: bold;">Prix :&nbsp</span><?php echo $Book['prix_book'] ?> $</p>
             <form action="buy_book.php" method="post">
-                <input type="numeber" name="book_id" value="<?php echo $Book['id'] ?>" hidden>
+                <input type="number" name="book_id" value="<?php echo $Book['id'] ?>" hidden>
                 <button name="buy_now" type="submit" ><span style="font-weight: bold;">Buy &nbsp Now</span></button>
             </form>
         </div>

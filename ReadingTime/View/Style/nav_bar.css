@@ -4,10 +4,6 @@
     font-family: 'Libre Caslon Text', serif;
     text-decoration: none;
 } 
- 
- /* big header #E6DAD5 
- litle header #CBA896 
- logo #855342  */
 
 header{
     background-color: #E6DAD5;
@@ -16,7 +12,7 @@ header{
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
-    border-bottom: black 1px solid;
+    border-bottom: #00000029 1px solid;
 }
 
 #logo a{
@@ -25,12 +21,14 @@ header{
     color: #855342;
     margin-bottom: 0;
 }
+
 #logo a p{
     margin-top: 0;
     font-weight: bolder;
     font-size: 25px;
     margin-bottom: 0;
 }
+
 #logo a img{
     width: 30px;
     height: 30px;
@@ -132,7 +130,6 @@ header label{
     display: none;
 }
 
-/* header .right-nav #headerPannel a p  */
 .pannel_number{
     position: absolute;
     top: -11px;
@@ -192,7 +189,6 @@ header .right-nav ul li ul{
         padding: 0;
     }
     header .navbary ul{
-        /* margin: 0 !important; */
         padding: 0 !important;
     }
 
