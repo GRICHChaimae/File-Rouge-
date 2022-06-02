@@ -32,19 +32,16 @@ if(isset($_POST['submit_offer'])){
     $Offer = $exitOffer->getOneOffer($_POST['offer_id']);
   }
 
-if(isset($_POST['submit'])){
-    $commandeController = new CommandeController();
-    $commandeController->AddCommande();
+if(isset($_GET['book_id'])){
+  $exitBook = new ProductController();
+  $Book = $exitBook->getOneBook($_GET['book_id']);
 }
 
 
 if(isset($_POST['book_id'])){
-  $exitBook = new ProductController();
-  $Book = $exitBook->getOneBook($_POST['book_id']);
+    $commandeController = new CommandeController();
+    $commandeController->AddCommande();
 }
-
-
-
 
 ?>
 <body>
@@ -74,7 +71,7 @@ if(isset($_POST['book_id'])){
                         <li><a href="shopingList.php">Your shopping list</a></li>
                         <li><a href="user_Messages.php">Your messages</a></li>
                         <li><a href="user_Messages_answered.php">Messages answered</a></li>
-                        <li><a href="admin_Sign_Out.php">Sign Out</a></li>
+                        <li><a href="SignOut.php">Sign Out</a></li>
                     </ul>
                 </li>
             </ul>
@@ -92,7 +89,7 @@ if(isset($_POST['book_id'])){
                         <li><a href="shopingList.php">Your shopping list</a></li>
                         <li><a href="user_Messages.php">Your messages</a></li>
                         <li><a href="user_Messages_answered.php">Messages answered</a></li>
-                        <li><a href="admin_Sign_Out.php">Sign Out</a></li>
+                        <li><a href="SignOut.php">Sign Out</a></li>
                     </ul>
                 </li>
                 <li id="headerPannel">
@@ -131,7 +128,7 @@ if(isset($_POST['book_id'])){
             <p><span style="font-weight: bold;">Price :&nbsp</span><?php echo $Book['prix_book'] ?> $</p>
         </div>
     </div>
-<?php else: ?>
+<?php elseif(isset($Offer)): ?>
  <h1><?php echo $Offer['id'] ?></h1>
 
 <?php endif; ?>    
@@ -188,18 +185,17 @@ if(isset($_POST['book_id'])){
             <input type="tel" name="phone_number" required>
         </div>
     </div>
-
     <div class="first_row row_submit">
         <div class="div1">
             <p>Zip Code (5 Digits)</p>
             <input type="text" name="zip_code" required>
         </div>
         <div class="div2">
+            <input type="hidden" name="user_id" value="<?php echo $_SESSION["user_id"] ?>">
             <input type="hidden" name="book_id" value="<?php echo $Book['id'] ?>">
             <button type="submit" name="submit">Confirm</button>
         </div>
     </div>
-
   </div>
 
 <div class="master_paypal">

@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <?php if(isset($_SESSION["userName"])):?>
         <link rel="stylesheet" href="../Style/nav_bar.css">
@@ -52,7 +53,7 @@
                         <li><a href="shopingList.php">Your shopping list</a></li>
                         <li><a href="user_Messages.php">Your messages</a></li>
                         <li><a href="user_Messages_answered.php">Messages answered</a></li>
-                        <li><a href="admin_Sign_Out.php">Sign Out</a></li>
+                        <li><a href="SignOut.php">Sign Out</a></li>
                     </ul>
                 </li>
             </ul>
@@ -70,7 +71,7 @@
                         <li><a href="shopingList.php">Your shopping list</a></li>
                         <li><a href="user_Messages.php">Your messages</a></li>
                         <li><a href="user_Messages_answered.php">Messages answered</a></li>
-                        <li><a href="admin_Sign_Out.php">Sign Out</a></li>
+                        <li><a href="SignOut.php">Sign Out</a></li>
                     </ul>
                 </li>
                 <li id="headerPannel">
@@ -194,7 +195,7 @@
         </div>
     </div>
 
-    <div class="about">
+    <div class="about" data-aos="zoom-in">
         <h2>ABOUT</h2>
         <P>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
@@ -206,12 +207,12 @@
     </div>
 
     <div class="best-books">
-        <img src="../Images/content1.png" alt="">
+        <img src="../Images/content1.png" alt="" data-aos="fade-right">
         <div class="best-book-text">
-            <h2>
+            <h2 data-aos="fade-left">
                 15 best selling books of decade
             </h2>
-            <p>&emsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+            <p data-aos="fade-left">&emsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
             molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
             numquam blanditiis harum quisquam eius sed odit fugiat iusto
             sint commodi repudiandae consequuntur voluptatum laborum
@@ -221,12 +222,12 @@
     </div>
 
     <div class="best-books ex2">
-        <img src="../Images/content2.png" alt="">
+        <img src="../Images/content2.png" alt="" data-aos="fade-left">
         <div class="best-book-text">
-            <h2>
+            <h2 data-aos="fade-right">
                 15 best selling books of decade
             </h2>
-            <p>&emsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+            <p data-aos="fade-right">&emsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
             molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
             numquam blanditiis harum quisquam eius sed odit fugiat iusto
             sint commodi repudiandae consequuntur voluptatum laborum
@@ -236,24 +237,24 @@
     </div>
 
     <div class="newBooks-content">    
-        <h2 class="newBoks-header">New Books</h2>
+        <h2 class="newBoks-header" data-aos="zoom-in">New Books</h2>
         <div class="newBooks">
-            <div class="book">
+            <div class="book" data-aos="flip-left">
                 <img src="../Images/livre1.png" alt="milk and honey">
                 <p class="description">Milk and honey created by ...</p>
                 <p id="price"><span class="prix">Prix</span> : 123 $</p>
             </div>
-            <div class="book">
+            <div class="book" data-aos="flip-left">
                 <img src="../Images/livre2.png" alt="PSALMS">
                 <p class="description">Milk and honey created by ...</p>
                 <p id="price"><span class="prix">Prix</span> : 113 $</p>
             </div>
-            <div class="book">
+            <div class="book" data-aos="flip-left">
                 <img src="../Images/livre3.png" alt="mTHINKIG , FAST AND SLOW">
                 <p class="description">Milk and honey created by ...</p>
                 <p id="price"><span class="prix">Prix</span> : 120 $</p>
             </div>
-            <div class="book">
+            <div class="book" data-aos="flip-left">
                 <img src="../Images/livre4.png" alt="101 ESSAYS THAT WILL CHANGE THE WAY YOU THINK">
                 <p class="description">Milk and honey created by ...</p>
                 <p id="price"><span class="prix">Prix</span> : 80 $</p>
@@ -261,34 +262,39 @@
         </div>
     </div>
 
-        <h2 class="newBoks-header howItWorks-header">How It Works</h2>
-        <div class="newBooks howItWorks">
-            <div class="book">
+    <h2 class="newBoks-header howItWorks-header" data-aos="zoom-in">How It Works</h2>
+      <div class="newBooks howItWorks">
+            <div class="howItWorks1">
+            <div class="how_works" data-aos="fade-up">
                 <img src="../Images/ISBN.png" alt="milk and honey">
                 <h4>1.Find the book by its ISBN</h4>
                 <p>Le lorem ipsum est, en une suite de mots sans signification </p>
             </div>
-            <div class="book">
+            <div class="how_works" data-aos="fade-up">
                 <img src="../Images/payer.png" alt="PSALMS">
                 <h4>2.Pay safely</h4>
                 <p>Le lorem ipsum est, en une suite de mots sans signification </p>
             </div>
-            <div class="book">
+            </div>
+            <div class="howItWorks2">
+            <div class="how_works" data-aos="fade-down">
                 <img src="../Images/pack.png" alt="mTHINKIG , FAST AND SLOW">
                 <h4>3.We pack your order
                     <br>
                     professionally
                 </h4>
-                    <p>Le lorem ipsum est, en une suite de mots sans signification </p>            </div>
-            <div class="book">
+                    <p>Le lorem ipsum est, en une suite de mots sans signification </p>           
+            </div>
+            <div class="how_works" data-aos="fade-down">
                 <img src="../Images/livrer.png" alt="101 ESSAYS THAT WILL CHANGE THE WAY YOU THINK">
                 <h4>4.We deliver your order quickly</h4>
                 <p>Le lorem ipsum est, en une suite de mots sans signification </p>
             </div>
+            </div>
         </div>
 
         <!-- footer -->
-        <footer>
+       <footer>
             <div class="menue-links">
                 <p>USEFUL LINKS</p>
                 <ul>
@@ -352,8 +358,11 @@
         </div>
         </div>    
         </footer>
-
+        
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+        <script>
+            AOS.init();
+        </script>
 </body>
 </html>

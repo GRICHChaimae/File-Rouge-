@@ -1,7 +1,7 @@
-<?php
-if (!isset($_SESSION)) {
-    session_start();
-}
+<?php 
+    if(!isset($_SESSION)){
+        session_start();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -14,15 +14,30 @@ if (!isset($_SESSION)) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <?php if(isset($_SESSION["userName"])):?>
-        <link rel="stylesheet" href="../Style/nav_bar.css">
-    <?php else: ?>
-        <link rel="stylesheet" href="../Style/home_bar.css">
-    <?php endif; ?>
-    <link rel="stylesheet" href="../Style/whyUs.css">
-    <title>Why Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Style/nav_bar.css">
+    <link rel="stylesheet" href="../Style/shopingList.css">
+    <title>Home</title>
 </head>
+
+<?php
+
+require_once '../../Controllers/pannelController.php';
+
+$pannelController = new PannelController();
+
+if(isset($_POST['deletefrompannel'])){
+    $pannelController->deletePannelProduct();
+}
+
+$Pannels = $pannelController->getPannelProduct();
+
+$_SESSION['pannel_number'] = count($Pannels);
+
+?>
+
 <body>
+
 <?php if(isset($_SESSION["userName"])):?>
   <header>
         <div id="logo">
@@ -74,9 +89,11 @@ if (!isset($_SESSION)) {
                 <li id="headerPannel">
                     <a href="Pannel.php">
                         <?php if(!$_SESSION['pannel_number']): ?>
-                            <img src="../Images/emptyPannel.png" alt="">
+                            <img src="../Images/headerPannel.png" alt="">
+                            <p class="pannel_number">0</p> 
+                            
                         <?php else: ?>
-                        <img src="../Images/fullpannel_header.png" alt="" id="pannelIcone">
+                            <img src="../Images/fullpannel_header.png" alt="" id="pannelIcone">
                         <?php if($_SESSION['pannel_number'] < 10): ?>
                         <p class="pannel_number"> <?= $_SESSION['pannel_number'] ; ?> </p> 
                         <?php else: ?>
@@ -110,7 +127,7 @@ if (!isset($_SESSION)) {
                 <li><a href="Blog.php">Blog</a></li>
                 <li><a href="WhyUs.php">Why Us</a></li>
                 <li><a href="login.php">Login</a></li>
-                <li><a href="login.php">Register</a></li>
+                <li><a href="SignUp.php">Register</a></li>
             </ul>
 
         </nav>
@@ -119,58 +136,77 @@ if (!isset($_SESSION)) {
             <ul>
                 <li><a href="login.php">Login</a></li>
                 <li>/</li>
-                <li><a href="login.php">Register</a></li>
+                <li><a href="SignUp.php">Register</a></li>
             </ul>
         </div>
     </header>
 
-    <?php endif; ?>
+    <?php endif; ?>  
 
-    <h2 data-aos="fade-up">Why Choose Us?</h2>
+    <div class="page_content">
+        <div class="side_bar">
+            <ul>
+                <li><a href="#">My Account</a></li>
+                <li><a href="user_account.php">Account Informations</a></li>
+                <li><a href="shopingList.php" class="active_liste">Your shopping list</a></li>
+                <li><a href="user_Messages.php">Your messages</a></li>
+                <li><a href="user_Messages_answered.php">Messages answered</a></li>
+                <li><a href="SignOut.php">Sign Out</a></li>
+            </ul>
+        </div>
+        
+        <div id="Your_shopping_list">
 
-    <h3 data-aos="fade-right">1.We make it easy to find the book that you want.</h3>
-    <p data-aos="fade-left" class="why_us">
-        &emsp; Buying your book on your own is not an easy task. Not only do you need to compare offers, 
-        but you need to evaluate the reliability of buyers and also keep an eye on the buying process until you get paid. 
-        Furthermore, in the case that you get paid less than the quote offered to you, it’s quite difficult to solve this issue alone.
-        Reading Time makes this easy by solving all these problems and offering everything you need in one place.
-    </p>
+            <p>Your Shopping List</p>
 
-    <h3 data-aos="fade-right">2. We ensure an easy buying process.</h3>
-    <p data-aos="fade-left" class="why_us">
-        &emsp; Our Buying  process is extremely easy. Because the value of your book changes every day or even every hour based on buyer needs, 
-        book usage in the following semester, and national demand, students need to compare their book value from as many buyers as 
-        possible so that they can be but the  lesser price for their book. On  Reading Time, we do all that for you, so all you have 
-        to do is type in the ISBN of your book and we rank your offers from high to low along with buyer ratings.
-    </p>
+            <?php if(empty($Pannels)): ?>
 
-    <h3 data-aos="fade-right">3. We provide a wide network of reliable book-buying companies.</h3>
-    <p data-aos="fade-left" class="why_us">
-        &emsp; To find the most reliable book-buying companies, you would have to search individual buyers’ websites and investigate 
-        the reliability of each buyer. How do you even know where to look or who to trust? That’s where we come in. 
-        We’ve been in the textbook industry for over 20 years, so we know which book-buying companies are reliable. 
-        On Reading Time, we provide a huge network of reputable buyers to get you the best deal in a reliable and easy way.
-    </p>
+<div class="nexistePas">
+    <p>Your Pannel is empty</p>
+    <h1>Let's Go To Add Some Books In Your Pannel</h1>
+</div>
+<?php else: ?>
 
-    <h3 data-aos="fade-right">4. We protect you.</h3>
-    <p data-aos="fade-left" class="why_us">
-        &emsp; Reading Time offers a unique feature called Download Book Photos. In the buying process, 
-        you can use this with your mobile device to download photos of our books as evidence that you sent the correct 
-        book in the correctly described condition.
-    </p>
+<?php foreach($Pannels as $Pannel): ?>
+    
+<div class="searching_book">
+    <div class="book_image">
+        <img src="<?php echo $Pannel['image_book'] ?>" alt="">
+    </div>    
+    <div class="book_info">       
+        <h2><?php echo $Pannel['book_title'] ?></h2>
+        <p><span style="font-weight: bold;">written by:&nbsp</span><?php echo $Pannel['book_writer'] ?></p>
+        <p><?php echo $Pannel['description_book'] ?></p>       
+        <p><span style="font-weight: bold;">Price :&nbsp</span><?php echo $Pannel['prix_book'] ?> $</p>
+    </div>
+    <div class="remove_book">
+        <form action="" method="post">
+            <input type = "hidden" name = "pannel_id" value = "<?php echo $Pannel['pannel_id']?>">
+            <button type = "submit" name = "deletefrompannel">
+                <img src="../Images/dop_book.png" alt="">
+            </button>
+        </form>
+    </div>
+</div>
 
-    <h3 data-aos="fade-right">5. We guarantee you’ll get your book.</h3>
-    <p data-aos="fade-left" class="why_us">
-        &emsp; Not only have we chosen buyers that we deem are reliable, but we also promise reliability by following up on 
-        everything from the moment you type in your ISBN to the moment you get your book. Sometimes, disputes happen 
-        between a You and Us usually about the accuracy of the book’s identity or the condition or quality of the book. 
-        Reading Time Guarantee protects you when you sell items to buyers if we determine that you’ve followed our Selling Guidelines.
-    </p>
+<?php endforeach; ?>
+
+<?php endif; ?>
+
+        </div>
 
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
+
+    </div>
+
+
+        <!-- footer -->
+
+        
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script>
+            AOS.init();
+        </script>
 </body>
 </html>

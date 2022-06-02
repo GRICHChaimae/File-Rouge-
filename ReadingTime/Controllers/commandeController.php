@@ -17,24 +17,26 @@ class CommandeController{
             'states' => $_POST['states'],
             'country' => $_POST['country'],
             'phone_number' => $_POST['phone_number'],
-            'zip_code' => $_POST['zip_code']
+            'zip_code' => $_POST['zip_code'],
+            'user_id' => $_POST['user_id']
         );
 
             $add = new Commande();
             $result = $add->Add($data);
 
-            if($result){
-                header("location:buy_book.php");
-            }else{
-                echo $result;
-            }
+            // if($result){
+            //     header("location:buy_book.php");
+            // }else{
+            //     echo $result;
+            // }
+            
         }
     
-    public function getOneISBN($ISBN){
-        $Book_ISBN = new product();
-        $ISBN = $Book_ISBN->getOneISBN($ISBN);
-        return $ISBN;
-    }
+    // public function getOneISBN($ISBN){
+    //     $Book_ISBN = new product();
+    //     $ISBN = $Book_ISBN->getOneISBN($ISBN);
+    //     return $ISBN;
+    // }
 
     public function getAllProducts(){
         $getAll = new Product();
@@ -42,42 +44,11 @@ class CommandeController{
         return $Posts;
     }
 
-    public function getOneBook($id){
-        $getOne = new Product();
-        $Book = $getOne->getOne($id);
-        return $Book;
-    }
-
-    public function UpdateBook(){
-        if(!isset($_POST['submit'])) return;
-
-
-        $image = $_FILES['image']['name'];
-        $imgsrc= $_FILES['image']['tmp_name'];
-        $folderLocation = "../images";
-        $path ="$folderLocation/".$image;
-        move_uploaded_file($imgsrc,$path);
-
-        $data = array(
-            'title' => $_POST['titre'],
-            'picture' => $_POST['picture'],
-            'writer' => $_POST['ecrivain'],
-            'description' => $_POST['description'],
-            'prix' => $_POST['prix'],
-            'id' => $_POST['id'],
-            'path' => $path,
-            'check_image' => $image 
-        );
-
-        $edit = new Product();
-        $result = $edit->Update($data);
-        if($result){
-            header('location:admin_management_product.php');
-        }else{
-            echo $result;  
-        }
-        
-    }
+    // public function getOneBook($id){
+    //     $getOne = new Product();
+    //     $Book = $getOne->getOne($id);
+    //     return $Book;
+    // }
 
     public function deleteProduct(){
         if(isset($_POST['deleteProduct'])){

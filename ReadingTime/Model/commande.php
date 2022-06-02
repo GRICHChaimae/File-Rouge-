@@ -4,9 +4,9 @@ require_once 'dataBase.php';
 class Commande{
     public function Add($data){
 
-        $stmt = DB::connect()->prepare('INSERT INTO commands (book_id,first_name,second_name,adress_1,adress_2,city,states,country,phone_number,zip_code) VALUES (:book_id,:first_name,:second_name,:adress_1,:adress_2,:city,:states,:country,:phone_number,:zip_code)');
+        $stmt = DB::connect()->prepare('INSERT INTO commands (book_id,first_name,second_name,adress_1,adress_2,city,states,country,phone_number,zip_code,user_id) VALUES (:book_id,:first_name,:second_name,:adress_1,:adress_2,:city,:states,:country,:phone_number,:zip_code,:user_id)');
 
-        $executed = $stmt->execute(["book_id"=> $data['book_id'],"first_name"=> $data['first_name'],"second_name"=> $data['second_name'],"adress_1"=> $data['adress_1'],"adress_2"=> $data['adress_2'],"city"=> $data['city'],"states"=> $data['states'],"country"=> $data['country'],"phone_number"=> $data['phone_number'],"zip_code"=> $data['zip_code']]);
+        $executed = $stmt->execute(["book_id"=> $data['book_id'],"first_name"=> $data['first_name'],"second_name"=> $data['second_name'],"adress_1"=> $data['adress_1'],"adress_2"=> $data['adress_2'],"city"=> $data['city'],"states"=> $data['states'],"country"=> $data['country'],"phone_number"=> $data['phone_number'],"zip_code"=> $data['zip_code'], "user_id"=> $data['user_id']]);
 
         return $executed;
 

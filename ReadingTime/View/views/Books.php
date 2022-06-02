@@ -84,7 +84,7 @@ if (isset($_POST['submit_favorite'])) {
                         <li><a href="shopingList.php">Your shopping list</a></li>
                         <li><a href="user_Messages.php">Your messages</a></li>
                         <li><a href="user_Messages_answered.php">Messages answered</a></li>
-                        <li><a href="admin_Sign_Out.php">Sign Out</a></li>
+                        <li><a href="SignOut.php">Sign Out</a></li>
                     </ul>
                 </li>
             </ul>
@@ -102,7 +102,7 @@ if (isset($_POST['submit_favorite'])) {
                         <li><a href="shopingList.php">Your shopping list</a></li>
                         <li><a href="user_Messages.php">Your messages</a></li>
                         <li><a href="user_Messages_answered.php">Messages answered</a></li>
-                        <li><a href="admin_Sign_Out.php">Sign Out</a></li>
+                        <li><a href="SignOut.php">Sign Out</a></li>
                     </ul>
                 </li>
                 <li id="headerPannel">

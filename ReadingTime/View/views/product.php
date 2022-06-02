@@ -61,7 +61,7 @@ if(isset($_POST['search_ISBN'])){
                         <li><a href="shopingList.php">Your shopping list</a></li>
                         <li><a href="user_Messages.php">Your messages</a></li>
                         <li><a href="user_Messages_answered.php">Messages answered</a></li>
-                        <li><a href="admin_Sign_Out.php">Sign Out</a></li>
+                        <li><a href="SignOut.php">Sign Out</a></li>
                     </ul>
                 </li>
             </ul>
@@ -79,7 +79,7 @@ if(isset($_POST['search_ISBN'])){
                         <li><a href="shopingList.php">Your shopping list</a></li>
                         <li><a href="user_Messages.php">Your messages</a></li>
                         <li><a href="user_Messages_answered.php">Messages answered</a></li>
-                        <li><a href="admin_Sign_Out.php">Sign Out</a></li>
+                        <li><a href="SignOut.php">Sign Out</a></li>
                     </ul>
                 </li>
                 <li id="headerPannel">
@@ -139,7 +139,7 @@ if(isset($_POST['search_ISBN'])){
             <p><span style="font-weight: bold;">written by:&nbsp</span><?php echo $Book['book_writer'] ?></p>
             <p><?php echo $Book['description_book'] ?></p>       
             <p><span style="font-weight: bold;">Prix :&nbsp</span><?php echo $Book['prix_book'] ?> $</p>
-            <form action="buy_book.php" method="post">
+            <form action="buy_book.php" method="get">
                 <input type="number" name="book_id" value="<?php echo $Book['id'] ?>" hidden>
                 <button name="buy_now" type="submit" ><span style="font-weight: bold;">Buy &nbsp Now</span></button>
             </form>
