@@ -193,6 +193,7 @@ if(isset($_POST['book_id'])){
         <div class="div2">
             <input type="hidden" name="user_id" value="<?php echo $_SESSION["user_id"] ?>">
             <input type="hidden" name="book_id" value="<?php echo $Book['id'] ?>">
+            <input type="hidden" name="made" value="false">
             <button type="submit" name="submit">Confirm</button>
         </div>
     </div>

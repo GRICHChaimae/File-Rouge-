@@ -15,11 +15,6 @@
 
 require_once '../../Controllers/productController.php';
 
-    if(isset($_POST['submit'])){
-        $product = new ProductController();
-        $product->AddProduct();
-    }
-
     if(isset($_POST['deleteProduct'])){
         $pannelProduct= new ProductController();
         $pannelProduct->deleteProduct();
@@ -58,32 +53,14 @@ require_once '../../Controllers/productController.php';
     </nav>
 </header>
 
-<h2>Add a Book</h2>
-
-<div class="fromy">
-    <form action="" method="post" enctype="multipart/form-data" class="form-add">
-        
-            <label for="">Book title</label>
-            <input type="text" name="titre">
-       
-            <label for="">Description</label>
-            <textarea type="text" name="description" style="height:100px"></textarea>
-       
-            <label for="">Writer</label>
-            <input type="text" name="ecrivain">
-        
-            <label for="">Picture</label>
-            <input type="file" name="image">
-        
-            <label for="">Price</label>
-            <input type="number" name="prix">
-
-            <label for="">ISBN</label>
-            <input type="number" name="ISBN">
-      
-        <input type="submit" name="submit" id="submit">
-    </form>
-</div>
+<dvi class="done_or_not">
+    <div class="not-active">
+        <a href="admin_add_book.php">Add a Book</a> 
+    </div>   
+    <div class="active">
+        <a href="admin_management_product.php">Manage Books</a> 
+    </div>
+</dvi>
 
     <div class="parents">
     <table>

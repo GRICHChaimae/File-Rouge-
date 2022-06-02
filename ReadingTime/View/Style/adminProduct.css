@@ -4,10 +4,7 @@
     font-family: 'Libre Caslon Text', serif;
     text-decoration: none;
 } 
- 
- /* big header #E6DAD5 
- litle header #CBA896 
- logo #855342  */
+
 header{
     background-color: #E6DAD5;
     padding: 0px 7%;

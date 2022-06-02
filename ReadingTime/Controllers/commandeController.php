@@ -18,7 +18,8 @@ class CommandeController{
             'country' => $_POST['country'],
             'phone_number' => $_POST['phone_number'],
             'zip_code' => $_POST['zip_code'],
-            'user_id' => $_POST['user_id']
+            'user_id' => $_POST['user_id'],
+            'made' => $_POST['made']
         );
 
             $add = new Commande();
@@ -38,10 +39,10 @@ class CommandeController{
     //     return $ISBN;
     // }
 
-    public function getAllProducts(){
-        $getAll = new Product();
-        $Posts = $getAll->getAll();
-        return $Posts;
+    public function getcommandes(){
+        $getAll = new Commande();
+        $commands = $getAll->getAll();
+        return $commands;
     }
 
     // public function getOneBook($id){
@@ -50,20 +51,19 @@ class CommandeController{
     //     return $Book;
     // }
 
-    public function deleteProduct(){
-        if(isset($_POST['deleteProduct'])){
+    public function deleteCommande(){
+        if(!isset($_POST['command_id'])) return;
 
-            $id = $_POST['id'];
+            $id = $_POST['command_id'];
 
-            $delete = new Product();
+            $delete = new Commande();
             $result = $delete->delete($id);
             
             if($result === 'ok'){
-                header('location:admin_management_product.php');
+                header('location:shopingList.php');
             }else{
                 echo $result;  
             }
-        }
     }   
 }
 

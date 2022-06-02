@@ -21,13 +21,10 @@
 
 require_once '../../Controllers/blogController.php';
 
-    if(isset($_POST['deleteBlog'])){
-        $Blog= new BolgController();
-        $Blog->deleteBlog();
+    if(isset($_POST['submit'])){
+        $blog = new BolgController();
+        $blog->AddBlog();
     }
-
-    $data = new BolgController();
-    $Blogs = $data->getAllBlogs();
 
 ?>
 
@@ -60,54 +57,34 @@ require_once '../../Controllers/blogController.php';
 </header>
 
 <dvi class="done_or_not">
-    <div class="not-active">
+    <div class="active">
         <a href="admin_add_blog.php">Add a Blog</a> 
     </div>   
-    <div class="active">
+    <div class="not-active">
         <a href="admin_management_blog.php">Manage Blogs</a> 
     </div>
 </dvi>
 
-    <div class="parents">
-    <table>
-        <tr>
-            <th>Blog title</th>
-            <th>Blog Description</th>
-            <th>Picture</th>
-            <th>Action</th>
-        </tr>
-    <?php foreach($Blogs as $Blog): ?>
-            <tr>
-                <td><?php echo $Blog['blog_title'] ?></td>
-                <td><?php echo $Blog['blog_description'] ?></td>
-                <td><?php echo $Blog['blog_image']?></td>
-                <td>
-                    <div id="image">
-                    <form method="post" action="admin_update_blog.php">
-                        <input type="hidden" name="id" value="<?php echo  $Blog['id'] ?>">
-                        <button type="submit" class="updateBook"> 
-                            <img id="pannel" src="../Images/updateBook.png">
-                        </button>
-                    </form>
-                    <form action="" method="post">
-                        <input type="hidden" name="id" value="<?php echo $Blog['id'] ?>">
-                        <button class="deleteBook" type="submit" name="deleteBlog">
-                            <img id="pannel" src="../Images/deleteBook.png" alt="">
-                        </button>
-                    </form>
-                    </div>
-                </td>
-            </tr>  
-        <?php endforeach;?>             
-        </table>
-         <div id="result">
-            <p>The Book is Deleted<img src="Vector1.png" class="vec1"></p>
-        </div>
+<h2>Add a Blog</h2>
+
+<div class="fromy">
+    <form action="" method="post" enctype="multipart/form-data" class="form-add">
+        
+            <label for="">Blog title</label>
+            <input type="text" name="titre">
+       
+            <label for="">Blog Description</label>
+            <textarea type="text" name="description" style="height:100px"></textarea>
+        
+            <label for="">Blog text</label>
+            <textarea type="text" name="blog_text" style="height:100px"></textarea>
+
+            <label for="">Picture</label>
+            <input type="file" name="image">
+      
+        <input type="submit" name="submit" id="submit">
+    </form>
 </div>
-
-    
-
-
 
 </body>
 </html>

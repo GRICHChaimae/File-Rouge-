@@ -22,17 +22,15 @@
 
 <?php
 
-require_once '../../Controllers/pannelController.php';
+require_once '../../Controllers/commandeController.php';
 
-$pannelController = new PannelController();
+    $commandeController = new CommandeController();
 
-if(isset($_POST['deletefrompannel'])){
-    $pannelController->deletePannelProduct();
-}
+    if(isset($_POST['deletecommande'])){
+        $commandeController->deleteCommande();
+    }
 
-$Pannels = $pannelController->getPannelProduct();
-
-$_SESSION['pannel_number'] = count($Pannels);
+    $commandes = $commandeController->getcommandes();
 
 ?>
 
@@ -159,30 +157,30 @@ $_SESSION['pannel_number'] = count($Pannels);
 
             <p>Your Shopping List</p>
 
-            <?php if(empty($Pannels)): ?>
+<?php if(empty($commandes)): ?>
 
 <div class="nexistePas">
-    <p>Your Pannel is empty</p>
-    <h1>Let's Go To Add Some Books In Your Pannel</h1>
+    <p>You don't any book yet</p>
+    <h1>Let's Buy Some Books</h1>
 </div>
 <?php else: ?>
 
-<?php foreach($Pannels as $Pannel): ?>
+<?php foreach($commandes as $commande): ?>
     
 <div class="searching_book">
     <div class="book_image">
-        <img src="<?php echo $Pannel['image_book'] ?>" alt="">
+        <img src="<?php echo $commande['image_book'] ?>" alt="">
     </div>    
     <div class="book_info">       
-        <h2><?php echo $Pannel['book_title'] ?></h2>
-        <p><span style="font-weight: bold;">written by:&nbsp</span><?php echo $Pannel['book_writer'] ?></p>
-        <p><?php echo $Pannel['description_book'] ?></p>       
-        <p><span style="font-weight: bold;">Price :&nbsp</span><?php echo $Pannel['prix_book'] ?> $</p>
+        <h2><?php echo $commande['book_title'] ?></h2>
+        <p><span style="font-weight: bold;">written by:&nbsp</span><?php echo $commande['book_writer'] ?></p>
+        <p><?php echo $commande['description_book'] ?></p>       
+        <p><span style="font-weight: bold;">Price :&nbsp</span><?php echo $commande['prix_book'] ?> $</p>
     </div>
     <div class="remove_book">
         <form action="" method="post">
-            <input type = "hidden" name = "pannel_id" value = "<?php echo $Pannel['pannel_id']?>">
-            <button type = "submit" name = "deletefrompannel">
+            <input type = "number" name = "command_id" value = "<?php echo $commande['command_id']?>">
+            <button type = "submit" name = "deletecommande">
                 <img src="../Images/dop_book.png" alt="">
             </button>
         </form>

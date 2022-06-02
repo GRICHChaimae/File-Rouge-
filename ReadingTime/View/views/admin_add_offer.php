@@ -15,13 +15,10 @@
 
 require_once '../../Controllers/offerController.php';
 
-    if(isset($_POST['deleteOffer'])){
-        $Offer= new OfferController();
-        $Offer->deleteOffer();
+    if(isset($_POST['submit'])){
+        $offer = new OfferController();
+        $offer->AddOffer();
     }
-
-    $data = new OfferController();
-    $Offers = $data->getAllOffers();
 
 ?>
 
@@ -54,53 +51,34 @@ require_once '../../Controllers/offerController.php';
 </header>
 
 <dvi class="done_or_not">
-    <div class="not-active">
+    <div class="active">
         <a href="admin_add_offer.php">Add Offer</a> 
     </div>   
-    <div class="active">
+    <div class="not-active">
         <a href="admin_management_offer.php">Manage Offers</a> 
     </div>
 </dvi>
 
-    <div class="parents">
-    <table>
-        <tr>
-            <th>Book title</th>
-            <th>Description</th>
-            <th>Picture</th>
-            <th>Price</th>
-            <th>Action</th>
-        </tr>
-    <?php foreach($Offers as $Offer): ?>
-            <tr>
-                <td><?php echo $Offer['title_offer'] ?></td>
-                <td><?php echo $Offer['description_offer'] ?></td>
-                <td><?php echo $Offer['image_offer']?></td>
-                <td><?php echo $Offer['prix_offer'] ?></td>
-                <td>
-                    <div id="image">
-                    <form method="post" action="admin_update_offer.php">
-                        <input type="hidden" name="id" value="<?php echo  $Offer['id'] ?>">
-                        <button type="submit" class="updateBook"> 
-                            <img id="pannel" src="../Images/updateBook.png">
-                        </button>
-                    </form>
-                    <form action="" method="post">
-                        <input type="hidden" name="id" value="<?php echo $Offer['id'] ?>">
-                        <button class="deleteBook" type="submit" name="deleteOffer">
-                            <img id="pannel" src="../Images/deleteBook.png" alt="">
-                        </button>
-                    </form>
-                    </div>
-                </td>
-            </tr>  
-        <?php endforeach;?>             
-        </table>
+<h2>Add an Offer</h2>
+
+<div class="fromy">
+    <form action="" method="post" enctype="multipart/form-data" class="form-add">
+        
+            <label for="">Offer title</label>
+            <input type="text" name="titre">
+       
+            <label for="">Description</label>
+            <textarea type="text" name="description" style="height:100px"></textarea>
+        
+            <label for="">Picture</label>
+            <input type="file" name="image">
+        
+            <label for="">Price</label>
+            <input type="number" name="prix">
+      
+        <input type="submit" name="submit" id="submit">
+    </form>
 </div>
-
-    
-
-
 
 </body>
 </html>
