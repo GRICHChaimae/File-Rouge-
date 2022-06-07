@@ -112,6 +112,8 @@ $Favorites = $favoriteController->getFavorieProduct();
         </div>
 </header>
 
+<h2 class="mypannel">My Favorites</h2>
+
 <?php if(empty($Favorites)): ?>
 
 <div class="nexistePas">

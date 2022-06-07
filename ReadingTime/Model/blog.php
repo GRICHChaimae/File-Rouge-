@@ -54,6 +54,15 @@ class Blog extends ParentClass{
         $stmt = DB::connect()->prepare("DELETE from blogs where id = $id");
         $stmt->execute();
     }
+
+    public function getSixBlogs($limit , $offset){
+        $stmt = DB::connect()->prepare("SELECT * FROM blogs order by id desc limit $limit offset $offset");
+        $stmt->execute();
+
+         return $stmt->fetchAll();
+        
+        $stmt = null;
+    }
     
 }
 

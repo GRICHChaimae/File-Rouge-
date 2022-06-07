@@ -25,31 +25,16 @@ class CommandeController{
             $add = new Commande();
             $result = $add->Add($data);
 
-            // if($result){
-            //     header("location:buy_book.php");
-            // }else{
-            //     echo $result;
-            // }
-            
-        }
-    
-    // public function getOneISBN($ISBN){
-    //     $Book_ISBN = new product();
-    //     $ISBN = $Book_ISBN->getOneISBN($ISBN);
-    //     return $ISBN;
-    // }
+            if(!$result){
+                echo $result;
+            }
+    }
 
     public function getcommandes(){
         $getAll = new Commande();
         $commands = $getAll->getAll();
         return $commands;
     }
-
-    // public function getOneBook($id){
-    //     $getOne = new Product();
-    //     $Book = $getOne->getOne($id);
-    //     return $Book;
-    // }
 
     public function deleteCommande(){
         if(!isset($_POST['command_id'])) return;

@@ -86,6 +86,17 @@ class BolgController{
             }
         }
     }
+
+    public function getSixBlogs(){
+        $limit = 6;
+
+        $page_number = isset($_GET['page']) ? (int)$_GET['page']: 1;
+        $page_number = $page_number < 1 ? 1:$page_number;
+        $offset = ($page_number - 1) * $limit;
+        $getSixBlogs = new Blog();
+        return $getSixBlogs->getSixBlogs($limit , $offset);
+        // return array_slice( $SixBlogs , -6);
+    }
     
 }
 ?>

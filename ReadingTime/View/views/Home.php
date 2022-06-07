@@ -209,7 +209,7 @@
     <div class="best-books">
         <img src="../Images/content1.png" alt="" data-aos="fade-right">
         <div class="best-book-text">
-            <h2 data-aos="fade-left">
+            <h2 data-aos="fade-left" style="max-width: 100wh; overflow: hidden;">
                 15 best selling books of decade
             </h2>
             <p data-aos="fade-left">&emsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,

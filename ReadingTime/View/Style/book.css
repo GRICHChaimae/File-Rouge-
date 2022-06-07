@@ -85,9 +85,10 @@
       }
 
       .card2 .one-card #our-library-image{
-        width: 80%;
-        margin: 10px 10%;
-        height: 300px;
+        width: 90%;
+        margin: 10px 5%;
+        margin-top: 20px;
+        height: 408px;
         object-fit: cover;
       }
 
@@ -391,6 +392,10 @@
       .card2 .one-card {
         width: 90%;
         margin: 15px auto;
+      }
+
+      .card2 .one-card #our-library-image img{
+        height: 445px;
       }
       }
 

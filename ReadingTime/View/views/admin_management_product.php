@@ -98,9 +98,6 @@ require_once '../../Controllers/productController.php';
             </tr>  
         <?php endforeach;?>             
         </table>
-         <div id="result">
-            <p>Le patient est supprimer <img src="Vector1.png" class="vec1"></p>
-        </div>
 </div>
 
     

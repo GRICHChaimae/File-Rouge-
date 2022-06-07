@@ -1,14 +1,7 @@
-<?php
-
-if (!isset($_SESSION)) {
-    session_start();
-}
-
-if (!isset($_SESSION["userName"])) {
-    header("location: ./login.php");
-    return;
-}
-
+<?php 
+    if(!isset($_SESSION)){
+        session_start();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -20,29 +13,31 @@ if (!isset($_SESSION["userName"])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Style/pannel.css">
-    <link rel="stylesheet" href="../Style/nav_bar.css">
-    <title>Your pannel</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <?php if(isset($_SESSION["userName"])):?>
+        <link rel="stylesheet" href="../Style/nav_bar.css">
+    <?php else: ?>
+        <link rel="stylesheet" href="../Style/home_bar.css">
+    <?php endif; ?>  
+    <link rel="stylesheet" href="../Style/Home.css">
+    <title>Home</title>
 </head>
-
 <?php
 
-require_once '../../Controllers/pannelController.php';
+    require_once '../../Controllers/paginateController.php';
 
-$pannelController = new PannelController();
+    $BolgController = new BolgController();
 
-if(isset($_POST['deletefrompannel'])){
-    $pannelController->deletePannelProduct();
-}
-
-$Pannels = $pannelController->getPannelProduct();
-
-$_SESSION['pannel_number'] = count($Pannels);
+    $Blogs = $BolgController->getAllBlogs();
+    $numbers = $BolgController->Paginate($Blogs,6);
+    $results = $BolgController->fetchResult();
 
 ?>
-
 <body>
-<header>
+
+<?php if(isset($_SESSION["userName"])):?>
+  <header>
         <div id="logo">
             <a href="Home.php">
                 <p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime">
@@ -68,7 +63,7 @@ $_SESSION['pannel_number'] = count($Pannels);
                         <li><a href="shopingList.php">Your shopping list</a></li>
                         <li><a href="user_Messages.php">Your messages</a></li>
                         <li><a href="user_Messages_answered.php">Messages answered</a></li>
-                        <li><a href="admin_Sign_Out.php">Sign Out</a></li>
+                        <li><a href="SignOut.php">Sign Out</a></li>
                     </ul>
                 </li>
             </ul>
@@ -86,7 +81,7 @@ $_SESSION['pannel_number'] = count($Pannels);
                         <li><a href="shopingList.php">Your shopping list</a></li>
                         <li><a href="user_Messages.php">Your messages</a></li>
                         <li><a href="user_Messages_answered.php">Messages answered</a></li>
-                        <li><a href="admin_Sign_Out.php">Sign Out</a></li>
+                        <li><a href="SignOut.php">Sign Out</a></li>
                     </ul>
                 </li>
                 <li id="headerPannel">
@@ -96,7 +91,7 @@ $_SESSION['pannel_number'] = count($Pannels);
                             <p class="pannel_number">0</p> 
                             
                         <?php else: ?>
-                        <img src="../Images/fullpannel_header.png" alt="" id="pannelIcone">
+                            <img src="../Images/fullpannel_header.png" alt="" id="pannelIcone">
                         <?php if($_SESSION['pannel_number'] < 10): ?>
                         <p class="pannel_number"> <?= $_SESSION['pannel_number'] ; ?> </p> 
                         <?php else: ?>
@@ -112,48 +107,62 @@ $_SESSION['pannel_number'] = count($Pannels);
                 </li>
             </ul>
         </div>
-</header>
+    </header>
+    <?php else: ?>
+      <header>
+        <div id="logo">
+            <a href="Home.php">
+                <p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime">
+            </a>
+        </div>
 
-<h2 class="mypannel">My Pannel</h2>
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="menu-bar-text"><img src="../Images/berger_menu.png" alt=""> </label>
 
-<?php if(empty($Pannels)): ?>
+        <nav class="navbary">
+            <ul>
+                <li><a href="Home.php">Home</a></li> 
+                <li><a href="Blog.php">Blog</a></li>
+                <li><a href="WhyUs.php">Why Us</a></li>
+                <li><a href="login.php">Login</a></li>
+                <li><a href="SignUp.php">Register</a></li>
+            </ul>
 
-<div class="nexistePas">
-    <p>Your Pannel is empty</p>
-    <h1>Let's Go To Add Some Books In Your Pannel</h1>
-</div>
-<?php else: ?>
+        </nav>
 
-<?php foreach($Pannels as $Pannel): ?>
+        <div class="right-nav">
+            <ul>
+                <li><a href="login.php">Login</a></li>
+                <li>/</li>
+                <li><a href="SignUp.php">Register</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <?php endif; ?>  
     
-<div class="searching_book">
-    <div class="book_image">
-        <img src="<?php echo $Pannel['image_book'] ?>" alt="">
-    </div>    
-    <div class="book_info">       
-        <h2><?php echo $Pannel['book_title'] ?></h2>
-        <p><span style="font-weight: bold;">written by:&nbsp</span><?php echo $Pannel['book_writer'] ?></p>
-        <p><?php echo $Pannel['description_book'] ?></p>       
-        <p><span style="font-weight: bold;">Price :&nbsp</span><?php echo $Pannel['prix_book'] ?> $</p>
-        <form action="buy_book.php" method="post">
-            <input type="numeber" name="book_id" value="<?php echo $Pannel['book_id'] ?>" hidden>
-            <button name="buy_now" type="submit" ><span style="font-weight: bold;">Buy &nbsp Now</span></button>
-        </form>
-    </div>
-    <div class="remove_book">
-        <form action="" method="post">
-            <input type = "hidden" name = "pannel_id" value = "<?php echo $Pannel['pannel_id']?>">
-            <button type = "submit" name = "deletefrompannel">
-                <img src="../Images/dop_book.png" alt="">
-            </button>
-        </form>
-    </div>
-</div>
+    <?php foreach($results as $r): ?>
+        
+        <img src="<?php echo $r['blog_image'] ?>" alt="" id="img-modify">
+        <h2><?php echo $r['blog_title'] ?></h2>
+        <p><?php echo $r['blog_description'] ?></p>
+        
+    <?php endforeach; ?>
+    
+    <?php
+    
+        foreach($numbers as $num){
+            echo '<a href="blog.php?page='.$num.'">'.$num.'</a>';
+        }
+    
+    ?>
 
-<?php endforeach; ?>
-
-<?php endif; ?>
-
-
+        
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script>
+            AOS.init();
+        </script>
 </body>
 </html>
+
