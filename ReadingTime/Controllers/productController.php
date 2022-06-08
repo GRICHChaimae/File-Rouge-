@@ -20,9 +20,9 @@ class ProductController {
             'title' => $_POST['titre'],
             'writer' => $_POST['ecrivain'],  
             'path' => $path,
-            'ISBN' => $_POST['ISBN']
+            'ISBN' => $_POST['ISBN'],
+            'quantity' => $_POST['quantity']
         );
-
             $add = new Product();
             $result = $add->Add($data);
 
@@ -69,7 +69,8 @@ class ProductController {
             'prix' => $_POST['prix'],
             'id' => $_POST['id'],
             'path' => $path,
-            'check_image' => $image 
+            'check_image' => $image,
+            'quantity' => $_POST['quantity']
         );
 
         $edit = new Product();
@@ -77,6 +78,22 @@ class ProductController {
         if($result){
             header('location:admin_management_product.php');
         }else{
+            echo $result;  
+        }
+        
+    }
+
+    public function UpdateStore(){
+        if(!isset($_POST['submit'])) return;
+
+        $data = array(
+            'id' => $_POST['id'],
+            'quantity' => $_POST['quantity']
+        );
+
+        $edit = new Product();
+        $result = $edit->UpdateQuantity($data);
+        if(!$result){
             echo $result;  
         }
         

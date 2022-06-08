@@ -114,7 +114,7 @@ if (isset($_POST['submit_favorite'])) {
                         <?php else: ?>
                             <img src="../Images/fullpannel_header.png" alt="" id="pannelIcone">
                         <?php if($_SESSION['pannel_number'] < 10): ?>
-                        <p class="pannel_number"> <?= $_SESSION['pannel_number'] ; ?> </p> 
+                        <p class="pannel_number"> <?= $_SESSION['pannel_number'] ; ?></p> 
                         <?php else: ?>
                             <p class="pannel_number">+9</p>
                         <?php endif; ?>
@@ -148,14 +148,9 @@ if (isset($_POST['submit_favorite'])) {
 
     <div class="card2" >
 
-<?php 
-
-
-    
-?>
 
         <?php foreach ($Books as $Book) : ?>
-
+            <?php if($Book['quantity'] != 0): ?>
                 <div class="one-card">
                     <img src="<?php echo $Book['image_book'] ?>" alt="" id="our-library-image">
                     <h4><?php echo $Book['book_title'] ?></h4>
@@ -183,6 +178,7 @@ if (isset($_POST['submit_favorite'])) {
                     </div>
                     </div>
                 </div>
+            <?php endif; ?>
         <?php endforeach; ?>
     </div>
 

@@ -5,9 +5,9 @@ require_once 'parentClass.php';
 class Product extends ParentClass{
     public function Add($data){
 
-        $stmt = DB::connect()->prepare('INSERT INTO books (image_book,description_book,prix_book,book_title,book_writer,ISBN) VALUES (:image_book,:description_book,:prix_book,:book_title,:book_writer,:ISBN)');
+        $stmt = DB::connect()->prepare('INSERT INTO books (image_book,description_book,prix_book,book_title,book_writer,ISBN,quantity) VALUES (:image_book,:description_book,:prix_book,:book_title,:book_writer,:ISBN,:quantity)');
 
-        $executed = $stmt->execute(["image_book"=> $data['path'],"description_book"=> $data['description'],"prix_book"=> $data['prix'],"book_title"=> $data['title'],"book_writer"=> $data['writer'],"ISBN"=> $data['ISBN']]);
+        $executed = $stmt->execute(["image_book"=> $data['path'],"description_book"=> $data['description'],"prix_book"=> $data['prix'],"book_title"=> $data['title'],"book_writer"=> $data['writer'],"ISBN"=> $data['ISBN'],"quantity"=> $data['quantity']]);
 
         return $executed;
 
@@ -55,17 +55,27 @@ class Product extends ParentClass{
 
     public function Update($data){
     
-        $stmt = DB::connect()->prepare('UPDATE books SET book_title = :book_title , description_book = :description_book , book_writer = :book_writer , image_book = :image_book , prix_book = :prix_book WHERE id = :id');
+        $stmt = DB::connect()->prepare('UPDATE books SET book_title = :book_title , description_book = :description_book , book_writer = :book_writer , image_book = :image_book , prix_book = :prix_book , quantity = :quantity WHERE id = :id');
         if(isset($data['check_image']) && !empty($data['check_image'])){
-            $executed = $stmt->execute(["id"=> $data['id'] ,"book_title"=> $data['title']  ,"description_book"=> $data['description'] ,"book_writer"=> $data['writer'] ,"image_book"=> $data['path'] ,"prix_book"=> $data['prix']]);
+            $executed = $stmt->execute(["id"=> $data['id'] ,"book_title"=> $data['title']  ,"description_book"=> $data['description'] ,"book_writer"=> $data['writer'] ,"image_book"=> $data['path'] ,"prix_book"=> $data['prix'] ,"quantity"=> $data['quantity']]);
         }else{
-            $executed = $stmt->execute(["id"=> $data['id'] ,"book_title"=> $data['title']  ,"description_book"=> $data['description'] ,"book_writer"=> $data['writer'] ,"image_book"=> $data['picture'] ,"prix_book"=> $data['prix']]);
+            $executed = $stmt->execute(["id"=> $data['id'] ,"book_title"=> $data['title']  ,"description_book"=> $data['description'] ,"book_writer"=> $data['writer'] ,"image_book"=> $data['picture'] ,"prix_book"=> $data['prix'] ,"quantity"=> $data['quantity']]);
         }
         
         return $executed ;
       
         $stmt = null;
     }
+
+    public function UpdateQuantity($data){
+
+        $stmt = DB::connect()->prepare('UPDATE books SET quantity = :quantity WHERE id = :id');
+        $executed = $stmt->execute(["id"=> $data['id'] ,"quantity"=> $data['quantity']]);
+        return $executed ;
+      
+        $stmt = null;        
+    }
+
 }
 
 ?>

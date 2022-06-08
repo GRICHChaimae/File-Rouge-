@@ -477,6 +477,7 @@ footer .privacy-responsive {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    gap: 10px;
     list-style: none;
     width: 150px;
     -webkit-box-pack: justify;
@@ -593,6 +594,7 @@ footer .privacy-responsive {
         -ms-flex-direction: column;
             flex-direction: column;
     width: 100%;
+    text-align: center;
   }
   footer .menue-links {
     width: 90%;
@@ -618,7 +620,7 @@ footer .privacy-responsive {
     width: 30%;
   }
   footer .searshAndSocialMeadia .socialMedia {
-    width: 100%;
+    width: 70%;
     margin: 20px auto;
     text-align: center;
   }

@@ -20,7 +20,7 @@
     <?php else: ?>
         <link rel="stylesheet" href="../Style/home_bar.css">
     <?php endif; ?>  
-    <link rel="stylesheet" href="../Style/Home.css">
+    <link rel="stylesheet" href="../Style/blog.css">
     <title>Home</title>
 </head>
 <?php
@@ -140,22 +140,46 @@
     </header>
 
     <?php endif; ?>  
+
+    <div class="page_content">
+
+        <div class="blogs_pagenation">
+            <div class="one_blog">
+                <?php foreach($results as $r): ?>
+                    <div>
+                        <img src="<?php echo $r['blog_image'] ?>" alt="" id="img-modify">
+                        <h2><?php echo $r['blog_title'] ?></h2>
+                        <p><?php echo $r['blog_description'] ?></p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+
+            <div class="pagenation">
+                <?php
+                    foreach($numbers as $num){
+                        echo '<a href="blog.php?page='.$num.'">'.$num.'</a>';
+                    }
+                ?>
+            </div>
+        </div>
+
+        <div class="tendance_and_search">
+            <div class="tendance_blogs">
+                <img src="../Images/livre1.png" alt="">
+            </div>
+            <div class="search_ISBN">
+                <form action="product.php" method="post">
+                    <div class="search">
+                        <input type="search" name="ISBN" placeholder=" &nbsp Enter ISBN Here">
+                        <button name="search_ISBN" type="submit" >Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     
-    <?php foreach($results as $r): ?>
-        
-        <img src="<?php echo $r['blog_image'] ?>" alt="" id="img-modify">
-        <h2><?php echo $r['blog_title'] ?></h2>
-        <p><?php echo $r['blog_description'] ?></p>
-        
-    <?php endforeach; ?>
-    
-    <?php
-    
-        foreach($numbers as $num){
-            echo '<a href="blog.php?page='.$num.'">'.$num.'</a>';
-        }
-    
-    ?>
+
 
         
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

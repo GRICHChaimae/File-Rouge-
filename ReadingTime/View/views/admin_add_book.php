@@ -20,7 +20,6 @@ require_once '../../Controllers/productController.php';
         $product->AddProduct();
     }
 
-
 ?>
 
 <body>
@@ -82,7 +81,10 @@ require_once '../../Controllers/productController.php';
 
             <label for="">ISBN</label>
             <input type="number" name="ISBN">
-      
+
+            <label for="">quantity</label>
+            <input type="number" name="quantity">
+
         <input type="submit" name="submit" id="submit">
     </form>
 </div>
