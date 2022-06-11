@@ -66,7 +66,6 @@
         width: 95%;
         margin: auto;
         gap: 3%;
-        /* justify-content: space-around; */
         flex-flow: wrap;
       }  
 
@@ -129,105 +128,16 @@
 
       #favorite:hover + #fullfavorite{
         display: block;
-      }
-
-      footer {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
-        padding: 20px;
-        background-color: #E6DAD5;
+      } 
+      
+      .slide-container{
+        width: 50%;
+        height: fit-content;
       }
       
-      footer .menue-links ul {
-        list-style: none;
-        padding-left: 0;
+      .img-item-1{
+        width: 25rem;
       }
-      
-      footer .menue-links ul li {
-        margin-top: 10px;
-      }
-      
-      footer .menue-links ul li a {
-        text-decoration: none;
-        color: black;
-      }
-      
-      footer .privacy {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
-      }
-      
-      footer .searshAndSocialMeadia {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
-      }
-      
-      footer .searshAndSocialMeadia .searchandText .search {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-      }
-      
-      footer .searshAndSocialMeadia .searchandText .search input, footer .searshAndSocialMeadia .searchandText .search button {
-        border-radius: 0;
-        border: none;
-        height: 35px;
-        margin-top: 15px;
-        width: 300px;
-      }
-      
-      footer .searshAndSocialMeadia .searchandText .search button {
-        width: 60px;
-        background-color: #855342;
-        color: white;
-        cursor: pointer;
-      }
-      
-      footer .searshAndSocialMeadia .socialMedia {
-        margin-left: auto;
-      }
-      
-      footer .searshAndSocialMeadia .socialMedia ul {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        list-style: none;
-        width: 300px;
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
-      }
-      
-      footer .searshAndSocialMeadia .socialMedia ul .mail {
-        height: 28px;
-      }
-      
-      footer .searshAndSocialMeadia .socialMedia ul li img {
-        width: 30px;
-        height: 30px;
-      }
-      
-      footer .privacy-responsive {
-        display: none;
-      }      
 
       @media only screen and (max-width: 1200px) {
         .header_content .image_title{
@@ -245,54 +155,7 @@
         .card2 .one-card {
           width: 32%;
         }
-        footer .menue-links {
-          width: 25%;
-        }
-        footer .menue-links p {
-          font-size: 14px;
-        }
-        footer .menue-links ul li {
-          margin-top: 7px;
-        }
-        footer .menue-links ul li a {
-          font-size: 14px;
-        }
-        footer .privacy {
-          font-size: 14px;
-        }
-        footer .searshAndSocialMeadia {
-          width: 380px;
-        }
-        footer .searshAndSocialMeadia .searchandText {
-          margin-left: auto;
-        }
-        footer .searshAndSocialMeadia .searchandText p {
-          font-size: 14px;
-        }
-        footer .searshAndSocialMeadia .searchandText .search input, footer .searshAndSocialMeadia .searchandText .search button {
-          width: 200px;
-        }
-        footer .searshAndSocialMeadia .searchandText .search button {
-          width: 60px;
-        }
-        footer .searshAndSocialMeadia .socialMedia ul {
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex;
-          list-style: none;
-          width: 150px;
-          -webkit-box-pack: justify;
-              -ms-flex-pack: justify;
-                  justify-content: space-between;
-        }
-        footer .searshAndSocialMeadia .socialMedia ul .mail {
-          height: 28px;
-        }
-        footer .searshAndSocialMeadia .socialMedia ul li img {
-          width: 30px;
-          height: 30px;
-        }
-      }
+     }
       
       @media only screen and (max-width: 768px) {
         .header_content .image_title{
@@ -304,62 +167,8 @@
         .card2 .one-card {
           width: 48%;
         }
-        footer {
-          -webkit-box-orient: vertical;
-          -webkit-box-direction: normal;
-              -ms-flex-direction: column;
-                  flex-direction: column;
-          width: 100%;
-        }
-        footer .menue-links {
-          width: 90%;
-        }
-        footer .privacy {
-          display: none;
-        }
-        footer .searshAndSocialMeadia {
-          display: block;
-          width: 90%;
-        }
-        footer .searshAndSocialMeadia .searchandText .search {
-          width: 100%;
-          margin: 0 auto;
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex;
-        }
-        footer .searshAndSocialMeadia .searchandText .search input, footer .searshAndSocialMeadia .searchandText .search button {
-          width: 190%;
-        }
-        footer .searshAndSocialMeadia .searchandText .search button {
-          width: 30%;
-        }
-        footer .searshAndSocialMeadia .socialMedia {
-          width: 100%;
-          margin: 20px auto;
-          text-align: center;
-        }
-        footer .privacy-responsive {
-          width: 90%;
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-box-orient: vertical;
-          -webkit-box-direction: normal;
-              -ms-flex-direction: column;
-                  flex-direction: column;
-          -webkit-box-pack: justify;
-              -ms-flex-pack: justify;
-                  justify-content: space-between;
-        }
       }
-      .slide-container{
-        width: 50%;
-        height: fit-content;
-}
-.img-item-1{
-        width: 25rem;
-}
+
       
       @media only screen and (max-width: 480px) {
         .little_head{

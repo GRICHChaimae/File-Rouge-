@@ -148,5 +148,8 @@ if(isset($_POST['search_ISBN'])){
 
 <?php endif; ?>
 
+        <!-- footer -->
+        <?php require_once 'footer.php'; ?>
+
 </body>
 </html>

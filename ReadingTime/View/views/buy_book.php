@@ -19,6 +19,7 @@ if (!isset($_SESSION["userName"])) {
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Style/nav_bar.css">
     <link rel="stylesheet" href="../Style/buy_book.css">
+    <link rel="stylesheet" href="../Style/offer.css">
     <title>Document</title>
 </head>
 
@@ -27,10 +28,10 @@ require_once '../../Controllers/productController.php';
 require_once '../../Controllers/commandeController.php';
 require_once '../../Controllers/offerController.php';
 
-// if(isset($_POST['submit_offer'])){
-//     $exitOffer = new OfferController();
-//     $Offer = $exitOffer->getOneOffer($_POST['offer_id']);
-//   }
+if(isset($_POST['submit_offer'])){
+    $exitOffer = new OfferController();
+    $Offer = $exitOffer->getOneOffer($_POST['offer_id']);
+  }
 
 if(isset($_GET['book_id'])){
     $exitBook = new ProductController();
@@ -135,22 +136,21 @@ if(isset($_GET['book_id'])){
                 <p><?php echo $Book['description_book'] ?></p>       
                 <p><span style="font-weight: bold;">Price :&nbsp</span><?php echo $Book['prix_book'] ?> $</p>
                 <div class="container">
-                    <input type="button" onclick="decrementValue()" value="-" />
-                    <input type="text" name="quantity" value="1" maxlength="2" max="10" size="1" id="number" />
+                    <input type="button" onclick="decrementValue()" value="-" />  
+                    <input type="text" name="quantity" value="1" readonly="readonly" maxlength="2" max="10" size="1" id="number" />
                     <input type="button" onclick="incrementValue()" value="+" />
                 </div>
-                <p><span style="font-weight: bold;">Total : </span><span id="total">1</span> $ </p>                     
+                <p><span style="font-weight: bold;">Total : </span><span id="total"><?php echo $Book['prix_book'] ?></span> $ </p>                     
             </div>
         </div>
     <?php elseif(isset($Offer)): ?>
-        <h1><?php echo $Offer['id'] ?></h1>
+        <div class="offer">
+            <img src="<?php echo $Offer['image_offer'] ?>" alt="">
+            <h5><?php echo $Offer['title_offer'] ?></h5>
+            <p><?php echo $Offer['description_offer'] ?></p>
+            <p><span style="font-weight:bold;">Price : </span><?php echo $Offer['prix_offer'] ?> $</p>
+        </div>
     <?php endif; ?>  
-
-    <!-- <form action="" method="post">
-        <input type="text" name="id" value='<?php echo $Book['id'] ?>'>
-        <input type="text" id="RestInStorage" name="quantity" value='<?php echo $Book['quantity'] - 1 ?>' >
-        <input type="submit" name="submit" value="submit">
-    </form> -->
 
 <h2 class="checkout">Checkout</h2>
 <h3>Ship To Address</h3>
@@ -161,10 +161,9 @@ if(isset($_GET['book_id'])){
 
     <form action="" method="post">
 
-      <input type="text" name="id" value='<?php echo $Book['id'] ?>'>
-        <input type="text" id="RestInStorage" name="quantity" value='<?php echo $Book['quantity'] - 1 ?>' >
-        <!-- <input type="submit" name="submit" value="submit"> -->
-    <div class="first_row">
+      <input type="text" name="id" value='<?php echo $Book['id'] ?>' hidden>
+      <input type="text" id="RestInStorage" name="quantity" value='<?php echo $Book['quantity'] - 1 ?>' hidden>
+      <div class="first_row">
         <div class="div1">
             <p>First Name</p>
             <input type="text" name="first_name" required>
@@ -250,12 +249,16 @@ if(isset($_GET['book_id'])){
 </form>
 
 </div>
+        <!-- footer -->
+        <?php require_once 'footer.php'; ?>
 
 <script type="text/javascript">
+
+var value = parseInt(document.getElementById('number').value, 10);
+
     
     function incrementValue()
 {
-    var value = parseInt(document.getElementById('number').value, 10);
     value = isNaN(value) ? 0 : value;
     if(value<10){
         value++;
@@ -266,7 +269,7 @@ if(isset($_GET['book_id'])){
 }
 function decrementValue()
 {
-    var value = parseInt(document.getElementById('number').value, 10);
+    // var value = parseInt(document.getElementById('number').value, 10);
     value = isNaN(value) ? 0 : value;
     if(value>1){
         value--;

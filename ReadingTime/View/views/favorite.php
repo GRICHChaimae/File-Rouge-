@@ -153,5 +153,8 @@ $Favorites = $favoriteController->getFavorieProduct();
 <?php endif; ?>
 
 
+        <!-- footer -->
+        <?php require_once 'footer.php'; ?>
+
 </body>
 </html>

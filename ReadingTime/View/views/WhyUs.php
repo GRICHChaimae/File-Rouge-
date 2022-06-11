@@ -167,6 +167,9 @@ if (!isset($_SESSION)) {
         Reading Time Guarantee protects you when you sell items to buyers if we determine that you’ve followed our Selling Guidelines.
     </p>
 
+        <!-- footer -->
+        <?php require_once 'footer.php'; ?>
+
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

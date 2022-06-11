@@ -96,7 +96,7 @@ header label{
 
     header #logo{
         order: 2;
-        width: 10%;
+        /* width: 10%; */
         margin: 0 auto;
     }
 

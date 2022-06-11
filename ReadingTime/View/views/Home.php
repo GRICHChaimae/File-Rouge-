@@ -12,9 +12,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <?php if(isset($_SESSION["userName"])):?>
         <link rel="stylesheet" href="../Style/nav_bar.css">
     <?php else: ?>
@@ -294,73 +294,12 @@
         </div>
 
         <!-- footer -->
-       <footer>
-            <div class="menue-links">
-                <p>USEFUL LINKS</p>
-                <ul>
-                    <li>
-                        <a href="Home.php">Home</a>
-                    </li>
-                    <li>
-                        <a href="Blog.php">Blog</a>
-                    </li>
-                    <li>
-                        <a href="WhyUs.php">Why Us</a>
-                    </li>
-                    <li>
-                        <a href="Login.php">Login</a>
-                    </li>
-                    <li>
-                        <a href="SignUp.php">Register</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="privacy">
-            <p>Terms and Conditions | Privacy | Cookie Statement</p>
-            <p>Copyright © 2020 ReadingTime.  &nbsp All rights reserved.</p>
-        </div>
-        <div class="searshAndSocialMeadia">
-            <div class="searchandText">
-                <p>SUBSCRIBE TO OUR NEWSLETTER</p>
-                <div class="search">
-                    <input type="search">
-                    <button>Sign Up</button>
-                </div>
-            </div>
-            <div class="socialMedia">
-                <ul>
-                    <li>
-                        <a href="https://www.instagram.com/?hl=fr">
-                            <img src="../Images/insta.png" alt="instagram-icone">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://fr-fr.facebook.com/">
-                            <img src="../Images/fb.png" alt="facebook-icone">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/?lang=fr">
-                            <img src="../Images/twitter.png" alt="tiwitter-icone">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://mail.google.com/">
-                            <img src="../Images/email.png" alt="email.icone" class="mail">
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="privacy-responsive">
-            <p>Terms and Conditions | Privacy | Cookie Statement</p>
-            <p>Copyright © 2020 ReadingTime.  &nbsp All rights reserved.</p>
-        </div>
-        </div>    
-        </footer>
+        <?php require_once 'footer.php'; ?>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
         
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script>
             AOS.init();
         </script>

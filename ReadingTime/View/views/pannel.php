@@ -154,6 +154,9 @@ $_SESSION['pannel_number'] = count($Pannels);
 
 <?php endif; ?>
 
+        <!-- footer -->
+        <?php require_once 'footer.php'; ?>
+
 
 </body>
 </html>
