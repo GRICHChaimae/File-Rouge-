@@ -55,11 +55,11 @@ class Product extends ParentClass{
 
     public function Update($data){
     
-        $stmt = DB::connect()->prepare('UPDATE books SET book_title = :book_title , description_book = :description_book , book_writer = :book_writer , image_book = :image_book , prix_book = :prix_book , quantity = :quantity WHERE id = :id');
+        $stmt = DB::connect()->prepare('UPDATE books SET book_title = :book_title , description_book = :description_book , book_writer = :book_writer , image_book = :image_book , prix_book = :prix_book , quantity = :quantity , ISBN = :ISBN WHERE id = :id');
         if(isset($data['check_image']) && !empty($data['check_image'])){
-            $executed = $stmt->execute(["id"=> $data['id'] ,"book_title"=> $data['title']  ,"description_book"=> $data['description'] ,"book_writer"=> $data['writer'] ,"image_book"=> $data['path'] ,"prix_book"=> $data['prix'] ,"quantity"=> $data['quantity']]);
+            $executed = $stmt->execute(["id"=> $data['id'] ,"book_title"=> $data['title']  ,"description_book"=> $data['description'] ,"book_writer"=> $data['writer'] ,"image_book"=> $data['path'] ,"prix_book"=> $data['prix'] ,"quantity"=> $data['quantity'] ,"ISBN"=> $data['ISBN']]);
         }else{
-            $executed = $stmt->execute(["id"=> $data['id'] ,"book_title"=> $data['title']  ,"description_book"=> $data['description'] ,"book_writer"=> $data['writer'] ,"image_book"=> $data['picture'] ,"prix_book"=> $data['prix'] ,"quantity"=> $data['quantity']]);
+            $executed = $stmt->execute(["id"=> $data['id'] ,"book_title"=> $data['title']  ,"description_book"=> $data['description'] ,"book_writer"=> $data['writer'] ,"image_book"=> $data['picture'] ,"prix_book"=> $data['prix'] ,"quantity"=> $data['quantity'] ,"ISBN"=> $data['ISBN']]);
         }
         
         return $executed ;

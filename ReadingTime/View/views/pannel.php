@@ -42,77 +42,9 @@ $_SESSION['pannel_number'] = count($Pannels);
 ?>
 
 <body>
-<header>
-        <div id="logo">
-            <a href="Home.php">
-                <p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime">
-            </a>
-        </div>
 
-        <input type="checkbox" id="menu-bar">
-        <label for="menu-bar" class="menu-bar-text"><img src="../Images/berger_menu.png" alt=""> </label>
-
-        <nav class="navbary">
-            <ul>
-                <li><a href="Home.php">Home</a></li>
-                <li><a href="Books.php">Books</a></li>
-                <li><a href="Offers.php">Offers</a></li>
-                <li><a href="Blog.php">Blog</a></li>
-                <li><a href="WhyUs.php">Why Us</a></li>
-                <li>
-                    <a href="#">
-                        Hello <?php echo $_SESSION["userName"] ?> +
-                    </a>
-                    <ul>
-                        <li><a href="user_account.php">Account Informations</a></li>
-                        <li><a href="shopingList.php">Your shopping list</a></li>
-                        <li><a href="user_Messages.php">Your messages</a></li>
-                        <li><a href="user_Messages_answered.php">Messages answered</a></li>
-                        <li><a href="admin_Sign_Out.php">Sign Out</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-        </nav>
-
-        <div class="right-nav">
-            <ul>
-                <li>
-                    <a href="#">
-                        Hello <?php echo $_SESSION["userName"] ?> +
-                    </a>
-                    <ul>
-                    <li><a href="user_account.php">Account Informations</a></li>
-                        <li><a href="shopingList.php">Your shopping list</a></li>
-                        <li><a href="user_Messages.php">Your messages</a></li>
-                        <li><a href="user_Messages_answered.php">Messages answered</a></li>
-                        <li><a href="admin_Sign_Out.php">Sign Out</a></li>
-                    </ul>
-                </li>
-                <li id="headerPannel">
-                    <a href="Pannel.php">
-                        <?php if(!$_SESSION['pannel_number']): ?>
-                            <img src="../Images/headerPannel.png" alt="">
-                            <p class="pannel_number">0</p> 
-                            
-                        <?php else: ?>
-                        <img src="../Images/fullpannel_header.png" alt="" id="pannelIcone">
-                        <?php if($_SESSION['pannel_number'] < 10): ?>
-                        <p class="pannel_number"> <?= $_SESSION['pannel_number'] ; ?> </p> 
-                        <?php else: ?>
-                            <p class="pannel_number">+9</p>
-                        <?php endif; ?>
-                        <?php endif; ?>
-                    </a>
-                </li>
-                <li id="headerFavorite">
-                    <a href="Favorite.php">
-                        <img src="../Images/headerFavorite.png" alt="">
-                    </a>
-                </li>
-            </ul>
-        </div>
-</header>
+            <!-- header -->
+    <?php require_once 'user_nav_bar.php'; ?>  
 
 <h2 class="mypannel">My Pannel</h2>
 

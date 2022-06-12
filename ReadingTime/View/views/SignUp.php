@@ -20,6 +20,7 @@
 ?>
 
 <body>
+    
     <div id="logo">
         <a href="Home.php"><p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime"></a>
     </div>

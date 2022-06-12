@@ -68,6 +68,7 @@ class ProductController {
             'description' => $_POST['description'],
             'prix' => $_POST['prix'],
             'id' => $_POST['id'],
+            'ISBN' => $_POST['ISBN'],
             'path' => $path,
             'check_image' => $image,
             'quantity' => $_POST['quantity']

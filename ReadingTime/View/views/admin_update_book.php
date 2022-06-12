@@ -56,8 +56,11 @@ if(isset($_POST['submit'])){
             <label for="">Price</label>
             <input type="number" name="prix" step="any" value="<?php echo $Book['prix_book'] ?>">
  
+            <label for="">ISBN</label>
+            <input type="number" name="ISBN" value="<?php echo $Book['ISBN'] ?>">
+
             <label for="">Quantity</label>
-            <input type="number" name="quantity" value="<?php echo $Book['quantity'] ?>">
+            <input type="number" name="quantity" value="<?php echo $Book['quantity'] ?>">            
 
             <input type="submit" name="submit" id="submit" value="to modify">
     </form>
