@@ -5,9 +5,9 @@ require_once 'parentClass.php';
 class Offer extends ParentClass{
     public function Add($data){
 
-        $stmt = DB::connect()->prepare('INSERT INTO offers (prix_offer,image_offer,description_offer,title_offer) VALUES (:prix_offer,:image_offer,:description_offer,:title_offer)');
+        $stmt = DB::connect()->prepare('INSERT INTO offers (prix_offer,image_offer,description_offer,title_offer,quantity) VALUES (:prix_offer,:image_offer,:description_offer,:title_offer,:quantity)');
 
-        $executed = $stmt->execute(["prix_offer"=> $data['prix'],"image_offer"=> $data['path'],"description_offer"=>$data['description'],"title_offer"=>$data['title']]);
+        $executed = $stmt->execute(["prix_offer"=> $data['prix'],"image_offer"=> $data['path'],"description_offer"=>$data['description'],"title_offer"=>$data['title'],"quantity"=>$data['quantity']]);
 
         return  $executed ;
        
@@ -39,20 +39,27 @@ class Offer extends ParentClass{
         }
     }
 
-    public function Update($data){;
+    public function Update($data){
     
-        $stmt = DB::connect()->prepare('UPDATE offers SET title_offer = :title_offer , description_offer = :description_offer , image_offer= :image_offer , prix_offer = :prix_offer WHERE id = :id');
+        $stmt = DB::connect()->prepare('UPDATE offers SET title_offer = :title_offer , description_offer = :description_offer , image_offer= :image_offer , prix_offer = :prix_offer , quantity = :quantity WHERE id = :id');
         if(isset($data['check_image']) && !empty($data['check_image'])){
-            $executed = $stmt->execute(["id"=> $data['id'] ,"title_offer"=> $data['title'] ,"description_offer"=> $data['description'] ,"image_offer"=> $data['path'] ,"prix_offer"=> $data['prix']]);
+            $executed = $stmt->execute(["id"=> $data['id'] ,"title_offer"=> $data['title'] ,"description_offer"=> $data['description'] ,"image_offer"=> $data['path'] ,"prix_offer"=> $data['prix'] ,"quantity"=> $data['quantity']]);
         }else{
-            $executed = $stmt->execute(["id"=> $data['id'] ,"title_offer"=> $data['title'] ,"description_offer"=> $data['description'] ,"image_offer"=> $data['picture'] ,"prix_offer"=> $data['prix']]);
+            $executed = $stmt->execute(["id"=> $data['id'] ,"title_offer"=> $data['title'] ,"description_offer"=> $data['description'] ,"image_offer"=> $data['picture'] ,"prix_offer"=> $data['prix'] ,"quantity"=> $data['quantity']]);
         }
        
         return $executed;
 
         $stmt = null;
 
-        }
+    }
+
+    public function VoidOffers(){
+        $stmt = DB::connect()->prepare('SELECT * FROM offers WHERE quantity = 0');
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt = null;
+    }
 }
 
 ?>

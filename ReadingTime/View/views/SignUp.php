@@ -29,11 +29,11 @@
             <input type="text" placeholder="First Name" name="prenom">
             <input type="text" placeholder="Last Name" name="nom">
             <input type="email" placeholder="Email Adress" name="email">
-            <input type="password" placeholder="First Name" name="mot_de_passe">
+            <input type="password" placeholder="Password" name="mot_de_passe">
             <?php if($notConfirmed): ?>
                 <p class="text-danger">Confirmation password does not match</p>
             <?php endif; ?>
-            <input type="password" placeholder="First Name" name="validation_mot_de_passe">
+            <input type="password" placeholder="Confirm The Password" name="validation_mot_de_passe">
             <div class="checky">
                 <input type="checkbox">
                 <p> Add me to the email list for exclusive deals and promotions</p>

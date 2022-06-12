@@ -18,6 +18,7 @@ class OfferController{
             'prix' => $_POST['prix'],
             'title'=> $_POST['titre'],
             'path'=> $path,
+            'quantity'=> $_POST['quantity']
         );
 
         $add = new Offer();
@@ -60,7 +61,8 @@ class OfferController{
             'prix' => $_POST['prix'],
             'id' => $_POST['id'],
             'path' => $path,
-            'check_image' => $image
+            'check_image' => $image,
+            'quantity'=> $_POST['quantity']
         );    
 
         $edit = new Offer();
@@ -87,6 +89,12 @@ class OfferController{
                 echo $result;  
             }
         }
+    }
+
+    public function getVoidOfferStorage(){
+        $getVoidOffers = new Offer();
+        $AllvoidOffers = $getVoidOffers->VoidOffers();
+        return $AllvoidOffers;
     }
     
 }

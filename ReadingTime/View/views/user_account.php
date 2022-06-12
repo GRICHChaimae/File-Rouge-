@@ -1,6 +1,15 @@
 <?php 
     if(!isset($_SESSION)){
         session_start();
+       
+        // if (isset($_SESSION['changePasswordError']))
+        // {
+        //     $error = $_SESSION['changePasswordError'];
+        // }else{
+        //     $error = "no error";
+
+        // }
+    
     }
 ?>
 
@@ -22,15 +31,15 @@
 
 <?php
 
-require_once '../../Controllers/commandeController.php';
+require_once '../../Controllers/createAccountController.php';
 
-    $commandeController = new CommandeController();
+    $CreateAccountController = new CreateAccountController();
 
-    if(isset($_POST['deletecommande'])){
-        $commandeController->deleteCommande();
+    if(isset($_POST['changePassword'])){
+        $checkPassword = $CreateAccountController->changePassword();
+
+        return $checkPassword;
     }
-
-    $commandes = $commandeController->getcommandes();
 
 ?>
 
@@ -156,17 +165,27 @@ require_once '../../Controllers/commandeController.php';
             <div class="change_password">
                 <form method="post">
                 <label for="">Enter Your Old Password</label>
-                    <input type="password" name="oldPassword">
-                    <label for="">Enter Your Old Password</label>
+                    <input type="password" name="mot_de_passe">
+                    <label for="">Enter The New Password</label>
                     <input type="password" name="newPassword">
-                    <label for="">Enter Your Old Password</label>
-                    <input type="password" name="ConfirmPassword">                    
+                    <label for="">Confirme The New Password</label>
+                    <input type="password" name="ConfirmPassword"> 
+                    <input type="number" name="id" value="<?php echo $_SESSION["user_id"] ?>" hidden>
+                    <input type="submit" name="changePassword" value="submit">                   
                 </form>
+
+
+        <?php
+            if (isset($_SESSION['changePasswordError']))
+            {
+                echo $_SESSION['changePasswordError'];
+            }
+        ?>
+
             </div>
         </div>
 
     </div>
-
 
         <!-- footer -->
         <?php require_once 'footer.php'; ?>

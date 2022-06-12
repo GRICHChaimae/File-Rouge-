@@ -75,7 +75,10 @@ require_once '../../Controllers/offerController.php';
         
             <label for="">Price</label>
             <input type="number" name="prix">
-      
+   
+            <label for="">Quantity</label>
+            <input type="number" name="quantity">
+
         <input type="submit" name="submit" id="submit">
     </form>
 </div>

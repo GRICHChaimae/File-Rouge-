@@ -113,7 +113,13 @@ class ProductController {
                 echo $result;  
             }
         }
-    }   
+    }  
+    
+    public function getVoidStorage(){
+        $getVoidStorage = new Product();
+        $AllvoidStorage = $getVoidStorage->VoidStorage();
+        return $AllvoidStorage;
+    }
 }
 
 ?>

@@ -20,5 +20,25 @@
 
             return $row;
         }
+
+        public function checkPassword($data){
+            $response = DB::connect()->query("SELECT mot_de_passe FROM accounts WHERE id LIKE '".$data['id']."'");
+            $response->execute();
+            $oldPassword = $response->fetch(PDO::FETCH_ASSOC);
+            return $oldPassword;
+        }
+
+        public function updatePasword($newPassword, $data){
+            
+            $stmt = DB::connect()->prepare('UPDATE accounts SET mot_de_passe = :newPassword WHERE id = :id');
+            $stmt->bindValue(':newPassword', $newPassword);
+            $stmt->bindValue(':id', $data['id']);
+            
+            $executed =  $stmt->execute();
+
+            return $executed;
+
+            $stmt = null;
+        }
     }
 ?>

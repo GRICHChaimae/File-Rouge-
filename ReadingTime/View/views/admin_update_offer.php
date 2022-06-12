@@ -74,6 +74,9 @@ if(isset($_POST['submit'])){
         
             <label for="">Price</label>
             <input type="number" name="prix" value="<?php echo $Offer['prix_offer'] ?>">
+
+            <label for="">Quantity</label>
+            <input type="number" name="quantity" value="<?php echo $Offer['quantity'] ?>">
       
             <input type="submit" name="submit" id="submit" value="to modify">
     </form>
