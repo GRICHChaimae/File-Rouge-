@@ -24,31 +24,8 @@ require_once '../../Controllers/productController.php';
 
 <body>
 
-<header>
-    <div id="logo">
-        <a href="Home.php"><p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime"></a>
-    </div>
-
-    <input type="checkbox" id="menu-bar">
-    <label for="menu-bar">Menu</label>
-
-    <nav class="navbary">
-        <ul>
-            <li><a href="admin_gerer_orders.php">Orders</a></li>
-            <li><a href="admin_management_product.php">Books</a></li>
-            <li><a href="admin_management_offer.php">Offers</a></li>
-            <li><a href="admin_management_blog.php">Blogs</a></li>
-            <li><a href="#">Your Account+</a> 
-                <ul>
-                    <li><a href="admin_account.php">My Account</a></li>
-                    <li><a href="admin_Account_Informations.php">Account Informations</a></li>
-                    <li><a href="admin_Messages.php">Messages</a></li>
-                    <li><a href="admin_Sign_Out.php">Sign Out</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-</header>
+            <!-- header -->
+            <?php require_once 'admin_nav_bar.php'; ?>
 
 <dvi class="done_or_not">
     <div class="active">
@@ -65,25 +42,25 @@ require_once '../../Controllers/productController.php';
     <form action="" method="post" enctype="multipart/form-data" class="form-add">
         
             <label for="">Book title</label>
-            <input type="text" name="titre">
+            <input type="text" name="titre" required>
        
             <label for="">Description</label>
-            <textarea type="text" name="description" style="height:100px"></textarea>
+            <textarea type="text" name="description" style="height:100px" required></textarea>
        
             <label for="">Writer</label>
-            <input type="text" name="ecrivain">
+            <input type="text" name="ecrivain" required>
         
             <label for="">Picture</label>
-            <input type="file" name="image">
+            <input type="file" name="image" required>
         
             <label for="">Price</label>
-            <input type="number" name="prix">
+            <input type="number" name="prix" step="any" required>
 
             <label for="">ISBN</label>
-            <input type="number" name="ISBN">
+            <input type="number" name="ISBN" required>
 
             <label for="">quantity</label>
-            <input type="number" name="quantity">
+            <input type="number" name="quantity"  required>
 
         <input type="submit" name="submit" id="submit">
     </form>

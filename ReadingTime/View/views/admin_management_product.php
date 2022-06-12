@@ -27,31 +27,8 @@ require_once '../../Controllers/productController.php';
 
 <body>
 
-<header>
-    <div id="logo">
-        <a href="Home.php"><p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime"></a>
-    </div>
-
-    <input type="checkbox" id="menu-bar">
-    <label for="menu-bar">Menu</label>
-
-    <nav class="navbary">
-        <ul>
-            <li><a href="admin_gerer_orders.php">Orders</a></li>
-            <li><a href="admin_management_product.php">Books</a></li>
-            <li><a href="admin_management_offer.php">Offers</a></li>
-            <li><a href="admin_management_blog.php">Blogs</a></li>
-            <li><a href="#">Your Account+</a> 
-                <ul>
-                    <li><a href="admin_account.php">My Account</a></li>
-                    <li><a href="admin_Account_Informations.php">Account Informations</a></li>
-                    <li><a href="admin_Messages.php">Messages</a></li>
-                    <li><a href="admin_Sign_Out.php">Sign Out</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-</header>
+            <!-- header -->
+    <?php require_once 'admin_nav_bar.php'; ?>
 
 <dvi class="done_or_not">
     <div class="not-active">
@@ -65,20 +42,20 @@ require_once '../../Controllers/productController.php';
     <div class="parents">
     <table>
         <tr>
+            <th>ISBN</th>
             <th>Book title</th>
-            <th>Description</th>
             <th>Writer</th>
             <th>Price</th>
-            <th>ISBN</th>
+            <th>Storage</th>
             <th>Action</th>
         </tr>
     <?php foreach($Books as $Book): ?>
             <tr>
+                <td><?php echo $Book['ISBN'] ?></td>
                 <td><?php echo $Book['book_title'] ?></td>
-                <td><?php echo $Book['description_book'] ?></td>
                 <td><?php echo $Book['book_writer'] ?></td>
                 <td><?php echo $Book['prix_book'] ?></td>
-                <td><?php echo $Book['ISBN'] ?></td>
+                <td><?php echo $Book['quantity'] ?></td>
                 <td>
                     <div id="image">
                     <form method="post" action="admin_update_book.php">

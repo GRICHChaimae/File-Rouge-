@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../Style/adminProduct.css">
     <title>Document</title>
 </head>
-<body>
 <?php
 
 require_once '../../Controllers/productController.php';
@@ -18,32 +17,10 @@ require_once '../../Controllers/productController.php';
         $product = new ProductController();
         $Books =  $product->getVoidStorage();
 ?>
-<header>
-    <div id="logo">
-        <a href="Home.php"><p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime"></a>
-    </div>
+<body>
 
-    <input type="checkbox" id="menu-bar">
-    <label for="menu-bar">Menu</label>
-
-    <nav class="navbary">
-        <ul>
-            <li><a href="admin_gerer_orders.php">Orders</a></li>
-            <li><a href="admin_management_product.php">Books</a></li>
-            <li><a href="admin_management_offer.php">Offers</a></li>
-            <li><a href="admin_management_blog.php">Blogs</a></li>
-            <li><a href="admin_storage.php">Storage</a></li>
-            <li><a href="#">Your Account+</a> 
-                <ul>
-                    <li><a href="admin_account.php">My Account</a></li>
-                    <li><a href="admin_Account_Informations.php">Account Informations</a></li>
-                    <li><a href="admin_Messages.php">Messages</a></li>
-                    <li><a href="admin_Sign_Out.php">Sign Out</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-</header>
+            <!-- header -->
+            <?php require_once 'admin_nav_bar.php'; ?>
 
 
 <dvi class="done_or_not">

@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="../Style/adminProduct.css">
     <title>Update a book Informations</title>
 </head>
-<body>
-
 <?php
 
 require_once '../../Controllers/productController.php';
@@ -31,31 +29,10 @@ if(isset($_POST['submit'])){
 }
 
 ?>
-<header>
-    <div id="logo">
-        <a href="Home.php"><p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime"></a>
-    </div>
+<body>
 
-    <input type="checkbox" id="menu-bar">
-    <label for="menu-bar">Menu</label>
-
-    <nav class="navbary">
-        <ul>
-        <li><a href="admin_gerer_orders.php">Orders</a></li>
-            <li><a href="admin_management_product.php">Books</a></li>
-            <li><a href="admin_management_offer.php">Offers</a></li>
-            <li><a href="admin_management_blog.php">Blogs</a></li>
-            <li><a href="#">Your Account+</a> 
-                <ul>
-                    <li><a href="admin_account.php">My Account</a></li>
-                    <li><a href="admin_Account_Informations.php">Account Informations</a></li>
-                    <li><a href="admin_Messages.php">Messages</a></li>
-                    <li><a href="admin_Sign_Out">Sign Out</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-</header>
+            <!-- header -->
+    <?php require_once 'admin_nav_bar.php'; ?>
  
     <h1>Edit Book Info</h1>
 
@@ -77,9 +54,9 @@ if(isset($_POST['submit'])){
             <input  type="file" name="image" class="mt-3" >
         
             <label for="">Price</label>
-            <input type="number" name="prix" value="<?php echo $Book['prix_book'] ?>">
+            <input type="number" name="prix" step="any" value="<?php echo $Book['prix_book'] ?>">
  
-            <label for="">Quantity/label>
+            <label for="">Quantity</label>
             <input type="number" name="quantity" value="<?php echo $Book['quantity'] ?>">
 
             <input type="submit" name="submit" id="submit" value="to modify">
