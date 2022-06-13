@@ -40,6 +40,13 @@ class Product extends ParentClass{
         $stmt = null;
     }
 
+    public function getnotExpired(){
+        $stmt = DB::connect()->prepare('SELECT * FROM books WHERE quantity != 0');
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt = null;
+    }
+
     public function getOne($id){
         try{
             $stmt = DB::connect()->prepare("SELECT * FROM books WHERE id = $id");

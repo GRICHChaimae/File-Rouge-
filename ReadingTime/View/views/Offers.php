@@ -49,7 +49,7 @@ $Offers = $data->getAllOffers();
     <div class="offer">
         
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
+                <div class="carousel-inner" style="padding: 0 70px; margin-top: 0;" >
 
                     <?php foreach ($Offers as $index => $item) : ?>
                     <div class="carousel-item <?= !$index ? 'active' : '' ?>">
@@ -57,7 +57,7 @@ $Offers = $data->getAllOffers();
                         <h5><?php echo $item['title_offer'] ?></h5>
                         <p><?php echo $item['description_offer'] ?></p>
                         <p><span style="font-weight:bold;">Price : </span><?php echo $item['prix_offer'] ?> $</p>
-                        <form action="buy_book.php" method="post">
+                        <form action="buy_offer.php" method="post">
                             <input type="number" name="offer_id" value="<?php echo $item['id'] ?>" hidden>
                             <button name="submit_offer" type="submit"  id="buy_offer">
                                 Buy Now
@@ -67,18 +67,19 @@ $Offers = $data->getAllOffers();
                 <?php endforeach; ?>
 
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <button class="carousel-control-prev" style="width:70px;" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <button class="carousel-control-next" style="width:70px;" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
     </div>
 
-
+            <!-- footer -->
+        <?php require_once 'footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>

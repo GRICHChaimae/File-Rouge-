@@ -45,6 +45,12 @@ class ProductController {
         return $Posts;
     }
 
+    public function getProducts(){
+        $getAll = new Product();
+        $Posts = $getAll->getnotExpired();
+        return $Posts;
+    }
+
     public function getOneBook($id){
         $getOne = new Product();
         $Book = $getOne->getOne($id);

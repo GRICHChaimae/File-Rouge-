@@ -31,7 +31,7 @@ require_once '../../Controllers/pannelController.php';
 require_once '../../Controllers/favoriteController.php';
 
 $data = new ProductController();
-$Books = $data->getAllProducts();
+$Books = $data->getProducts();
 
 if (isset($_POST['submit'])) {
 
@@ -74,13 +74,12 @@ if (isset($_POST['submit_favorite'])) {
     </form>
     </div>
 
-    <h2>Our Library</h2>
+    <h2 id="ourLibrary">Our Library</h2>
 
     <div class="card2" >
 
 
         <?php foreach ($Books as $Book) : ?>
-            <?php if($Book['quantity'] != 0): ?>
                 <div class="one-card">
                     <img src="<?php echo $Book['image_book'] ?>" alt="" id="our-library-image">
                     <h4><?php echo $Book['book_title'] ?></h4>
@@ -92,7 +91,7 @@ if (isset($_POST['submit_favorite'])) {
                     <form action="" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="book_id" value="<?php echo $Book['id'] ?>">
                         <input type="hidden" name="user_id" value="<?php echo $_SESSION["user_id"] ?>">
-                        <button name="submit">
+                        <button name="submit" class="pannel-icone">
                             <img id="pannel" src="../Images/pannel.png" alt="">
                             <img id="fullpannel" src="../Images/fullpannel.png" alt="">
                         </button>
@@ -108,7 +107,6 @@ if (isset($_POST['submit_favorite'])) {
                     </div>
                     </div>
                 </div>
-            <?php endif; ?>
         <?php endforeach; ?>
     </div>
 

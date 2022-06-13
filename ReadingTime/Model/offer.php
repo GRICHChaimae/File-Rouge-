@@ -54,6 +54,15 @@ class Offer extends ParentClass{
 
     }
 
+    public function UpdateQuantity($data){
+
+        $stmt = DB::connect()->prepare('UPDATE offers SET quantity = :quantity WHERE id = :id');
+        $executed = $stmt->execute(["id"=> $data['id'] ,"quantity"=> $data['quantity']]);
+        return $executed ;
+      
+        $stmt = null;        
+    }
+
     public function VoidOffers(){
         $stmt = DB::connect()->prepare('SELECT * FROM offers WHERE quantity = 0');
         $stmt->execute();

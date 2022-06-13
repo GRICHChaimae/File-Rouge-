@@ -16,7 +16,7 @@
 
             <div class="row d-flex justify-content-center">
                 <div class="col-md-3 col-lg-3 col-xl-3  mt-3 logoFooter">
-                    <a href="Home.php" style="text-decoration: none; display: flex;">
+                    <a href="Home.php" style="text-decoration: none; display: flex;" class="mb-3">
                         <h5 class="mb-0 font-weight-bold fs-25" style="color: #855342;">Reading</h5><img src="../Images/logobrowny.png" alt="ReadingTime" style="width: 25px; height: 25px; margin-left: 3px;">
                     </a>
                     <p style="color: black;">

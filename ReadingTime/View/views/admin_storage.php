@@ -20,8 +20,7 @@ require_once '../../Controllers/productController.php';
 <body>
 
             <!-- header -->
-            <?php require_once 'admin_nav_bar.php'; ?>
-
+        <?php require_once 'admin_nav_bar.php'; ?>
 
 <dvi class="done_or_not">
     <div class="active">

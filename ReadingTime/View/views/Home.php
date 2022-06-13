@@ -102,10 +102,10 @@
     <div class="best-books">
         <img src="../Images/content1.png" alt="" data-aos="fade-right">
         <div class="best-book-text">
-            <h2 data-aos="fade-left" style="max-width: 100wh; overflow: hidden;">
+            <h2 data-aos="fade-right" style="max-width: 100wh; overflow: hidden;">
                 15 best selling books of decade
             </h2>
-            <p data-aos="fade-left">&emsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+            <p data-aos="fade-right">&emsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
             molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
             numquam blanditiis harum quisquam eius sed odit fugiat iusto
             sint commodi repudiandae consequuntur voluptatum laborum
@@ -115,7 +115,7 @@
     </div>
 
     <div class="best-books ex2">
-        <img src="../Images/content2.png" alt="" data-aos="fade-left">
+        <img src="../Images/content2.png" alt="" data-aos="fade-right">
         <div class="best-book-text">
             <h2 data-aos="fade-right">
                 15 best selling books of decade

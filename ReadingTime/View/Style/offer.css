@@ -7,7 +7,7 @@
   }
 
   .offer{
-      width: 50%;
+      width: 70%;
       margin: 20px auto;
   }
 
@@ -16,7 +16,6 @@
       object-fit: cover;
       height: 300px;
       margin: 10px auto;
-
   }
  
   .offer h5{
@@ -31,5 +30,8 @@
   }
 
   #buy_offer{
-    margin-left: 100px ;
-}
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 10px;
+  }

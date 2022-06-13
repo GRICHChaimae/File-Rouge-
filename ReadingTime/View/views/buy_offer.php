@@ -6,7 +6,6 @@ if (!isset($_SESSION["userName"])) {
     header("location: ./login.php");
     return;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -24,26 +23,27 @@ if (!isset($_SESSION["userName"])) {
 </head>
 
 <?php 
-require_once '../../Controllers/productController.php';
 require_once '../../Controllers/commandeController.php';
+require_once '../../Controllers/offerController.php';
 
-    if(isset($_GET['book_id'])){
-        $exitBook = new ProductController();
-        $Book = $exitBook->getOneBook($_GET['book_id']);
-    }
+$exitOffer = new OfferController();
+
+if(isset($_POST['submit_offer'])){
+    $Offer = $exitOffer->getOneOffer($_POST['offer_id']);
+  }
+
 
     if(isset($_POST['submit'])){
 
         $commandeController = new CommandeController();
         $commandeController->AddCommande();
 
-        $BookStore= new ProductController();
-        $BookStore->UpdateStore();
+        $exitOffer->UpdateStore();
 
     }
 
-    if(!isset($Book)){
-        header("location: ./Books.php");
+    if(!isset($Offer)){
+        header("location: ./Offers.php");
         return; 
     }
 ?>
@@ -52,23 +52,18 @@ require_once '../../Controllers/commandeController.php';
             <!-- header -->
     <?php require_once 'user_nav_bar.php'; ?>
 
-        <div class="searching_book">
-            <div class="book_image">
-                <img src="<?php echo $Book['image_book'] ?>" alt="">
-            </div>    
-            <div class="book_info">
-                <h2><?php echo $Book['book_title'] ?></h2>
-                <p><span style="font-weight: bold;">written by:&nbsp</span><?php echo $Book['book_writer'] ?></p>
-                <p><?php echo $Book['description_book'] ?></p>       
-                <p><span style="font-weight: bold;">Price :&nbsp</span><?php echo $Book['prix_book'] ?> $</p>
-                <div class="container">
+        <div class="offer">
+            <img src="<?php echo $Offer['image_offer'] ?>" alt="">
+            <h5><?php echo $Offer['title_offer'] ?></h5>
+            <p><?php echo $Offer['description_offer'] ?></p>
+            <p><span style="font-weight:bold;">Price : </span><?php echo $Offer['prix_offer'] ?> $</p>
+            <div class="container">
                     <input type="button" onclick="decrementValue()" value="-" />  
                     <input type="text" name="quantity" value="1" readonly="readonly" maxlength="2" max="10" size="1" id="number" />
                     <input type="button" onclick="incrementValue()" value="+" />
                 </div>
-                <p><span style="font-weight: bold;">Total : </span><span id="total"><?php echo $Book['prix_book'] ?></span> $ </p>                     
-            </div>
-        </div> 
+                <p><span style="font-weight: bold;">Total : </span><span id="total"><?php echo $Offer['prix_offer'] ?></span> $ </p>
+        </div>
 
 <h2 class="checkout">Checkout</h2>
 <h3>Ship To Address</h3>
@@ -79,8 +74,8 @@ require_once '../../Controllers/commandeController.php';
 
     <form action="" method="post">
 
-      <input type="text" name="id" value='<?php echo $Book['id'] ?>' hidden>
-      <input type="text" id="RestInStorage" name="quantity" value='<?php echo $Book['quantity'] - 1 ?>' hidden>
+      <input type="text" name="id" value='<?php echo $Offer['id'] ?>' hidden>
+      <input type="text" id="RestInStorage" name="quantity" value='<?php echo $Offer['quantity'] - 1 ?>' hidden>
       <div class="first_row">
         <div class="div1">
             <p>First Name</p>
@@ -181,8 +176,8 @@ var value = parseInt(document.getElementById('number').value, 10);
     if(value<10){
         value++;
             document.getElementById('number').value = value;
-            document.getElementById('total').innerHTML = value * <?php echo $Book['prix_book'] ?>;
-            document.getElementById('RestInStorage').value = <?php echo $Book['quantity'] ?> - value ;
+            document.getElementById('total').innerHTML = value * <?php echo $Offer['prix_offer'] ?>;
+            document.getElementById('RestInStorage').value = <?php echo $Offer['quantity'] ?> - value ;
     }
 }
 function decrementValue()
@@ -191,8 +186,8 @@ function decrementValue()
     if(value>1){
         value--;
             document.getElementById('number').value = value;
-            document.getElementById('total').innerHTML = value * <?php echo $Book['prix_book'] ?>;
-            document.getElementById('RestInStorage').value = <?php echo $Book['quantity'] ?> - value ;
+            document.getElementById('total').innerHTML = value * <?php echo $Offer['prix_offer'] ?>;
+            document.getElementById('RestInStorage').value = <?php echo $Offer['quantity'] ?> - value ;
     }
 
 }

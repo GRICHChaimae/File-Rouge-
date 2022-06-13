@@ -12,28 +12,23 @@
                 'mot_de_passe' => password_hash($_POST['mot_de_passe'], PASSWORD_BCRYPT)
             );
 
+
             
-            if($_POST['mot_de_passe'] != $_POST['validation_mot_de_passe']){
-                return false; 
+            if($_POST['mot_de_passe'] !== $_POST['validation_mot_de_passe']){
+                return "The Password is not valid"; 
             }else{
                 try{
                     $add = new Account();
-                    $result = $add->addAccount($data);
+                    $add->addAccount($data);
+                    header('location:login.php');
                 }catch(PDOException $e){
-                if(str_contains($e->getMessage(),"Duplicate")){
-                    echo "an account with thisemail is already exists";
-                }else{
-                    die($e->getMessage());
+                    if(str_contains($e->getMessage(),"Duplicate")){
+                        return  "an account with this info already exists";
+                    }else{
+                        die($e->getMessage());
+                    }
                 }
-    
-            }
             } 
-
-            // if($result){
-            //     header("location:login.php");
-            // }else{
-            //     echo $result; 
-            // } 
         }
 
         public function changePassword(){

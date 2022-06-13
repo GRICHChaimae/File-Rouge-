@@ -91,6 +91,22 @@ class OfferController{
         }
     }
 
+    public function UpdateStore(){
+        if(!isset($_POST['submit'])) return;
+
+        $data = array(
+            'id' => $_POST['id'],
+            'quantity' => $_POST['quantity']
+        );
+
+        $edit = new Offer();
+        $result = $edit->UpdateQuantity($data);
+        if(!$result){
+            echo $result;  
+        }
+        
+    }
+
     public function getVoidOfferStorage(){
         $getVoidOffers = new Offer();
         $AllvoidOffers = $getVoidOffers->VoidOffers();

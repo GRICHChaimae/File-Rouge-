@@ -56,7 +56,7 @@
       height: 50px;
   }
 
-  h2{
+  #ourLibrary{
     text-align: center;
     margin: 20px;
   }
@@ -78,9 +78,9 @@
       }
 
       .card2 .one-card h4{
-        width: 80%;
-        margin: 10px 10%;
-
+        width: 90%;
+        margin: 5px 5% 10px;
+        font-size: 18px;
       }
 
       .card2 .one-card #our-library-image{
@@ -93,13 +93,19 @@
 
       .icon-pannel-favorite{
         display: flex;
-        justify-content: space-between;
-        width: 20%;
+        gap: 10px;
       }
 
       .prix-pannel{
         display: flex;
-        justify-content: space-around;;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        margin: 5px auto 15px;
+      }
+
+      .prix-pannel p{
+        margin-bottom: 0;
       }
 
       .icon-pannel-favorite button{
