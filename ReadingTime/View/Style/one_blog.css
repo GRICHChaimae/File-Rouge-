@@ -1,0 +1,140 @@
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-family: 'Libre Caslon Text', serif;
+  }
+
+  .page_content{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    width: 96%;
+    margin: 20px auto;
+   }
+
+    .page_content .one_blog{
+        width: 65%;
+    }
+
+    .one_blog p , h2{
+        width: 90%;
+        margin:0 auto;
+      }
+    
+      .one_blog h2{
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+    
+      .one_blog p{
+        margin-bottom: 20px;
+      }
+
+      .one_blog img{
+          width: 98%;
+      }
+
+    .tendance_and_search{
+        width: 33%;
+    }
+
+    .one_tendance{
+        display: flex;
+        margin-bottom: 20px;
+      }
+    
+      .one_tendance img{
+        width:137px;
+        height: 100px;
+        border-radius: 5px;
+      }
+    
+      #tendance_blog_img{
+        border: none;
+      }
+    
+      #tendance_blog_title{
+        background-color: Transparent;
+        border: none;
+        display: contents;
+      }
+    
+      .one_tendance h6{
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+      }
+    
+      .search_ISBN{
+        background-image: url('../Images/search_bg.png');
+        padding: 80px 0;
+        position: sticky;
+        left: 0px;
+        top: 100px;
+      }
+    
+      .search_ISBN p , .search_ISBN h3{
+        text-align: center;
+        margin-bottom: 30px;
+      }
+    
+      .search_ISBN h3{
+        font-family: arial;
+        font-weight: bold;
+      }
+    
+      .search_ISBN .search{
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+      }
+    
+      #register_blog{
+        text-decoration: none;
+        background-color: black;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+      }
+      .reg{
+        display: flex;
+        justify-content: center;
+      }
+      .search_ISBN .search input{
+          width: 50%;
+          border: none;
+          height: 50px;
+      }
+    
+      .search_ISBN .search button{
+          width: 25%;
+          border: none;
+          background-color: #855342;
+          color: white;
+          height: 50px;
+      }
+    
+
+
+
+  @media only screen and (max-width: 1200px){
+
+  }
+
+  @media only screen and (max-width: 1024px){
+  
+  }
+
+  @media only screen and (max-width: 768px){
+
+  }
+
+  @media only screen and (max-width: 480px){
+
+  }

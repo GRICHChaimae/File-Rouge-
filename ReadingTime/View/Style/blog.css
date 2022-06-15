@@ -108,6 +108,9 @@
   .search_ISBN{
     background-image: url('../Images/search_bg.png');
     padding: 80px 0;
+    position: sticky;
+    left: 0px;
+    top: 100px;
   }
 
   .search_ISBN p , .search_ISBN h3{
@@ -136,10 +139,10 @@
     justify-content: center;
     margin: 0;
   }
-.reg{
-  display: flex;
-  justify-content: center;
-}
+  .reg{
+    display: flex;
+    justify-content: center;
+  }
   .search_ISBN .search input{
       width: 50%;
       border: none;
@@ -278,10 +281,10 @@
 
     .search_ISBN .search input{
       width: 60%;
-  }
+    }
 
-  .search_ISBN .search button{
-      width: 35%;
-  }
+    .search_ISBN .search button{
+        width: 35%;
+    }
 
   }

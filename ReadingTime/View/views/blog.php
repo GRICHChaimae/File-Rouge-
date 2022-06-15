@@ -43,7 +43,6 @@ $TendanceBlogs = $BolgController->tendanceBlogs();
     <h2 id="blogs_title">Blog</h2>
 
     <div class="page_content">
-
         <div class="blogs_pagenation">
             <div class="blogS">
                 <?php foreach ($results as $r) : ?>
@@ -114,12 +113,10 @@ $TendanceBlogs = $BolgController->tendanceBlogs();
                         <br> Register Now!!
                     </p>
                     <div class="reg">
-                    <button onclick="window.location.href='/FileRouge/ReadingTime/View/views/login.php'" id="register_blog">
-                        Register Now
-                    </button>
-
+                        <button onclick="window.location.href='/FileRouge/ReadingTime/View/views/login.php'" id="register_blog">
+                            Register Now
+                        </button>
                     </div>
-                   
                 <?php endif; ?>
             </div>
         </div>
