@@ -1,15 +1,6 @@
 <?php
 
-require_once '../../model/paginate.php';
-
-class BolgController{
-  
-    public function getAllBlogs(){
-        $getAll = new Blog();
-        $Blogs = $getAll->getAll();
-        return $Blogs ;
-    }  
-
+class PaginateController{
 
     var $data;
 

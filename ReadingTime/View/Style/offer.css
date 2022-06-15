@@ -23,7 +23,7 @@
     margin: 10px;
    }
 
-  .offer p , h5 {
+  .title_p {
       text-align: center;
       width: 90%;
       margin: 10px auto;
@@ -34,4 +34,27 @@
     background-color: black;
     color: white;
     padding: 10px;
+  }
+
+  #buy-form{
+    width: 100px;
+    margin: 15px auto;
+  }
+
+  @media only screen and (max-width: 1200px){
+    .offer{
+      width: 80%;
+    }
+  }
+
+  @media only screen and (max-width: 768px){
+    .offer{
+      width: 90%;
+    }
+  }
+
+  @media only screen and (max-width: 480px){
+    .offer{
+      width: 95%;
+    }
   }

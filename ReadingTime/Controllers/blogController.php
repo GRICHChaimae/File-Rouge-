@@ -31,7 +31,6 @@ class BolgController{
        
     }
 
-
     public function getAllBlogs(){
         $getAll = new Blog();
         $Blogs = $getAll->getAll();
@@ -41,6 +40,7 @@ class BolgController{
     public function getOneBlog($id){
         $getOne = new Blog();
         $Blogs  = $getOne->getOne($id);
+
         return $Blogs;
     }
 
@@ -87,15 +87,32 @@ class BolgController{
         }
     }
 
-    public function getSixBlogs(){
-        $limit = 6;
+    // public function getSixBlogs(){
+    //     $limit = 6;
+    //     $page_number = isset($_GET['page']) ? (int)$_GET['page']: 1;
+    //     $page_number = $page_number < 1 ? 1:$page_number;
+    //     $offset = ($page_number - 1) * $limit;
+    //     $getSixBlogs = new Blog();
+    //     return $getSixBlogs->getSixBlogs($limit , $offset);
+    //     return array_slice( $SixBlogs , -6);
+    // }
 
-        $page_number = isset($_GET['page']) ? (int)$_GET['page']: 1;
-        $page_number = $page_number < 1 ? 1:$page_number;
-        $offset = ($page_number - 1) * $limit;
-        $getSixBlogs = new Blog();
-        return $getSixBlogs->getSixBlogs($limit , $offset);
-        // return array_slice( $SixBlogs , -6);
+    public function addVisites($id,$addVisite){
+
+        $addVisites = new Blog();
+        $checkVistes = $addVisites->checkVisites($id);
+
+        if(empty($checkVistes)){
+            $addVisites->updateVistes($id,$addVisite);
+            $addVisites->addVisiste($id);
+        }
+
+    }
+
+    public function tendanceBlogs(){
+        $getTendance = new Blog();
+        $Blogs = $getTendance->getAllTendances();
+        return $Blogs ;
     }
     
 }

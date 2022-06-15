@@ -21,30 +21,51 @@ if (!isset($_SESSION)) {
 </head>
 <?php
 
+require_once '../../Controllers/blogController.php';
 require_once '../../Controllers/paginateController.php';
 
 $BolgController = new BolgController();
+$PaginateController = new PaginateController();
 
 $Blogs = $BolgController->getAllBlogs();
-$numbers = $BolgController->Paginate($Blogs, 6);
-$results = $BolgController->fetchResult();
+$numbers = $PaginateController->Paginate($Blogs, 6);
+$results = $PaginateController->fetchResult();
+
+$TendanceBlogs = $BolgController->tendanceBlogs();
 
 ?>
 
 <body>
 
         <!-- header -->
-    <?php require_once 'home_nav_bar.php'; ?>  
+    <?php require_once 'home_nav_bar.php'; ?>
+    
+    <?php foreach ($TendanceBlogs as $TendanceBlog) : ?>
+        <?php echo $TendanceBlog['id'] ?>
+    <?php endforeach; ?>
+
+
+    <h2 id="blogs_title">Blog</h2>
 
     <div class="page_content">
 
         <div class="blogs_pagenation">
-            <div class="one_blog">
+            <div class="blogS">
                 <?php foreach ($results as $r) : ?>
-                    <div>
-                        <img src="<?php echo $r['blog_image'] ?>" alt="" id="img-modify">
-                        <h2><?php echo $r['blog_title'] ?></h2>
+                    <div class="one_blog">
+                        <form action="OneBlog.php" method="post">
+                            <button id="blog_img" name="this_blog">
+                                <img src="<?php echo $r['blog_image'] ?>" alt="" id="img-modify">
+                            </button>
+                            <h2>
+                                <button class="blog_title" name="this_blog">
+                                    <?php echo $r['blog_title'] ?>
+                                </button> 
+                            </h2>
+                            <input type="text" name="id" value="<?php echo $r['id'] ?>" hidden>
+                        </form>
                         <p><?php echo $r['blog_description'] ?></p>
+                        <p style="color: rgba(0,0,0,.5);">views (<?php echo $r['visits'] ?>)</p>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -64,7 +85,19 @@ $results = $BolgController->fetchResult();
 
         <div class="tendance_and_search">
             <div class="tendance_blogs">
-                <img src="../Images/livre1.png" alt="">
+                <h4>Trending posts</h4>
+                <hr style="width: 100%; height: 3px; color: black;">
+                    <?php foreach ($TendanceBlogs as $TendanceBlog) : ?>
+                        <form action="OneBlog.php" method="post">
+                        <div class="one_tendance">
+                            <img src="<?php echo $TendanceBlog['blog_image'] ?>" alt="">
+                            <h6><?php echo $TendanceBlog['blog_title'] ?></h6>
+                            <input type="text" name="id" value="<?php echo $TendanceBlog['id'] ?>" hidden>
+                        </div>
+                        </form>
+
+                    <?php endforeach; ?>   
+                                            
             </div>
             <div class="search_ISBN">
                 <form action="product.php" method="post">
@@ -77,10 +110,8 @@ $results = $BolgController->fetchResult();
         </div>
     </div>
 
-        <!-- footer -->
-        <?php require_once 'footer.php'; ?>
-
-
+            <!-- footer -->
+    <?php require_once 'footer.php'; ?>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

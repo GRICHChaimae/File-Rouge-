@@ -55,12 +55,40 @@ class Blog extends ParentClass{
         $stmt->execute();
     }
 
-    public function getSixBlogs($limit , $offset){
-        $stmt = DB::connect()->prepare("SELECT * FROM blogs order by id desc limit $limit offset $offset");
-        $stmt->execute();
+    // public function getSixBlogs($limit , $offset){
+    //     $stmt = DB::connect()->prepare("SELECT * FROM blogs order by id desc limit $limit offset $offset");
+    //     $stmt->execute();
 
-         return $stmt->fetchAll();
+    //      return $stmt->fetchAll();
         
+    //     $stmt = null;
+    // }
+
+    public function getAllTendances(){
+        $stmt = DB::connect()->prepare("SELECT * FROM blogs order by visits desc LIMIT 4");
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt = null;
+    }
+
+    public function checkVisites($id){
+        $stmt = DB::connect()->prepare("SELECT user_id FROM visits WHERE blog_id = $id and user_id = :user_id");
+        $stmt->execute(["user_id"=> $_SESSION["user_id"]]);
+        return $stmt->fetchAll();
+        $stmt = null;
+    }
+     
+    public function updateVistes($id,$addVisite){
+        $stmt = DB::connect()->prepare("UPDATE blogs SET visits = :visits WHERE id = :id");
+        $executed = $stmt->execute(["id"=> $id ,"visits"=> $addVisite]);
+        return $executed;
+        $stmt = null;
+    }
+
+    public function addVisiste($id){
+        $stmt = DB::connect()->prepare("INSERT INTO visits(user_id,blog_id) VALUES (:user_id,:blog_id)");
+        $executed = $stmt->execute(["blog_id"=> $id ,"user_id"=> $_SESSION["user_id"]]);
+        return $executed;
         $stmt = null;
     }
     
