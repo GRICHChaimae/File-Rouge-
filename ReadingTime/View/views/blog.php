@@ -39,11 +39,6 @@ $TendanceBlogs = $BolgController->tendanceBlogs();
 
         <!-- header -->
     <?php require_once 'home_nav_bar.php'; ?>
-    
-    <?php foreach ($TendanceBlogs as $TendanceBlog) : ?>
-        <?php echo $TendanceBlog['id'] ?>
-    <?php endforeach; ?>
-
 
     <h2 id="blogs_title">Blog</h2>
 
@@ -54,7 +49,7 @@ $TendanceBlogs = $BolgController->tendanceBlogs();
                 <?php foreach ($results as $r) : ?>
                     <div class="one_blog">
                         <form action="OneBlog.php" method="post">
-                            <button id="blog_img" name="this_blog">
+                            <button class="blog_img" name="this_blog">
                                 <img src="<?php echo $r['blog_image'] ?>" alt="" id="img-modify">
                             </button>
                             <h2>
@@ -72,40 +67,60 @@ $TendanceBlogs = $BolgController->tendanceBlogs();
 
             <div class="pagenation">
                 <?php
-                if (($_GET["page"] ?? 1) != "1") :
+                    if (($_GET["page"] ?? 1) != "1") :
                 ?>
-                    <a href="blog.php?page=<?= intval($_GET["page"] ?? "1") - 1 ?>">previous</a>
+                    <a class="previous" href="blog.php?page=<?= intval($_GET["page"] ?? "1") - 1 ?>" class="prev_page"> <<  previous</a>
                 <?php endif?>
                 <?php if (($_GET["page"] ?? "1") != count($numbers)) : ?>
-                    <a href="blog.php?page=<?= intval($_GET["page"] ?? "1") + 1 ?>">next</a>
+                    <a class="next" href="blog.php?page=<?= intval($_GET["page"] ?? "1") + 1 ?>" class="next_page">next  >> </a>
                 <?php endif; ?>
-               
             </div>
         </div>
 
         <div class="tendance_and_search">
             <div class="tendance_blogs">
-                <h4>Trending posts</h4>
+                <h4>Trending Blogs</h4>
                 <hr style="width: 100%; height: 3px; color: black;">
                     <?php foreach ($TendanceBlogs as $TendanceBlog) : ?>
                         <form action="OneBlog.php" method="post">
                         <div class="one_tendance">
-                            <img src="<?php echo $TendanceBlog['blog_image'] ?>" alt="">
-                            <h6><?php echo $TendanceBlog['blog_title'] ?></h6>
+                            <button id="tendance_blog_img">
+                                <img src="<?php echo $TendanceBlog['blog_image'] ?>" alt="">
+                            </button>
+                            <h6>
+                                <button id="tendance_blog_title">
+                                    <?php echo $TendanceBlog['blog_title'] ?>
+                                </button>
+                            </h6>
                             <input type="text" name="id" value="<?php echo $TendanceBlog['id'] ?>" hidden>
                         </div>
                         </form>
-
-                    <?php endforeach; ?>   
-                                            
+                    <?php endforeach; ?>                            
             </div>
             <div class="search_ISBN">
+                <h3>Buy Your <br>
+                    paper book <br>
+                    Now!</h3>
+                <p>We guarantee you'll get your book</p>
+                <?php  if (isset($_SESSION["userName"])): ?>
                 <form action="product.php" method="post">
                     <div class="search">
                         <input type="search" name="ISBN" placeholder=" &nbsp Enter ISBN Here">
                         <button name="search_ISBN" type="submit">Search</button>
                     </div>
                 </form>
+                <?php else: ?>
+                    <p>You don't have an account !
+                        <br> Register Now!!
+                    </p>
+                    <div class="reg">
+                    <button onclick="window.location.href='/FileRouge/ReadingTime/View/views/login.php'" id="register_blog">
+                        Register Now
+                    </button>
+
+                    </div>
+                   
+                <?php endif; ?>
             </div>
         </div>
     </div>

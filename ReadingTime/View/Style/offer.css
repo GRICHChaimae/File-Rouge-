@@ -6,6 +6,11 @@
     font-family: 'Libre Caslon Text', serif;
   }
 
+  #offer_title{
+      text-align: center;
+      margin: 20px;
+  }
+
   .offer{
       width: 70%;
       margin: 20px auto;

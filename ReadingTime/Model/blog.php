@@ -55,15 +55,6 @@ class Blog extends ParentClass{
         $stmt->execute();
     }
 
-    // public function getSixBlogs($limit , $offset){
-    //     $stmt = DB::connect()->prepare("SELECT * FROM blogs order by id desc limit $limit offset $offset");
-    //     $stmt->execute();
-
-    //      return $stmt->fetchAll();
-        
-    //     $stmt = null;
-    // }
-
     public function getAllTendances(){
         $stmt = DB::connect()->prepare("SELECT * FROM blogs order by visits desc LIMIT 4");
         $stmt->execute();

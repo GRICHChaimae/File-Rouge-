@@ -9,11 +9,10 @@ if (!isset($_SESSION)) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Style/adminProduct.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Style/adminProduct.css">
+    <link rel="stylesheet" href="../Style/one_blog.css">
     <title>Update a book Informations</title>
 </head>
 <?php
@@ -40,28 +39,18 @@ else{
             <!-- header -->
         <?php require_once 'home_nav_bar.php'; ?>  
  
-        <p><?php echo $addVisite ?></p>
-        <p><?php echo $Blog['id'] ?></p>
-
     <h2>Edit a Bolg Info</h2>
 
-<div class="fromy">
-    <input type="text" name="id" value="<?php echo $Blog['id'] ?>" hidden>
-            <label for="">Blog title</label>
-            <input type="text" name="titre" value="<?php echo $Blog['blog_title'] ?>">
-       
-            <label for="">Blog Description</label>
-            <textarea type="text" name="description" style="height:100px"><?php echo $Blog['blog_description'] ?></textarea>
+<div class="page_content">
+    <div class="one_blog">
+        <h5><?php echo $Blog['blog_title'] ?></h5>
+        <img src="<?php echo $Blog['blog_image'] ?>" alt="" id="img-modify">
+        <p><?php echo $Blog['blog_text'] ?></p>
+    </div>
+
+    <div class="tendance_and_search">
         
-            <label for="">Picture</label>
-            <img src="<?php echo $Blog['blog_image'] ?>" alt="" id="img-modify">
-            <input type="text" value="<?php echo $Blog['blog_image'] ?>" name="picture" hidden>
-            <input  type="file" name="image" class="mt-3" >
-        
-            <label for="">Blog text</label>
-            <textarea type="text" name="text_blog" style="height:100px"><?php echo $Blog['blog_text'] ?></textarea>
-      
-            <input type="submit" name="submit" id="submit" value="to modify">
+    </div>
 </div>
         <!-- footer -->
         <?php require_once 'footer.php'; ?>

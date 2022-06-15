@@ -46,6 +46,8 @@ $Offers = $data->getAllOffers();
             <!-- header -->
     <?php require_once 'user_nav_bar.php'; ?>
 
+    <h2 id="offer_title">Our Offers</h2>
+
     <div class="offer">
         
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">

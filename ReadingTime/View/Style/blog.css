@@ -18,7 +18,7 @@
     display: contents;
   }
 
-  #blog_img{
+  .blog_img{
     background-color: Transparent;
     border: none;
     width: 100%;
@@ -75,47 +75,213 @@
     width: 100%;
     height: 250px;
     border-radius: 5px 5px 0 0;
+    object-fit: cover;
   }
 
   .one_tendance{
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
     margin-bottom: 20px;
   }
 
   .one_tendance img{
-    width: 40%;
+    width:137px;
     height: 100px;
     border-radius: 5px;
+  }
+
+  #tendance_blog_img{
+    border: none;
+  }
+
+  #tendance_blog_title{
+    background-color: Transparent;
+    border: none;
+    display: contents;
   }
 
   .one_tendance h6{
     display: flex;
     align-items: center;
+    margin-left: 10px;
   }
 
+  .search_ISBN{
+    background-image: url('../Images/search_bg.png');
+    padding: 80px 0;
+  }
 
+  .search_ISBN p , .search_ISBN h3{
+    text-align: center;
+    margin-bottom: 30px;
+  }
 
+  .search_ISBN h3{
+    font-family: arial;
+    font-weight: bold;
+  }
+
+  .search_ISBN .search{
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+  }
+
+  #register_blog{
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+  }
+.reg{
+  display: flex;
+  justify-content: center;
+}
+  .search_ISBN .search input{
+      width: 50%;
+      border: none;
+      height: 50px;
+  }
+
+  .search_ISBN .search button{
+      width: 25%;
+      border: none;
+      background-color: #855342;
+      color: white;
+      height: 50px;
+  }
+
+  .next_page , .prev_page{
+    color: black;
+    text-decoration: none;
+    margin-top: 20px;
+    border: solid black 2px;
+  }
+
+  .pagenation{
+    display: flex;
+    justify-content: space-between; 
+  }
+  .next{
+    margin-left: auto;
+    text-decoration: none;
+    color: black;
+    margin-top: 20px;
+    border: solid black 1px;
+    padding: 0 5px;
+  }
+  .previous{
+    text-decoration: none;
+    color: black;
+    height: 30px;
+    margin-top: 20px;
+    border: solid black 1px;
+    padding: 0 5px;
+  }
   @media only screen and (max-width: 1200px){
+    .page_content .blogs_pagenation .blogS {
+      grid-template-columns: repeat(auto-fit, 48%);
+      grid-gap: 10px;
+    }
+
+    .page_content{
+      width: 98%;
+    }
+
+    .page_content .blogs_pagenation{
+      width: 68%;
+    }
+
+    .tendance_and_search{
+      width: 32%;
+    }
 
   }
 
   @media only screen and (max-width: 1024px){
+    .page_content{
+      flex-direction: column;
+      width: 96%;
+    }
+    .page_content .blogs_pagenation{
+      width: 98%;
+      margin: 0 auto 20px;
+    }
+    .page_content .blogs_pagenation .blogS {
+      grid-template-columns: repeat(auto-fit, 49%);
+    }
 
-  } 
-  
+    .pagenation{
+      width: 99%
+    }
+
+    .tendance_and_search{
+      display: flex;
+      justify-content: space-between;
+      width: 98%;
+      margin-top: 20px;
+    }
+
+    .tendance_blogs{
+      width: 60%;
+    }
+
+    .search_ISBN{
+      width: 30%;
+    }
+  }
   @media only screen and (max-width: 768px){
+    .page_content .blogs_pagenation .blogS {
+      grid-template-columns: repeat(auto-fit, 100%);
+    }
+
+    .one_blog {
+      width: 96%;
+      margin: 0 auto 10px;
+  }
+
+  .pagenation {
+    width: 96%;
+    margin: 0 auto;
+  }
+
+  .tendance_and_search{
+    flex-direction: column;
+    width: 96%;
+    margin-top: 20px;
+    margin: 0 auto;
+  }
+
+  .tendance_blogs{
+    width: 100%;
+  }
+
+  .search_ISBN{
+    width: 80%;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+  }
 
   }
 
   @media only screen and (max-width: 480px){
-    .page_content .blogs_pagenation .blogS{
-      grid-template-columns:  repeat(auto-fit, 100%) ;
-    }
-
     .page_content .blogs_pagenation{
       width: 100%;
     }
+
+    .search_ISBN{
+      width: 90%;
+    }
+
+    .search_ISBN .search input{
+      width: 60%;
+  }
+
+  .search_ISBN .search button{
+      width: 35%;
+  }
 
   }
