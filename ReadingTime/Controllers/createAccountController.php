@@ -23,7 +23,7 @@
                     header('location:login.php');
                 }catch(PDOException $e){
                     if(str_contains($e->getMessage(),"Duplicate")){
-                        return  "an account with this info already exists";
+                        return  "An account with this email already exists";
                     }else{
                         die($e->getMessage());
                     }

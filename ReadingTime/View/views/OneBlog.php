@@ -23,8 +23,12 @@ require_once '../../Controllers/blogController.php';
 
     if(isset($_POST['id'])){
         $Blog = $exitBlog->getOneBlog($_POST['id']);
-        $addVisite = $Blog['visits'] + 1;
-        $exitBlog->addVisites($Blog['id'],$addVisite);
+
+        if (isset($_SESSION["userName"])){
+            $addVisite = $Blog['visits'] + 1;
+            $exitBlog->addVisites($Blog['id'],$addVisite);
+        }
+
     }
     else{
         header('location:blog.php');
@@ -36,9 +40,11 @@ require_once '../../Controllers/blogController.php';
 
 <body>
             <!-- header -->
-        <?php require_once 'home_nav_bar.php'; ?>  
- 
-        <h2><?php echo $Blog['blog_title'] ?></h2>
+        <?php require_once 'home_nav_bar.php'; ?> 
+
+    <div class="div_par_title">
+        <h2 id="one_blog_title"><?php echo $Blog['blog_title'] ?></h2>
+    </div>
 
 <div class="page_content">
     <div class="one_blog">
@@ -91,13 +97,6 @@ require_once '../../Controllers/blogController.php';
         </div>
     </div>
 </div>
-
-
-    <!-- <div class="one_blog">
-        <h5><?php echo $Blog['blog_title'] ?></h5>
-        <img src="<?php echo $Blog['blog_image'] ?>" alt="" id="img-modify">
-        <p><?php echo $Blog['blog_text'] ?></p>
-    </div> -->
 
 
         <!-- footer -->

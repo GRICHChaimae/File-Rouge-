@@ -26,27 +26,16 @@
         <a href="Home.php"><p>Reading</p><img src="../Images/logobrowny.png" alt="ReadingTime"></a>
     </div>
     <div class="form-border">
-        <h1>Sign In</h1>
-        <form action="" method="post">
-            <input type="email" placeholder="Email Adress" name="email">
-            <input type="password" placeholder="Passowrd" name="mot_de_passe">
-            <div class="checky">
-                <input type="checkbox">
-                <div class="checky-text">
-                    <p> Remember me</p>
-                    <p style="color: #855342;">Remember me</p>
-                </div>
-            </div>
-            <input type="submit" name="submit" value="Sign Up">
-            <p class="text-danger text-center">
-                <?php
-                    if (isset($_SESSION["loginError"])){
-                        echo $_SESSION["loginError"];
-                    }
-                ?>
-            </p>
+        <h2 id="sign_in_title">Sign In</h2>
+        <form action="" method="post" class="login_form">
+            <input type="email" placeholder="  Email Adress" name="email" required>
+            <input type="password" placeholder="  Passowrd" name="mot_de_passe" required>
+                <?php if (isset($_SESSION["loginError"])): ?>
+                    <p class="text-danger text-center"><?= $_SESSION["loginError"]; ?></p>  
+                <?php endif; ?>
+            <input type="submit" name="submit" value="Sign Up" id="sign_in">
         </form>
-        <p>Already have an account? <span>Sign In</span></p>
+        <p>Already have an account ? <a href="SignUp.php" style="color: #855342;">Sign In</a></p>
         <p class="text-white text-center">
         <?php
             if (isset($_SESSION["loginError"]))

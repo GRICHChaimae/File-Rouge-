@@ -135,22 +135,22 @@
             <div class="book" data-aos="flip-left">
                 <img src="../Images/livre1.png" alt="milk and honey">
                 <p class="description">Milk and honey created by ...</p>
-                <p id="price"><span class="prix">Prix</span> : 123 $</p>
+                <p id="price"><span class="prix">Price</span> : 123 $</p>
             </div>
             <div class="book" data-aos="flip-left">
                 <img src="../Images/livre2.png" alt="PSALMS">
                 <p class="description">Milk and honey created by ...</p>
-                <p id="price"><span class="prix">Prix</span> : 113 $</p>
+                <p id="price"><span class="prix">Price</span> : 113 $</p>
             </div>
             <div class="book" data-aos="flip-left">
                 <img src="../Images/livre3.png" alt="mTHINKIG , FAST AND SLOW">
                 <p class="description">Milk and honey created by ...</p>
-                <p id="price"><span class="prix">Prix</span> : 120 $</p>
+                <p id="price"><span class="prix">Price</span> : 120 $</p>
             </div>
             <div class="book" data-aos="flip-left">
                 <img src="../Images/livre4.png" alt="101 ESSAYS THAT WILL CHANGE THE WAY YOU THINK">
                 <p class="description">Milk and honey created by ...</p>
-                <p id="price"><span class="prix">Prix</span> : 80 $</p>
+                <p id="price"><span class="prix">Price</span> : 80 $</p>
             </div>
         </div>
     </div>
