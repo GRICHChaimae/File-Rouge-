@@ -38,7 +38,7 @@ if (isset($_POST['deleteOffer'])) {
 }
 
 $data = new OfferController();
-$Offers = $data->getAllOffers();
+$Offers = $data->getNotExpiredOffers();
 
 ?>
 
@@ -51,33 +51,35 @@ $Offers = $data->getAllOffers();
     <div class="offer">
         
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner" style="padding: 0 70px; margin-top: 0;" >
+                <div class="carousel-inner" id="slide_designe">
 
                     <?php foreach ($Offers as $index => $item) : ?>
-                    <div class="carousel-item <?= !$index ? 'active' : '' ?>">
-                        <img src="<?php echo $item['image_offer'] ?>" alt="">
-                        <h5 class="title_p"><?php echo $item['title_offer'] ?></h5>
-                        <p class="title_p"><?php echo $item['description_offer'] ?></p>
-                        <p class="title_p"><span style="font-weight:bold;">Price : </span><?php echo $item['prix_offer'] ?> $</p>
-                        <form action="buy_offer.php" method="post" id="buy-form">
-                            <input type="number" name="offer_id" value="<?php echo $item['id'] ?>" hidden>
-                            <button name="submit_offer" type="submit"  id="buy_offer">
-                                Buy Now
-                            </button>
-                        </form>
-                    </div>
-                <?php endforeach; ?>
+                        <div class="carousel-item <?= !$index ? 'active' : '' ?>">
+                            <img src="<?php echo $item['image_offer'] ?>" alt="">
+                            <h5 class="title_p"><?php echo $item['title_offer'] ?></h5>
+                            <p class="title_p"><?php echo $item['description_offer'] ?></p>
+                            <p class="title_p"><span style="font-weight:bold;">Price : </span><?php echo $item['prix_offer'] ?> $</p>
+                            <form action="buy_offer.php" method="post" id="buy-form">
+                                <input type="number" name="offer_id" value="<?php echo $item['id'] ?>" hidden>
+                                <button name="submit_offer" type="submit"  id="buy_offer">
+                                    Buy Now
+                                </button>
+                            </form>
+                        </div>
+                    <?php endforeach; ?>
 
                 </div>
-                <button class="carousel-control-prev" style="width:70px; background-color:#E6DAD5;" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" style="width:70px; background-color:#E6DAD5;" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+            <button class="carousel-control-prev" style="top:8rem; margin:0;" id="desktop_tablette_designe" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" style="top:8rem; margin: 0;"  id="desktop_tablette_designe" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+            </div>  
+
     </div>
 
             <!-- footer -->

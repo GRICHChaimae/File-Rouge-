@@ -26,11 +26,11 @@ require_once '../../Controllers/commandeController.php';
 
     $commandeController = new CommandeController();
 
-    if(isset($_POST['deletecommande'])){
-        $commandeController->deleteCommande();
+    if(isset($_POST['status'])){
+        $commandeController->updateStatus();
     }
 
-    $commandes = $commandeController->getcommandes();
+    $commandes = $commandeController->getShopListe();
 
 ?>
 
@@ -77,8 +77,8 @@ require_once '../../Controllers/commandeController.php';
     </div>
     <div class="remove_book">
         <form action="" method="post">
-            <input type = "number" name = "command_id" value = "<?php echo $commande['command_id']?>">
-            <button type = "submit" name = "deletecommande">
+            <input type = "number" name = "command_id" value = "<?php echo $commande['command_id']?>" hidden>
+            <button type = "submit" name = "status" value="not_in_shope_liste">
                 <img src="../Images/dop_book.png" alt="">
             </button>
         </form>
@@ -90,8 +90,6 @@ require_once '../../Controllers/commandeController.php';
 <?php endif; ?>
 
         </div>
-
-
 
     </div>
 

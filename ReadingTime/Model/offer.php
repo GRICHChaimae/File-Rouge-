@@ -56,8 +56,8 @@ class Offer extends ParentClass{
 
     public function UpdateQuantity($data){
 
-        $stmt = DB::connect()->prepare('UPDATE offers SET quantity = :quantity WHERE id = :id');
-        $executed = $stmt->execute(["id"=> $data['id'] ,"quantity"=> $data['quantity']]);
+        $stmt = DB::connect()->prepare('UPDATE offers SET quantity = :quantity WHERE id = :offer_id');
+        $executed = $stmt->execute(["offer_id"=> $data['offer_id'] ,"quantity"=> $data['quantity']]);
         return $executed ;
       
         $stmt = null;        
@@ -69,6 +69,14 @@ class Offer extends ParentClass{
         return $stmt->fetchAll();
         $stmt = null;
     }
+
+    public function getNotExpiredOffers(){
+        $stmt = DB::connect()->prepare('SELECT * FROM offers WHERE quantity != 0');
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt = null;
+    }    
+
 }
 
 ?>

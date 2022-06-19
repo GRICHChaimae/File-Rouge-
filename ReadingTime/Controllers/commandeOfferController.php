@@ -1,15 +1,14 @@
 <?php
 
-require_once '../../model/commande.php';
+require_once '../../model/commandeOffer.php';
 
-class CommandeController{
+class CommandeOfferController{
     public function AddCommande(){
 
     if(!isset($_POST['submit'])) return;
 
         $data = array(
-            'status'=>$_POST['status'],
-            'book_id' => $_POST['book_id'],
+            'offer_id' => $_POST['offer_id'],
             'first_name' => $_POST['first_name'],
             'second_name' => $_POST['second_name'],
             'adress_1' => $_POST['adress_1'],
@@ -23,7 +22,7 @@ class CommandeController{
             'made' => $_POST['made']
         );
 
-            $add = new Commande();
+            $add = new CommandeOffer();
             $result = $add->Add($data);
 
             if(!$result){
@@ -32,32 +31,25 @@ class CommandeController{
     }
 
     public function getcommandes(){
-        $getAll = new Commande();
+        $getAll = new CommandeOffer();
         $commands = $getAll->getAll();
         return $commands;
     }
 
-    public function getShopListe(){
-        $getAll = new Commande();
-        $commands = $getAll->getShopListe();
-        return $commands;
-    }
+    // public function deleteCommande(){
+    //     if(!isset($_POST['command_id'])) return;
 
-    public function updateStatus(){
-        if(!isset($_POST['command_id'])) return;
+    //         $id = $_POST['command_id'];
 
-            $id = $_POST['command_id'];
-            $status = $_POST['status'];
-
-            $delete = new Commande();
-            $result = $delete->updateStatus($id,$status);
+    //         $delete = new CommandeOffer();
+    //         $result = $delete->delete($id);
             
-            if($result === 'ok'){
-                header('location:shopingList.php');
-            }else{
-                echo $result;  
-            }
-    }   
+    //         if($result === 'ok'){
+    //             header('location:shopingList.php');
+    //         }else{
+    //             echo $result;  
+    //         }
+    // }   
 }
 
 ?>

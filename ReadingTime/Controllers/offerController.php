@@ -93,9 +93,8 @@ class OfferController{
 
     public function UpdateStore(){
         if(!isset($_POST['submit'])) return;
-
         $data = array(
-            'id' => $_POST['id'],
+            'offer_id' => $_POST['offer_id'],
             'quantity' => $_POST['quantity']
         );
 
@@ -112,6 +111,12 @@ class OfferController{
         $AllvoidOffers = $getVoidOffers->VoidOffers();
         return $AllvoidOffers;
     }
+
+    public function getNotExpiredOffers(){
+        $getVoidOffers = new Offer();
+        $AllvoidOffers = $getVoidOffers->getNotExpiredOffers();
+        return $AllvoidOffers;
+    }    
     
 }
 ?>

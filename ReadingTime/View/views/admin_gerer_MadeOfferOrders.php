@@ -19,15 +19,15 @@
 
 <?php
 
-require_once '../../Controllers/gererCommandsController.php';
+require_once '../../Controllers/gererCommandeOfferController.php';
 
-    $gerercommandeController = new GererCommandsController();
+    $gerercommandeController = new GererCommandeOfferController();
 
-    $commandes = $gerercommandeController->getmadecommandes();
+    $commandes = $gerercommandeController->getmadeOffercommandes();
 
     if(isset($_POST['submit'])){
         $gerercommandeController->UpdateMadeTrue();
-      }
+    }
 
 ?>
 
@@ -38,22 +38,22 @@ require_once '../../Controllers/gererCommandsController.php';
 
 <dvi class="done_or_not">
     <div class="not-active" >
-        <a href="admin_gerer_orders.php">Unfulfilled Orders</a> 
+        <a href="admin_gerer_offer_orders.php">Unfulfilled Offers Orders</a> 
     </div>   
     <div class="active">
-        <a href="admin_gerer_Madeorders.php">Order Made</a> 
+        <a href="admin_gerer_MadeOfferOrders.php">Completed Offers Orders</a> 
     </div>
 </dvi>
 
 <div class="made_not">
-    <a href="admin_gerer_Madeorders.php" class="active_page">Book Orders</a>
-    <a href="admin_gerer_MadeOfferOrders.php">Offer Orders</a>
+    <a href="admin_gerer_Madeorders.php">Book Orders</a>
+    <a href="admin_gerer_MadeOfferOrders.php" class="active_page">Offer Orders</a>
 </div>
 
 <div class="parents">
     <table>
         <tr>
-            <th>ISBN</th>
+            <th>Title</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Counrty</th>
@@ -67,7 +67,7 @@ require_once '../../Controllers/gererCommandsController.php';
         </tr>
     <?php foreach($commandes  as $commande): ?>
             <tr>
-                <td><?php echo $commande['ISBN']?></td>
+                <td><?php echo $commande['title_offer']?></td>
                 <td><?php echo $commande['first_name'] ?></td>
                 <td><?php echo $commande['second_name'] ?></td>
                 <td><?php echo $commande['country']?></td>

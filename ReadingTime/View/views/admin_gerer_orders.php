@@ -45,6 +45,11 @@ require_once '../../Controllers/gererCommandsController.php';
     </div>
 </dvi>
 
+<div class="made_not">
+    <a href="admin_gerer_orders.php" class="active_page">Book Orders</a>
+    <a href="admin_gerer_offer_orders.php">Offer Orders</a>
+</div>
+
 <div class="parents">
     <table>
         <tr>

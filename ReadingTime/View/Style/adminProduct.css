@@ -21,6 +21,18 @@
     padding: 10px 0;
 }
 
+.made_not{
+    width: 95%;
+    padding: 15px 2.5%;
+    display: flex;
+    gap: 20px;
+}
+.active_page{
+    border-bottom: #855342 1px solid;
+    color: #855342;
+    display:inline-block
+}
+
  .not-active{
     width: 50%;
     border: #CBA896 solid 1px;

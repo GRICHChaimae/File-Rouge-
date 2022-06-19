@@ -39,8 +39,8 @@ if (!isset($_SESSION["userName"])) {
                 <li><a href="Blog.php">Blog</a></li>
                 <li><a href="WhyUs.php">Why Us</a></li>
                 <li>
-                    <a href="#">
-                        Hello <?php echo $_SESSION["userName"] ?> +
+                    <a href="#" style="min-width: 228px;">
+                        ello <?php echo $_SESSION["userName"] ?> +
                     </a>
                     <ul>
                         <li><a href="user_account.php">Account Informations</a></li>

@@ -23,12 +23,12 @@ if (!isset($_SESSION["userName"])) {
 
 <?php
 
-require_once '../../Controllers/productController.php';
+    require_once '../../Controllers/productController.php';
 
-if(isset($_POST['search_ISBN'])){
-    $exitBook = new ProductController();
-    $Book = $exitBook->getOneISBN($_POST['ISBN']);
-}
+    if(isset($_POST['search_ISBN'])){
+        $exitBook = new ProductController();
+        $Book = $exitBook->getOneISBN($_POST['ISBN']);
+    }
 
 ?>
 
@@ -37,20 +37,19 @@ if(isset($_POST['search_ISBN'])){
             <!-- header -->
     <?php require_once 'user_nav_bar.php'; ?>
 
-<div class="header_content">
-    <div class="image_title">
-        <img src="../Images/headerSearch.png" alt="books">
-        <h1 class="ser">Search for a book by ISBN</h1>
-    </div>
-    <form action="product.php" method="post">
-        <div class="search">
-            <input type="search" name="ISBN" placeholder=" &nbsp Enter ISBN Here">
-            <button name="search_ISBN" type="submit" >Search</button>
+    <div class="header_content">
+        <div class="little_head"></div>
+        <div class="image_title">
+            <img src="../Images/headerSearch.png" alt="books">
+            <h1 class="ser">Search for a book by ISBN</h1>
         </div>
-    </form>
-</div>
-
-
+        <form action="product.php" method="post">
+            <div class="search">
+                <input type="search" name="ISBN" placeholder=" &nbsp Enter ISBN Here">
+                <button name="search_ISBN" type="submit" >Search</button>
+            </div>
+        </form>
+    </div>
 
 <?php if(empty($Book)): ?>
 

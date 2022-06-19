@@ -72,8 +72,7 @@ header .right-nav ul{
 header .right-nav ul li ul{
     position: absolute;
     left: 0;
-    width: 272px;
-    color: aqua;
+    width: auto;
     background-color: #E6DAD5;
     display: none;
     z-index: 1000;

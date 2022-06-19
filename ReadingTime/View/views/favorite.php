@@ -48,8 +48,8 @@ $Favorites = $favoriteController->getFavorieProduct();
 <?php if(empty($Favorites)): ?>
 
 <div class="nexistePas">
-    <p>Your Pannel is empty</p>
-    <h1>Let's Go To Add Some Books In Your Pannel</h1>
+    <p>Your Wishlist is empty</p>
+    <h1>Let's Go To Add Some Books In Your Wishlist</h1>
 </div>
 <?php else: ?>
 

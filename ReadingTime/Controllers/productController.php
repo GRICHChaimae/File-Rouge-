@@ -100,7 +100,11 @@ class ProductController {
 
         $edit = new Product();
         $result = $edit->UpdateQuantity($data);
-        if(!$result){
+
+        if($result){
+            header('location:books.php');
+        }else
+        {
             echo $result;  
         }
         
