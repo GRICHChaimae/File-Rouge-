@@ -52,7 +52,7 @@ class CommandeController{
             $delete = new Commande();
             $result = $delete->updateStatus($id,$status);
             
-            if($result === 'ok'){
+            if($result){
                 header('location:shopingList.php');
             }else{
                 echo $result;  

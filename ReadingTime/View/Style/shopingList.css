@@ -8,11 +8,21 @@
 
   .page_content{
       display: flex;
+      width: 98%;
+      margin: 20px auto;
   }
 
   .side_bar{
-      padding: 20PX;
-      width: 30%;
+      width: 18%;
+  
+  }    
+
+  #Your_shopping_list{
+      width: 82%;
+  }
+
+  #liste_title{
+    margin-left: 20px;
   }
 
   .side_bar ul{
@@ -28,19 +38,15 @@
     border-bottom: solid 1px #855342;
   }
 
-  .active_liste{
-    color: #855342;
-  }
-
   .side_bar ul li a{
     text-decoration: none;
     color: rgba(0, 0, 0, .52);
-    }
+  }
 
-    #Your_shopping_list{
-      margin: 20px;
-      margin-left: 40px;
-    }
+
+  .side_bar ul li:nth-child(5) a{
+    color: #855342;
+  }
 
     #Your_shopping_list p{
       font-weight: bold;
@@ -50,24 +56,24 @@
       margin-bottom: 20px;
   }
   
-    .searching_book{
+  .searching_book{
+     position: relative;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       padding: 20px;
       border: solid rgba(0, 0, 0, 0.19) 1px;
       margin: 20px;
   }
   
   .searching_book .book_image{
-      width: 18%;
+      width: 200px;
       height: 300px;
       margin-right: 30px;
-  
   }
   
   .searching_book .book_image img{
       width: 100%;
-      height: 300px;
+      height: 100%;
       object-fit: cover;
       background-repeat: no-repeat;
       box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;   
@@ -93,4 +99,67 @@
       background-color: transparent;
       border: none;
       cursor: pointer;
+  }
+
+  @media only screen and (max-width: 1024px){
+    .side_bar{
+      display: none;
+    }
+
+    #Your_shopping_list{
+      width: 100%;
+   }
+  
+  }
+
+  @media only screen and (max-width: 768px){
+    .book_info{
+      width: 60%;
+    }
+
+    .searching_book .book_image {
+      margin-right: 10px;
+  }
+  .searching_book{
+    margin: 0;
+    padding: 5px;
+  }
+
+  #Your_shopping_list p {
+    margin-left: 0;
+  }
+  
+  }
+
+  @media only screen and (max-width: 480px){
+    .book_info{
+      width: 96%;
+      margin: 10px auto;
+    }
+
+    .searching_book .book_image {
+      width: 200px;
+      margin: 15px auto;
+  }
+  .searching_book{
+    margin: 10px;
+    padding: 15px;
+    flex-direction: column;
+
+  }
+
+  #Your_shopping_list p {
+    margin-left: 0px;
+  }
+
+  .liste_title{
+    padding-left: 10px;
+  }
+
+  .remove_book{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  
   }

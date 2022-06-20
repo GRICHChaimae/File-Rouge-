@@ -49,18 +49,18 @@
                     $newPassword = password_hash($data['newPassword'], PASSWORD_BCRYPT);
                     $result = $changepassword->updatePasword($newPassword, $data);
                     if($result){
-                        echo "Your Password is change Succefuly";
-                        header('Location:user_account.php');
+                        header('Location:change_password.php');
+                        return $_SESSION['changePasswordError'] = "Your Password is change succefuly";
                     }else{
                         echo $result;
                     }
                 }else{
-                    header('Location:user_account.php');
+                    header('Location:change_password.php');
 
                     return $_SESSION['changePasswordError'] = "New Password is not valid";
                 }
             }else{
-                header('Location:user_account.php');
+                header('Location:change_password.php');
 
                 return $_SESSION['changePasswordError'] = "The Old password is incorrect";
 

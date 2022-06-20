@@ -35,21 +35,7 @@ class CommandeOfferController{
         $commands = $getAll->getAll();
         return $commands;
     }
-
-    // public function deleteCommande(){
-    //     if(!isset($_POST['command_id'])) return;
-
-    //         $id = $_POST['command_id'];
-
-    //         $delete = new CommandeOffer();
-    //         $result = $delete->delete($id);
-            
-    //         if($result === 'ok'){
-    //             header('location:shopingList.php');
-    //         }else{
-    //             echo $result;  
-    //         }
-    // }   
+  
 }
 
 ?>

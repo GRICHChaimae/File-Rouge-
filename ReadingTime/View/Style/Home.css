@@ -65,7 +65,7 @@
          margin-bottom: 20px;
          font-size: 19.2px;
          line-height: 32px;
-         margin-right: 30px;
+         padding-right: 20px;
        }
        
         #header-bg .header-content .text-content .search{
@@ -397,6 +397,7 @@
  #header-bg .header-content .text-content .tablette .text-tablette #Guarantee {
     line-height: 32px;
     margin-bottom: 10px;
+    padding: 0;
   }
    #header-bg .header-content .text-content .tablette #tablette-image {
     width: 50%;
@@ -427,10 +428,11 @@
     line-height: 24px;
   }
   #header-bg .header-content .text-content .search{
-    margin-bottom: 10px;
+    /* margin: 10px 10px 0 0; */
+    padding-right: 10px;
   }
   #header-bg .header-content .text-content .search button {
-    width: 30%;
+    width: auto;
   }
    #header-bg .header-content .slide-container{
     display: none;
@@ -492,7 +494,7 @@
             flex-direction: column-reverse;
   }
   #header-bg .header-content .text-content .tablette .text-tablette {
-    width: 95%;
+    width: 100%;
     text-align: center;
     margin-top: 10px;
   }
@@ -514,9 +516,14 @@
    #header-bg .header-content .text-content p {
     margin-bottom: 10px;
     font-size: 1.2rem;
+    padding-right: 0;
   }
   #header-bg .header-content #desk-slide{
     display: none;
+  }
+
+  #header-bg .header-content .text-content .search{
+    margin-right: 0;
   }
   
   .book {

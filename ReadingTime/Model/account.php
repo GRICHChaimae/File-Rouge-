@@ -3,7 +3,6 @@
 
     class Account {
         public function addAccount($data){ 
-
             $statement = DB::connect()->prepare('INSERT INTO accounts (nom, prenom, email, mot_de_passe) VALUES (:nom, :prenom, :email, :mot_de_passe)');
             $executed = $statement->execute(["prenom"=> $data['prenom'],"nom"=> $data['nom'],"email"=> $data['email'],"mot_de_passe"=> $data['mot_de_passe']]);
 

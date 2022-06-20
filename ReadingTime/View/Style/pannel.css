@@ -26,6 +26,7 @@
 }
 
   .searching_book{
+    position: relative;
     display: flex;
     justify-content: center;
     padding: 20px;
@@ -34,7 +35,7 @@
 }
 
 .searching_book .book_image{
-    width: 18%;
+    width: 200px;
     height: 300px;
     margin-right: 30px;
 
@@ -77,5 +78,55 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 768px){
+  .searching_book {
+    padding: 5px;
+    margin: 10px;
+ }
+
+  .searching_book .book_image {
+    width: 250px;
+    height: 350px;
+    margin-right: 0;
+  }
+
+  .book_info button {
+    width: 110px;
+    padding: 5px;
+  }
+
+}
+
+@media only screen and (max-width: 480px){
+  .searching_book{
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .searching_book .book_image {
+      width: 220px;
+      margin: 15px auto;
+      height: 330px;
+
+  }
+
+  .book_info {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .searching_book .book_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+  }  
+
+  .remove_book{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
 }
 

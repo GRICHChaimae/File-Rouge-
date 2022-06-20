@@ -59,7 +59,9 @@ $TendanceBlogs = $BolgController->tendanceBlogs();
                             <input type="text" name="id" value="<?php echo $r['id'] ?>" hidden>
                         </form>
                         <p><?php echo $r['blog_description'] ?></p>
-                        <p style="color: rgba(0,0,0,.5);">views (<?php echo $r['visits'] ?>)</p>
+                        <?php if (isset($_SESSION["userName"])): ?>
+                            <p style="color: rgba(0,0,0,.5);">views (<?php echo $r['visits'] ?>)</p>
+                        <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
             </div>

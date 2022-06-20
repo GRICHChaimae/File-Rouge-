@@ -43,9 +43,8 @@ require_once '../../Controllers/commandeController.php';
         <div class="side_bar">
             <ul>
                 <li><a href="#">My Account</a></li>
-                <li><a href="user_account.php">Account Informations</a></li>
-                <li><a href="shopingList.php" class="active_liste">Your shopping list</a></li>
-                <li><a href="user_Messages.php">Your messages</a></li>
+                <li><a href="shopingList.php">Your shopping list</a></li>
+                <li><a href="user_Messages.php">Contact Us</a></li>
                 <li><a href="user_Messages_answered.php">Messages answered</a></li>
                 <li><a href="SignOut.php">Sign Out</a></li>
             </ul>
@@ -53,7 +52,7 @@ require_once '../../Controllers/commandeController.php';
         
         <div id="Your_shopping_list">
 
-            <p>Your Shopping List</p>
+            <p class="liste_title">Your Shopping List</p>
 
 <?php if(empty($commandes)): ?>
 

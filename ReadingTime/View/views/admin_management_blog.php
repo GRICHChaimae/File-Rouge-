@@ -36,7 +36,7 @@ require_once '../../Controllers/blogController.php';
             <!-- header -->
             <?php require_once 'admin_nav_bar.php'; ?>
 
-<dvi class="done_or_not">
+<div class="done_or_not">
     <div class="not-active">
         <a href="admin_add_blog.php">Add a Blog</a> 
     </div>   

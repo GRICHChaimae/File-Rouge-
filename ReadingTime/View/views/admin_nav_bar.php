@@ -28,8 +28,6 @@
             <li><a href="admin_storage.php">Storage</a></li>
             <li><a href="#">Your Account+</a> 
                 <ul>
-                    <li><a href="admin_account.php">My Account</a></li>
-                    <li><a href="admin_Account_Informations.php">Account Informations</a></li>
                     <li><a href="admin_Messages.php">Messages</a></li>
                     <li><a href="admin_Sign_Out.php">Sign Out</a></li>
                 </ul>

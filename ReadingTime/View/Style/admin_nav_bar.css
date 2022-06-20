@@ -44,6 +44,7 @@ header .navbary ul li a{
     padding: 20px;
     color: black;
     display: block;
+    text-decoration: none;
 }
 
 header .navbary ul li a:hover{
