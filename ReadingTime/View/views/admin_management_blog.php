@@ -36,28 +36,26 @@ require_once '../../Controllers/blogController.php';
             <!-- header -->
             <?php require_once 'admin_nav_bar.php'; ?>
 
-<div class="done_or_not">
-    <div class="not-active">
-        <a href="admin_add_blog.php">Add a Blog</a> 
-    </div>   
-    <div class="active">
-        <a href="admin_management_blog.php">Manage Blogs</a> 
+    <div class="done_or_not">
+        <div class="not-active">
+            <a href="admin_add_blog.php">Add a Blog</a> 
+        </div>   
+        <div class="active">
+            <a href="admin_management_blog.php">Manage Blogs</a> 
+        </div>
     </div>
-</dvi>
 
     <div class="parents">
     <table>
         <tr>
             <th>Blog title</th>
             <th>Blog Description</th>
-            <th>Picture</th>
             <th>Action</th>
         </tr>
     <?php foreach($Blogs as $Blog): ?>
             <tr>
                 <td><?php echo $Blog['blog_title'] ?></td>
                 <td><?php echo $Blog['blog_description'] ?></td>
-                <td><?php echo $Blog['blog_image']?></td>
                 <td>
                     <div id="image">
                     <form method="post" action="admin_update_blog.php">
