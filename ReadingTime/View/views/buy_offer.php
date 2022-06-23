@@ -80,6 +80,7 @@ if(isset($_POST['submit_offer'])){
             <form action="" method="post">
                 <input type="text" name="offer_id" value='<?php echo $Offer['offer_id'] ?>' hidden>
                 <input type="text" id="RestInStorage" name="quantity" value='<?php echo $Offer['quantity'] - 1 ?>' hidden>
+                <input type="text" id="number_product" name="number_product" value='<?php echo $Offer['quantity'] - 1 ?>' hidden>
                 <div class="first_row">
                     <div class="div1">
                         <p>First Name</p>
@@ -182,6 +183,7 @@ if(isset($_POST['submit_offer'])){
                 document.getElementById('number').value = value;
                 document.getElementById('total').innerHTML = value * <?php echo $Offer['prix_offer'] ?>;
                 document.getElementById('RestInStorage').value = <?php echo $Offer['quantity'] ?> - value ;
+                document.getElementById('number_product').value = value ;
         }
     }
 
@@ -193,6 +195,7 @@ if(isset($_POST['submit_offer'])){
                 document.getElementById('number').value = value;
                 document.getElementById('total').innerHTML = value * <?php echo $Offer['prix_offer'] ?>;
                 document.getElementById('RestInStorage').value = <?php echo $Offer['quantity'] ?> - value ;
+                document.getElementById('number_product').value = value ;
         }
     }
 

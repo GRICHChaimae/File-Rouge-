@@ -45,14 +45,12 @@ require_once '../../Controllers/offerController.php';
             <th>Book title</th>
             <th>Description</th>
             <th>Picture</th>
-            <th>Price</th>
             <th>Action</th>
         </tr>
     <?php foreach($Offers as $Offer): ?>
             <tr>
                 <td><?php echo $Offer['title_offer'] ?></td>
                 <td><?php echo $Offer['description_offer'] ?></td>
-                <td><?php echo $Offer['image_offer']?></td>
                 <td><?php echo $Offer['prix_offer'] ?></td>
                 <td>
                     <div id="image">

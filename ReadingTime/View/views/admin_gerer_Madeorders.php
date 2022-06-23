@@ -54,6 +54,7 @@ require_once '../../Controllers/gererCommandsController.php';
     <table>
         <tr>
             <th>ISBN</th>
+            <th>Quantity</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Counrty</th>
@@ -68,6 +69,7 @@ require_once '../../Controllers/gererCommandsController.php';
     <?php foreach($commandes  as $commande): ?>
             <tr>
                 <td><?php echo $commande['ISBN']?></td>
+                <td><?php echo $commande['number_product']?></td>
                 <td><?php echo $commande['first_name'] ?></td>
                 <td><?php echo $commande['second_name'] ?></td>
                 <td><?php echo $commande['country']?></td>

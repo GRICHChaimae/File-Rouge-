@@ -45,8 +45,7 @@ if (!isset($_SESSION["userName"])) {
                     <ul>
                         <li><a href="shopingList.php">Your shopping list</a></li>
                         <li><a href="user_Messages.php">Contact Us</a></li>
-                        <li><a href="user_Messages_answered.php">Messages answered</a></li>
-                        <li><a href="change_password.php"  class="active_liste">Change your password</a></li>
+                        <li><a href="change_password.php" class="active_liste">Change your password</a></li>
                         <li><a href="SignOut.php">Sign Out</a></li>
                     </ul>
                 </li>
@@ -61,10 +60,9 @@ if (!isset($_SESSION["userName"])) {
                         Hello <?php echo $_SESSION["userName"] ?> +
                     </a>
                     <ul>
-                        <li><a href="shopingList.php">Your shopping list</a></li>
+                    <li><a href="shopingList.php">Your shopping list</a></li>
                         <li><a href="user_Messages.php">Contact Us</a></li>
-                        <li><a href="user_Messages_answered.php">Messages answered</a></li>
-                        <li><a href="change_password.php"  class="active_liste">Change your password</a></li>
+                        <li><a href="change_password.php" class="active_liste">Change your password</a></li>
                         <li><a href="SignOut.php">Sign Out</a></li>
                     </ul>
                 </li>

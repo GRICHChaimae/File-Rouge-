@@ -3,8 +3,8 @@ require_once 'dataBase.php';
 
 class Commande{
     public function Add($data){
-        $stmt = DB::connect()->prepare('INSERT INTO commands (book_id,first_name,second_name,adress_1,adress_2,city,states,country,phone_number,zip_code,user_id,made,status) VALUES (:book_id,:first_name,:second_name,:adress_1,:adress_2,:city,:states,:country,:phone_number,:zip_code,:user_id,:made,:status)');
-        $executed = $stmt->execute(["book_id"=> $data['book_id'],"first_name"=> $data['first_name'],"second_name"=> $data['second_name'],"adress_1"=> $data['adress_1'],"adress_2"=> $data['adress_2'],"city"=> $data['city'],"states"=> $data['states'],"country"=> $data['country'],"phone_number"=> $data['phone_number'],"zip_code"=> $data['zip_code'], "user_id"=> $data['user_id'] , "made"=> $data['made'] , "status"=> $data['status']]);
+        $stmt = DB::connect()->prepare('INSERT INTO commands (book_id,first_name,second_name,adress_1,adress_2,city,states,country,phone_number,zip_code,user_id,made,status,number_product) VALUES (:book_id,:first_name,:second_name,:adress_1,:adress_2,:city,:states,:country,:phone_number,:zip_code,:user_id,:made,:status,:number_product)');
+        $executed = $stmt->execute(["book_id"=> $data['book_id'],"first_name"=> $data['first_name'],"second_name"=> $data['second_name'],"adress_1"=> $data['adress_1'],"adress_2"=> $data['adress_2'],"city"=> $data['city'],"states"=> $data['states'],"country"=> $data['country'],"phone_number"=> $data['phone_number'],"zip_code"=> $data['zip_code'], "user_id"=> $data['user_id'] , "made"=> $data['made'] , "status"=> $data['status'] , "number_product"=> $data['number_product']]);
         return $executed;
         $stmt = null;
     }

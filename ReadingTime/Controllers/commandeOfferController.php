@@ -19,7 +19,8 @@ class CommandeOfferController{
             'phone_number' => $_POST['phone_number'],
             'zip_code' => $_POST['zip_code'],
             'user_id' => $_POST['user_id'],
-            'made' => $_POST['made']
+            'made' => $_POST['made'],
+            'number_product' => $_POST['number_product']
         );
 
             $add = new CommandeOffer();

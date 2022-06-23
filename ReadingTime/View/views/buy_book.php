@@ -87,6 +87,7 @@ if (!isset($Book)) {
             <form action="" method="post">
                 <input type="text" name="id" value='<?php echo $Book['id'] ?>' hidden>
                 <input type="text" id="RestInStorage" name="quantity" value="<?php echo  $Book['quantity'] - 1 ?>" hidden> 
+                <input type="text" id="number_product" name="number_product" value="<?php echo  $Book['quantity'] - 1 ?>" hidden> 
                 <div class="first_row">
                     <div class="div1">
                         <p>First Name</p>
@@ -190,6 +191,7 @@ if (!isset($Book)) {
                     document.getElementById('number').value = value;
                     document.getElementById('total').innerHTML = value * <?php echo $Book['prix_book'] ?>;
                     document.getElementById('RestInStorage').value = <?php echo $Book['quantity'] ?> - value ;
+                    document.getElementById('number_product').value = value ;
             }
         }
 
@@ -201,6 +203,7 @@ if (!isset($Book)) {
                     document.getElementById('number').value = value;
                     document.getElementById('total').innerHTML = value * <?php echo $Book['prix_book'] ?>;
                     document.getElementById('RestInStorage').value = <?php echo $Book['quantity'] ?> - value ;
+                    document.getElementById('number_product').value = value ;
             }
         }
 
