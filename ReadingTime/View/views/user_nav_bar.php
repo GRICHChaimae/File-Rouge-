@@ -66,22 +66,6 @@ if (!isset($_SESSION["userName"])) {
                         <li><a href="SignOut.php">Sign Out</a></li>
                     </ul>
                 </li>
-                <li id="headerPannel">
-                <a href="Pannel.php">
-                        <?php if(!$_SESSION['pannel_number']): ?>
-                            <img src="../Images/headerPannel.png" alt="">
-                            <p class="pannel_number">0</p> 
-                            
-                        <?php else: ?>
-                            <img src="../Images/fullpannel_header.png" alt="" id="pannelIcone">
-                        <?php if($_SESSION['pannel_number'] < 10): ?>
-                        <p class="pannel_number"> <?= $_SESSION['pannel_number'] ; ?></p> 
-                        <?php else: ?>
-                            <p class="pannel_number">+9</p>
-                        <?php endif; ?>
-                        <?php endif; ?>
-                    </a>
-                </li>
                 <li id="headerFavorite">
                     <a href="Favorite.php">
                         <img src="../Images/headerFavorite.png" alt="">

@@ -13,7 +13,6 @@
 
 <?php
     require_once '../../Controllers/loginController.php';
-    require_once '../../Controllers/pannelController.php';
 
     if(isset($_POST['submit'])){
         $logIn = new LoginController();

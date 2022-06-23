@@ -118,7 +118,7 @@
         <img src="../Images/content2.png" alt="" data-aos="fade-right">
         <div class="best-book-text">
             <h2 data-aos="fade-right">
-                15 best selling books of decade
+                The 10 Best Nonfiction Book of 2021
             </h2>
             <p data-aos="fade-right">&emsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
             molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
@@ -134,22 +134,22 @@
         <div class="newBooks">
             <div class="book" data-aos="flip-left">
                 <img src="../Images/livre1.png" alt="milk and honey">
-                <p class="description">Milk and honey created by ...</p>
+                <p class="description">Milk and honey</p>
                 <p id="price"><span class="prix">Price</span> : 123 $</p>
             </div>
             <div class="book" data-aos="flip-left">
                 <img src="../Images/livre2.png" alt="PSALMS">
-                <p class="description">Milk and honey created by ...</p>
+                <p class="description">PSALMS</p>
                 <p id="price"><span class="prix">Price</span> : 113 $</p>
             </div>
             <div class="book" data-aos="flip-left">
                 <img src="../Images/livre3.png" alt="mTHINKIG , FAST AND SLOW">
-                <p class="description">Milk and honey created by ...</p>
+                <p class="description">Think , FAST and SLOW</p>
                 <p id="price"><span class="prix">Price</span> : 120 $</p>
             </div>
             <div class="book" data-aos="flip-left">
                 <img src="../Images/livre4.png" alt="101 ESSAYS THAT WILL CHANGE THE WAY YOU THINK">
-                <p class="description">Milk and honey created by ...</p>
+                <p class="description">101 ESAYS THAT WILL ...</p>
                 <p id="price"><span class="prix">Price</span> : 80 $</p>
             </div>
         </div>

@@ -4,12 +4,6 @@ require_once '../../model/account.php';
 
 class LoginController{
 
-    private PannelController $pannel;
-
-    public function __construct(){
-        $this->pannel = new PannelController();
-    }
-
     public function LogIn(){
         
         session_start();
@@ -39,10 +33,7 @@ class LoginController{
                     $_SESSION["userName"] = $login['pernom'].' '.$login['nom'];
 
                     $_SESSION["loginError"] = null;
-                    
-                    $Pannels = $this->pannel->getPannelProduct();
                 
-                    $_SESSION['pannel_number'] = count($Pannels);
                     header('Location:Home.php');
                    
                 }else{

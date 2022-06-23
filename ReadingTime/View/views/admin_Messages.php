@@ -84,10 +84,6 @@ require_once '../../Controllers/contactUsController.php';
             </tr>  
         <?php endforeach;?>             
         </table>
-
-         <!-- <div id="result">
-            <p>The Book is Deleted<img src="Vector1.png" class="vec1"></p>
-        </div> -->
 </div>
 
     

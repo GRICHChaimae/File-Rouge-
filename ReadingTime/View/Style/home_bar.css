@@ -88,6 +88,9 @@ header label{
 
 
 @media(max-width:991px){
+    header .navbary ul li:last-child , header .navbary ul li:nth-child(4){
+       display: block;
+     }
     header{
         padding: 10px 20px;
         position: relative;
